@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 protocol DeciderDelegate {
     
     func decideClothing(weather: Weather)

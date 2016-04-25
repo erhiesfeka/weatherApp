@@ -11,6 +11,8 @@ import CoreLocation
 
 
 
+
+
 class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherDelegate, CLLocationManagerDelegate, iCarouselDataSource, iCarouselDelegate {
     
     let weatherService = WeatherService()
@@ -288,6 +290,8 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
     
     func numberOfItemsInCarousel(carousel: iCarousel) -> Int {
         
+     //  let numberOfItemsInArray = Int(imageArray.count) + 1
+        
         return imageArray.count
         
     }
@@ -314,6 +318,15 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
             
             
         }
+        
+    }
+    
+    func carousel(carousel: iCarousel, didSelectItemAtIndex index: Int) {
+        
+        let DetailedCardView:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CardView")
+       // self.presentViewController(viewController, animated: true, completion: nil)
+        
+       self.presentViewController(DetailedCardView, animated: true, completion: nil)
         
     }
     
