@@ -327,6 +327,7 @@
 				TargetAttributes = {
 					E58D02CB1C2F283600839E97 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = KRYVM78ML5;
 					};
 					E58D02DF1C2F283600839E97 = {
 						CreatedOnToolsVersion = 7.0.1;

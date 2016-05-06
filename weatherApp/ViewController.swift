@@ -10,7 +10,9 @@ import UIKit
 import CoreLocation
 
 
-
+  var currentTemp:String = String()
+  var tempArray :NSMutableArray = NSMutableArray()
+  var selectedItem :Int = Int()
 
 
 class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherDelegate, CLLocationManagerDelegate, iCarouselDataSource, iCarouselDelegate {
@@ -21,14 +23,17 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
     var label =  String()
     var imageArray :NSMutableArray = NSMutableArray()
     var iconArray :NSMutableArray = NSMutableArray()
-    var tempArray :NSMutableArray = NSMutableArray()
+    
     var dateArray:NSMutableArray = NSMutableArray()
     var descrptionArray:NSMutableArray = NSMutableArray()
     var date:NSDate = NSDate()
     var i = Int()
     var carouselIndex:Int = Int()
     var currentWeatherIcon = UIImage()
-    var currentTemp = String()
+  
+    var city:String = String()
+    
+    static let sharedInstance = ViewController()
     
     
     
@@ -151,34 +156,29 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        /*
+        
          
          let myCurrentloc = locations[locations.count-1]
-         let mylat = "\(myCurrentloc.coordinate.latitude)"
-         let mylon = "\(myCurrentloc.coordinate.longitude)"
-         
-         print(">> This is my  latitude \(mylat)")
-         print(">> This is my  longitude \(mylon)")
-         
-         if (locations.count>1) {
-         
-         
-         }
+        // let mylat = "\(myCurrentloc.coordinate.latitude)"
+        // let mylon = "\(myCurrentloc.coordinate.longitude)"
+
          
          //geo coder
          
          CLGeocoder().reverseGeocodeLocation(myCurrentloc) { (myPlacements, geoError) -> Void in
          
          if let myPlacement = myPlacements?.first {
-         
-         let citylocality = myPlacement.locality
-         print(">>> My City is \(citylocality)")
-         // self.weatherService.getWeather(citylocality!)
-         // self.forecastWeather.getForecast(citylocality!)
+            self.city = myPlacement.locality!
+         //  let citylocality = myPlacement.locality
+         print(">>> My City is \(self.city)")
+         self.weatherService.getWeather(self.city)
+         self.forecastWeather.getForecast(self.city)
+      
          }
+            
          }
-         
-         */
+        
+        
     }
     
     
@@ -189,13 +189,7 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.forecastWeather.delegate = self
-        self.weatherService.delegate = self
-        
-        self.lManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.lManager.requestAlwaysAuthorization()
-        self.lManager.startUpdatingLocation()
-        lManager.delegate = self
+     
         
         
     }
@@ -203,6 +197,17 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        self.forecastWeather.delegate = self
+        self.weatherService.delegate = self
+        
+        self.lManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.lManager.requestAlwaysAuthorization()
+        self.lManager.startUpdatingLocation()
+        lManager.delegate = self
     }
     
     
@@ -325,6 +330,8 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
         
         let DetailedCardView:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CardView")
        // self.presentViewController(viewController, animated: true, completion: nil)
+        
+        selectedItem = index
         
        self.presentViewController(DetailedCardView, animated: true, completion: nil)
         
