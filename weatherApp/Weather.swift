@@ -9,10 +9,9 @@
 import Foundation
 
 struct Weather {
-    let cityName: String
+    let cityName, description, icon: String
     let temperature: Double
-    let description: String
-    let icon: String
+   
     
     init(cityName: String, temperature: Double, description: String, icon: String){
         

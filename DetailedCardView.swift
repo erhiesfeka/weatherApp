@@ -33,15 +33,20 @@ override func didReceiveMemoryWarning() {
     
     override func viewWillAppear(animated: Bool) {
         
-        let tempy = tempArray[selectedItem+1]
+        let tempy = tempArray[selectedItem]
         
         if selectedItem == 0 {
             
-            label.text = "Here is the For selected Item: \(currentTemp)"
+            
+     //       label.text = "Here is the For selected Item: \(ForecastWeather.sharedInstance.getForecast("ottawa"))"
+            
             
         }else{
-        label.text = "Here is the For selected Item: \(tempy)"
+            
+            label.text = "Here is the For selected Item: \(tempy)"
+            
         }
+      
         
     }
     

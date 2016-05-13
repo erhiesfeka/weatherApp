@@ -10,9 +10,11 @@ import UIKit
 import CoreLocation
 
 
-  var currentTemp:String = String()
-  var tempArray :NSMutableArray = NSMutableArray()
-  var selectedItem :Int = Int()
+    var currentTemp:String = String()
+    var tempArray :NSMutableArray = NSMutableArray()
+    var selectedItem :Int = Int()
+    var description:String = String()
+    var currentDesc:String = String()
 
 
 class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherDelegate, CLLocationManagerDelegate, iCarouselDataSource, iCarouselDelegate {
@@ -23,20 +25,15 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
     var label =  String()
     var imageArray :NSMutableArray = NSMutableArray()
     var iconArray :NSMutableArray = NSMutableArray()
-    
+    var descArray :NSMutableArray = NSMutableArray()
     var dateArray:NSMutableArray = NSMutableArray()
-    var descrptionArray:NSMutableArray = NSMutableArray()
     var date:NSDate = NSDate()
     var i = Int()
     var carouselIndex:Int = Int()
-    var currentWeatherIcon = UIImage()
-  
+    var currentWeatherIcon = String()
     var city:String = String()
     
-    static let sharedInstance = ViewController()
-    
-    
-    
+
     
     // Labels Declared
     @IBOutlet weak var carouselLabel: UILabel!
@@ -127,71 +124,67 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
     func setWeather(weather:Weather) {
         
         cityLabel.text = weather.cityName
-        currentTemp = "\(weather.temperature)°C"
+        currentTemp = "\(weather.temperature)"
         tempLabel.text = "\(weather.temperature)°C"
         descriptionLabel.text = weather.description
-        currentWeatherIcon = UIImage(named: "\(weather.icon)")!
-        //  image.image = UIImage(named: "\(weather.icon).png")
-        //cityButton.setTitle(weather.cityName, forState: UIControlState.Normal)
-        print("your City is \(weather.cityName)")
-        
+        currentDesc = weather.description
+        currentWeatherIcon =  "\(weather.icon)"
+    
     }
     
     
     func setForecast(forecast:Forecast) {
+        let date = NSDate()
+        let currentDate = (date.timeIntervalSince1970)
         
-        iconArray = forecast.iconArray
+        imageArray = forecast.iconArray
         tempArray = forecast.tempArray
         dateArray = forecast.dateArray
+        descArray = forecast.descArray
         
-        self.decider(tempArray[i] as! Double)
+        imageArray.insertObject(currentWeatherIcon, atIndex: 0)
+        tempArray.insertObject(currentTemp, atIndex: 0)
+        dateArray.insertObject(currentDate, atIndex: 0)
         
-        imageArray = [ "\(iconArray[0]).png", "\(iconArray[1]).png", "\(iconArray[3]).png", "\(iconArray[4]).png", "\(iconArray[5]).png"]
+        decider(tempArray[3] as! Double)
+        
         iCarouselView.alpha = 1
         iCarouselView.type = iCarouselType.Linear
         iCarouselView.reloadData()
         
+        print (imageArray, tempArray, dateArray)
     }
     
     
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-         
          let myCurrentloc = locations[locations.count-1]
-        // let mylat = "\(myCurrentloc.coordinate.latitude)"
-        // let mylon = "\(myCurrentloc.coordinate.longitude)"
-
-         
-         //geo coder
          
          CLGeocoder().reverseGeocodeLocation(myCurrentloc) { (myPlacements, geoError) -> Void in
          
-         if let myPlacement = myPlacements?.first {
-            self.city = myPlacement.locality!
-         //  let citylocality = myPlacement.locality
-         print(">>> My City is \(self.city)")
-         self.weatherService.getWeather(self.city)
-         self.forecastWeather.getForecast(self.city)
+           if let myPlacement = myPlacements?.first {
+             self.city = myPlacement.locality!
+        
+            print(">>> My City is \(self.city)")
+            self.weatherService.getWeather(self.city)
+            self.forecastWeather.getForecast(self.city)
+            self.lManager.stopUpdatingLocation()
       
-         }
+            }
             
          }
-        
-        
+
     }
-    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view, typically from a nib
         
-     
-        
-        
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -208,6 +201,8 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
         self.lManager.requestAlwaysAuthorization()
         self.lManager.startUpdatingLocation()
         lManager.delegate = self
+        
+        
     }
     
     
@@ -216,6 +211,7 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
         var weatherView : UIView!
         var tempLabel: UILabel
         var imageView: UIImageView
+        
         imageView = UIImageView(frame: CGRectMake(0, 0, 100, 200))
         
         if view == nil {
@@ -230,39 +226,31 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
             imageView.contentMode = .ScaleAspectFit
             
             imageView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).CGColor
-            
+        
             
             
             tempLabel = UILabel(frame:weatherView.bounds)
             tempLabel.backgroundColor = UIColor.clearColor()
             tempLabel.center = CGPointMake(180, 284)
-            //tempLabel.textAlignment = .Center
+        
             tempLabel.font = tempLabel.font.fontWithSize(20)
             tempLabel.tag = 1
             weatherView.addSubview(tempLabel)
             weatherView.addSubview(imageView)
+
             
         }else{
             
             weatherView = view
             tempLabel = weatherView.viewWithTag(1) as! UILabel!
+         
             view!.alpha = 1.0
         }
         
-        if index == 0 {
-            
-            imageView.image = currentWeatherIcon
-            tempLabel.text = currentTemp
-            
-            return weatherView
-            
-        }else{
-            
-            imageView.image = UIImage(named: "\(imageArray.objectAtIndex(index))")
-            i = index + 1
-            tempLabel.text = "\(tempArray[i])°C"
-            return weatherView
-        }
+        imageView.image = UIImage(named: "\(imageArray.objectAtIndex(index))")
+        tempLabel.text = "\(tempArray[index])°C"
+       
+        return weatherView
         
         
     }
@@ -303,37 +291,27 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
     
     func carouselCurrentItemIndexDidChange(carousel: iCarousel) {
         
-        if iconArray.count != 0 {
-            
-            if iCarouselView.currentItemIndex == 0{
+        if imageArray.count != 0 {
                 
-                carouselLabel.text = "Current Weather"
-                
-            }else{
-                
-                carouselIndex = iCarouselView.currentItemIndex + 1
-                date = NSDate(timeIntervalSince1970: (dateArray[carouselIndex] as! Double))
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "hh:mm a, MMM dd"
-                dateFormatter.timeZone = NSTimeZone()
-                let localDate = dateFormatter.stringFromDate(date)
-                carouselLabel.text = "\(localDate)"
-                
-            }
-            
-            
-        }
+            carouselIndex = iCarouselView.currentItemIndex 
+            date = NSDate(timeIntervalSince1970: (dateArray[carouselIndex] as! Double))
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "hh:mm a, MMM dd"
+            dateFormatter.timeZone = NSTimeZone()
+            let localDate = dateFormatter.stringFromDate(date)
+            carouselLabel.text = "\(localDate)"
         
+        }
     }
     
     func carousel(carousel: iCarousel, didSelectItemAtIndex index: Int) {
         
         let DetailedCardView:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CardView")
-       // self.presentViewController(viewController, animated: true, completion: nil)
+        // self.presentViewController(viewController, animated: true, completion: nil)
         
         selectedItem = index
         
-       self.presentViewController(DetailedCardView, animated: true, completion: nil)
+        self.presentViewController(DetailedCardView, animated: true, completion: nil)
         
     }
     
