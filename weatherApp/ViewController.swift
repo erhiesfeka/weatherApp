@@ -91,7 +91,7 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
         
     }
     
-    func decider ( temperature: Double){
+    func decider ( temperature: Int){
         
         if (temperature < 0 ) {
             
@@ -146,7 +146,7 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
         tempArray.insertObject(currentTemp, atIndex: 0)
         dateArray.insertObject(currentDate, atIndex: 0)
         
-        decider(tempArray[3] as! Double)
+        decider(tempArray[3] as! Int)
         
         iCarouselView.alpha = 1
         iCarouselView.type = iCarouselType.Linear

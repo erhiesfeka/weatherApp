@@ -10,10 +10,10 @@ import Foundation
 
 struct Weather {
     let cityName, description, icon: String
-    let temperature: Double
+    let temperature: Int
    
     
-    init(cityName: String, temperature: Double, description: String, icon: String){
+    init(cityName: String, temperature: Int, description: String, icon: String){
         
         self.cityName = cityName
         self.temperature = temperature

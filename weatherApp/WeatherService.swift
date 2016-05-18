@@ -36,8 +36,8 @@ class WeatherService {
                 
                 //let lon  = json["coord"]["lon"].double
                 //let lat  = json["coord"]["lat"].double
-                let tempdec = json["main"]["temp"].double! - 273.1
-                let temp = round(tempdec*10)/10
+                let tempdec = json["main"]["temp"].int! - 273
+                let temp = tempdec
                 let name = json["name"].string
                 let desc = json["weather"][0]["description"].string
                 let icon = json["weather"][0]["icon"].string

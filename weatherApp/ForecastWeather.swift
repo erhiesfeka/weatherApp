@@ -48,7 +48,7 @@ class ForecastWeather {
                 
                 for index in 0...8 {
                     
-                    self.tempArray[index] = round((jsonf["list"][index]["main"]["temp"].double! - 273.15)*10)/10
+                    self.tempArray[index] = /*round(*/jsonf["list"][index]["main"]["temp"].int! - 273
                 }
                 
                 for index in 0...8 {
