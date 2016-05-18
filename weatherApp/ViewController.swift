@@ -11,10 +11,11 @@ import CoreLocation
 
 
     var currentTemp:String = String()
-    var tempArray :NSMutableArray = NSMutableArray()
+    var tempArray :[Int] = [Int]()
     var selectedItem :Int = Int()
     var description:String = String()
     var currentDesc:String = String()
+    var tempNow:Int = Int()
 
 
 class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherDelegate, CLLocationManagerDelegate, iCarouselDataSource, iCarouselDelegate {
@@ -91,33 +92,7 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
         
     }
     
-    func decider ( temperature: Int){
-        
-        if (temperature < 0 ) {
-            
-            
-            label = " It will be \(temperature) degrees at. Have a winter jacket handy today"
-            
-        }else if (temperature > 0 && temperature < 10 ) {
-            
-            whatToWearLabel.text = " It will be \(temperature) degrees. Have a jacket handy today"
-            
-        } else if (temperature > 13 && temperature < 20){
-            
-            whatToWearLabel.text = " It will be \(temperature) degrees . Have a sweater handy"
-            
-            
-        } else if (temperature > 20 && temperature < 25) {
-            
-            whatToWearLabel.text = "It will be \(temperature) degrees . Wear a T shirt and shorts"
-            
-        } else {
-            
-            whatToWearLabel.text = "It will be \(temperature) degrees . Carry a water bottle, Fucking hot"
-            
-        }
-        
-    }
+
     
     // MARK: Weather Service Delegate
     
@@ -125,6 +100,7 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
         
         cityLabel.text = weather.cityName
         currentTemp = "\(weather.temperature)"
+        tempNow = weather.temperature
         tempLabel.text = "\(weather.temperature)°C"
         descriptionLabel.text = weather.description
         currentDesc = weather.description
@@ -136,6 +112,7 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
     func setForecast(forecast:Forecast) {
         let date = NSDate()
         let currentDate = (date.timeIntervalSince1970)
+        let weather = Decider()
         
         imageArray = forecast.iconArray
         tempArray = forecast.tempArray
@@ -143,10 +120,10 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
         descArray = forecast.descArray
         
         imageArray.insertObject(currentWeatherIcon, atIndex: 0)
-        tempArray.insertObject(currentTemp, atIndex: 0)
+        tempArray.insert(tempNow, atIndex: 0)
         dateArray.insertObject(currentDate, atIndex: 0)
         
-        decider(tempArray[3] as! Int)
+        whatToWearLabel.text = weather.decideClothes()
         
         iCarouselView.alpha = 1
         iCarouselView.type = iCarouselType.Linear

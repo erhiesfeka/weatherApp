@@ -10,11 +10,13 @@ import Foundation
 
 struct Forecast {
  
-    let iconArray, tempArray, dateArray, descArray: NSMutableArray
+    let iconArray, dateArray, descArray: NSMutableArray
+    
+    let tempArray: [Int]
  
     //static let sharedInstance = Forecast()
 
-    init(dateArray: NSMutableArray, tempArray: NSMutableArray, iconArray: NSMutableArray, descArray: NSMutableArray){
+    init(dateArray: NSMutableArray, tempArray: [Int], iconArray: NSMutableArray, descArray: NSMutableArray){
         
         self.dateArray = dateArray
         self.tempArray = tempArray

@@ -21,7 +21,7 @@ class ForecastWeather {
     
     var delegate: ForecastWeatherDelegate?
    // static let sharedInstance = ForecastWeather()
-  let tempArray = NSMutableArray()
+  var tempArray: [Int] = []
   let iconArray = NSMutableArray()
   let dateArray = NSMutableArray()
   let descArray = NSMutableArray()
@@ -48,7 +48,8 @@ class ForecastWeather {
                 
                 for index in 0...8 {
                     
-                    self.tempArray[index] = /*round(*/jsonf["list"][index]["main"]["temp"].int! - 273
+                    self.tempArray.append(jsonf["list"][index]["main"]["temp"].int! - 273)
+                    
                 }
                 
                 for index in 0...8 {
