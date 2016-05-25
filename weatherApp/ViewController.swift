@@ -18,7 +18,7 @@ import CoreLocation
     var tempNow:Int = Int()
 
 
-class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherDelegate, CLLocationManagerDelegate, iCarouselDataSource, iCarouselDelegate {
+class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherDelegate, CLLocationManagerDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate {
     
     let weatherService = WeatherService()
     let forecastWeather = ForecastWeather()
@@ -33,6 +33,7 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
     var carouselIndex:Int = Int()
     var currentWeatherIcon = String()
     var city:String = String()
+    var holderView = HolderView(frame: CGRectZero)
     
 
     
@@ -92,19 +93,36 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
         
     }
     
+  
+    func delay(delay: Double, closure: ()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(),
+            closure
+        )
+    }
+    
 
     
     // MARK: Weather Service Delegate
     
     func setWeather(weather:Weather) {
-        
-        cityLabel.text = weather.cityName
         currentTemp = "\(weather.temperature)"
         tempNow = weather.temperature
-        tempLabel.text = "\(weather.temperature)°C"
-        descriptionLabel.text = weather.description
-        currentDesc = weather.description
-        currentWeatherIcon =  "\(weather.icon)"
+        self.currentWeatherIcon =  "\(weather.icon)"
+        
+        delay(3.0) {
+            
+            self.cityLabel.text = weather.cityName
+                       self.tempLabel.text = "\(weather.temperature)°C"
+            self.descriptionLabel.text = weather.description
+            currentDesc = weather.description
+            
+        }
+      
     
     }
     
@@ -123,13 +141,21 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
         tempArray.insert(tempNow, atIndex: 0)
         dateArray.insertObject(currentDate, atIndex: 0)
         
-        whatToWearLabel.text = weather.decideClothes()
         
-        iCarouselView.alpha = 1
-        iCarouselView.type = iCarouselType.Linear
-        iCarouselView.reloadData()
-        
+       
+        delay(3.0) {
+            
+            self.removeHolderView()
+            self.whatToWearLabel.text = weather.decideClothes()
+            self.iCarouselView.alpha = 1
+            self.iCarouselView.type = iCarouselType.Linear
+            self.iCarouselView.reloadData()
+        }
+      
+       
         print (imageArray, tempArray, dateArray)
+        
+        
     }
     
     
@@ -160,7 +186,7 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib
-        
+         addHolderView()
        
     }
     
@@ -292,6 +318,44 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
         
     }
     
+    func addHolderView() {
+        let boxSize: CGFloat = 100.0
+        holderView.frame = CGRect(x: view.bounds.width / 2 - boxSize / 2,
+                                  y: view.bounds.height / 2 - boxSize / 2,
+                                  width: boxSize,
+                                  height: boxSize)
+        holderView.parentFrame = view.frame
+        holderView.delegate = self
+        view.addSubview(holderView)
+        holderView.addOval()
+        
+    }
+
+    func removeHolderView(){
+        
+       holderView.removeFromSuperview()
+      // holderView = nil
+    }
+    
+    func animateLabel() {
+        
+      //  holderView.removeFromSuperview()
+        
+    }
+    
+    func addButton() {
+        let button = UIButton()
+        button.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
+        button.addTarget(self, action: #selector(ViewController.buttonPressed(_:)), forControlEvents: .TouchUpInside)
+        view.addSubview(button)
+    }
+    
+    func buttonPressed(sender: UIButton!) {
+        view.backgroundColor = Colors.white
+        view.subviews.map({ $0.removeFromSuperview() })
+        holderView = HolderView(frame: CGRectZero)
+        addHolderView()
+    }
     
 }
 

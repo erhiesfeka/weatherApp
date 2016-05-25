@@ -29,6 +29,12 @@
 		E550A9F31C5EAA9500C840EB /* 50n.png in Resources */ = {isa = PBXBuildFile; fileRef = E550A9E11C5EAA9500C840EB /* 50n.png */; };
 		E550A9F51C5EB5CE00C840EB /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550A9F41C5EB5CE00C840EB /* ForecastWeather.swift */; };
 		E550A9F71C5EB74400C840EB /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550A9F61C5EB74300C840EB /* Forecast.swift */; };
+		E583FE781CF4D02700D455AB /* HolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FE771CF4D02700D455AB /* HolderView.swift */; };
+		E583FE7D1CF4D08400D455AB /* OvalLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FE7A1CF4D08400D455AB /* OvalLayer.swift */; };
+		E583FE7E1CF4D08400D455AB /* RectangleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FE7B1CF4D08400D455AB /* RectangleLayer.swift */; };
+		E583FE7F1CF4D08400D455AB /* TriangleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FE7C1CF4D08400D455AB /* TriangleLayer.swift */; };
+		E583FE811CF4D08E00D455AB /* ArcLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FE801CF4D08E00D455AB /* ArcLayer.swift */; };
+		E583FE841CF4D10300D455AB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FE831CF4D10300D455AB /* Colors.swift */; };
 		E58D02D01C2F283600839E97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D02CF1C2F283600839E97 /* AppDelegate.swift */; };
 		E58D02D21C2F283600839E97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D02D11C2F283600839E97 /* ViewController.swift */; };
 		E58D02D51C2F283600839E97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58D02D31C2F283600839E97 /* Main.storyboard */; };
@@ -94,6 +100,12 @@
 		E550A9E11C5EAA9500C840EB /* 50n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 50n.png; sourceTree = "<group>"; };
 		E550A9F41C5EB5CE00C840EB /* ForecastWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastWeather.swift; sourceTree = "<group>"; };
 		E550A9F61C5EB74300C840EB /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		E583FE771CF4D02700D455AB /* HolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolderView.swift; sourceTree = "<group>"; };
+		E583FE7A1CF4D08400D455AB /* OvalLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvalLayer.swift; sourceTree = "<group>"; };
+		E583FE7B1CF4D08400D455AB /* RectangleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleLayer.swift; sourceTree = "<group>"; };
+		E583FE7C1CF4D08400D455AB /* TriangleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleLayer.swift; sourceTree = "<group>"; };
+		E583FE801CF4D08E00D455AB /* ArcLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcLayer.swift; sourceTree = "<group>"; };
+		E583FE831CF4D10300D455AB /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E58D02CC1C2F283600839E97 /* weatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58D02CF1C2F283600839E97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E58D02D11C2F283600839E97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +189,34 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
+		E583FE761CF4CFDA00D455AB /* Loader View */ = {
+			isa = PBXGroup;
+			children = (
+				E583FE791CF4D02F00D455AB /* Layers */,
+				E583FE771CF4D02700D455AB /* HolderView.swift */,
+			);
+			name = "Loader View";
+			sourceTree = "<group>";
+		};
+		E583FE791CF4D02F00D455AB /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				E583FE7A1CF4D08400D455AB /* OvalLayer.swift */,
+				E583FE7B1CF4D08400D455AB /* RectangleLayer.swift */,
+				E583FE7C1CF4D08400D455AB /* TriangleLayer.swift */,
+				E583FE801CF4D08E00D455AB /* ArcLayer.swift */,
+			);
+			name = Layers;
+			sourceTree = "<group>";
+		};
+		E583FE821CF4D0ED00D455AB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E583FE831CF4D10300D455AB /* Colors.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		E58D02C31C2F283600839E97 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +241,8 @@
 		E58D02CE1C2F283600839E97 /* weatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				E583FE821CF4D0ED00D455AB /* Utilities */,
+				E583FE761CF4CFDA00D455AB /* Loader View */,
 				E5EB17431C7626CA0094AE86 /* carousel pics */,
 				E58D02CF1C2F283600839E97 /* AppDelegate.swift */,
 				E5E4B5D91CCE9040008F4E1C /* DetailedCardView.swift */,
@@ -421,14 +463,20 @@
 			files = (
 				E5F75E361CE3C8CE009FF0AE /* WeatherService.swift in Sources */,
 				E550A9F71C5EB74400C840EB /* Forecast.swift in Sources */,
+				E583FE7E1CF4D08400D455AB /* RectangleLayer.swift in Sources */,
 				E5EEECA01C5AAC91004DEA8A /* Weather.swift in Sources */,
 				E58D02D21C2F283600839E97 /* ViewController.swift in Sources */,
 				E5EB173F1C6F86F20094AE86 /* iCarousel.m in Sources */,
+				E583FE7D1CF4D08400D455AB /* OvalLayer.swift in Sources */,
 				E550A9F51C5EB5CE00C840EB /* ForecastWeather.swift in Sources */,
 				E550A9CE1C5E6E8300C840EB /* Decider.swift in Sources */,
+				E583FE841CF4D10300D455AB /* Colors.swift in Sources */,
 				E5E4B5DA1CCE9040008F4E1C /* DetailedCardView.swift in Sources */,
 				E550A9CC1C5D4D0E00C840EB /* SwiftyJSON.swift in Sources */,
+				E583FE781CF4D02700D455AB /* HolderView.swift in Sources */,
+				E583FE811CF4D08E00D455AB /* ArcLayer.swift in Sources */,
 				E58D02D01C2F283600839E97 /* AppDelegate.swift in Sources */,
+				E583FE7F1CF4D08400D455AB /* TriangleLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
