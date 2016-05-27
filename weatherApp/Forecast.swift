@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Forecast {
+struct Forecasty {
  
     let iconArray, dateArray, descArray: NSMutableArray
     

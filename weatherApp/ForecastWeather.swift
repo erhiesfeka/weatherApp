@@ -12,7 +12,7 @@ import UIKit
 
 protocol ForecastWeatherDelegate {
     
-    func setForecast(forecast: Forecast)
+    func setForecast(forecast: Forecasty)
    // func setWeather(weather: Weather)
 }
 
@@ -69,7 +69,7 @@ class ForecastWeather {
                     self.descArray[index] = round((jsonf["list"][index]["main"]["temp"].double! - 273.15)*10)/10
                 }
             
-           let forecast = Forecast(dateArray: self.dateArray, tempArray: self.tempArray, iconArray: self.iconArray, descArray: self.descArray)
+           let forecast = Forecasty(dateArray: self.dateArray, tempArray: self.tempArray, iconArray: self.iconArray, descArray: self.descArray)
                 
             
             if self.delegate != nil {

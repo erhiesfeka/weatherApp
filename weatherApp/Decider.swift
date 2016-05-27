@@ -46,7 +46,7 @@ func decideClothes() -> String {
     }
    
    
-   print(clothesDecision)
+  // print(clothesDecision)
    return(clothesDecision[0])
  }
     

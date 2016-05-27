@@ -79,9 +79,6 @@
                                     <constraint firstAttribute="height" constant="30" id="g8n-8h-bhc"/>
                                 </constraints>
                                 <state key="normal" title="Set City"/>
-                                <connections>
-                                    <action selector="setCityTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ewH-V8-Fnm"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZA-af-aOQ">
                                 <rect key="frame" x="55" y="56" width="305" height="21"/>
@@ -89,6 +86,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tf-yU-fG7">
+                                <rect key="frame" x="300" y="642" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="showMe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tIO-CF-Gym"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>

@@ -47,6 +47,16 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
     @IBOutlet weak var whatToWearLabel: UILabel!
     @IBOutlet weak var iCarouselView: iCarousel!
     
+ 
+  
+    @IBAction func showMe(sender: AnyObject) {
+        
+    let erhies:WeatherData = WeatherData()
+        
+        erhies.getweather()
+    }
+ 
+    
     
     @IBAction func setCityTapped(sender: AnyObject) {
         
@@ -127,7 +137,7 @@ class ViewController: UIViewController, WeatherServiceDelegate, ForecastWeatherD
     }
     
     
-    func setForecast(forecast:Forecast) {
+    func setForecast(forecast:Forecasty) {
         let date = NSDate()
         let currentDate = (date.timeIntervalSince1970)
         let weather = Decider()
