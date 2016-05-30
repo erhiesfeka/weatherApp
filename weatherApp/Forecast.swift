@@ -13,6 +13,7 @@ struct Forecasty {
     let iconArray, dateArray, descArray: NSMutableArray
     
     let tempArray: [Int]
+    
  
     //static let sharedInstance = Forecast()
 
