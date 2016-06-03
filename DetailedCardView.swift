@@ -32,8 +32,8 @@ override func didReceiveMemoryWarning() {
 }
     
     override func viewWillAppear(animated: Bool) {
-        
-        let tempy = tempArray[selectedItem]
+        let tempy = 7
+        //let tempy = WeatherData[selectedItem]
         
         if selectedItem == 0 {
             

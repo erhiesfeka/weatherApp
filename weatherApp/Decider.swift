@@ -18,7 +18,7 @@ var clothesDecision = [String]()
 func decideClothes() -> String {
 // Decides what clothes to wear based on temperature
     
-    for index in tempArray{
+    for index in 0...7{
         
         if (index  < 0 ) {
         
