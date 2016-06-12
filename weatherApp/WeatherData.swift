@@ -65,6 +65,7 @@ class WeatherData {
                         self.iconHourly.append("\((currentForecast.hourly?.data![thirdCounter].icon)!)")
                     }
                     
+                    self.iconDaily.append("\(currentForecast.daily!.data![index].icon!)")
                     self.minMaxDailyTemp.append((min: (Int(round((currentForecast.daily?.data![index].temperatureMin)!))), max: (Int(round((currentForecast.daily?.data![index].temperatureMax)!)))))
                     
                     
@@ -78,6 +79,7 @@ class WeatherData {
                print(self.hourlyTemp)
                print(self.dailyDate)
                print(self.iconHourly)
+               print(self.iconDaily)    
                 
                 
             } else if let error = error {

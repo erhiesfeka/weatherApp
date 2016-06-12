@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import BetterSegmentedControl
+
 
 
 
@@ -17,6 +19,7 @@ import CoreLocation
     var tempNow:Int = Int()
     var latitude:Double = Double()
     var longitude:Double = Double()
+    var hourly = false
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate {
@@ -51,11 +54,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
   
     @IBAction func showMe(sender: AnyObject) {
         
-    let erhies:WeatherData = WeatherData()
+        if hourly{
+            
+            hourly = false
+            
+        }else{
         
-        erhies.getweather()
+           hourly = true
+        }
+        
+        iCarouselView.reloadData()
+       // carouselLabel.reloadData()
     }
- 
     
     
     @IBAction func setCityTapped(sender: AnyObject) {
@@ -125,15 +135,50 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
             self.cityLabel.text = self.city
             self.hourlyTemp =  self.weatherData.hourlyTemp
             self.iconHourly = self.weatherData.iconHourly
+            self.iconDaily = self.weatherData.iconDaily
+            self.minMaxDailyTemp = self.weatherData.minMaxDailyTemp
+            self.dailyDate = self.weatherData.dailyDate
             self.removeHolderView()
             // self.whatToWearLabel.text = weather.decideClothes()
             self.iCarouselView.alpha = 1
             self.iCarouselView.type = iCarouselType.Linear
             self.iCarouselView.reloadData()
+            
+            
+            let control = BetterSegmentedControl(
+                frame: CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.75, width: self.view.bounds.width * 0.50, height: 25.0),
+                titles: ["Hourly", "Daily"],
+                index: 1,
+                backgroundColor: .whiteColor(),
+                titleColor: .blackColor(),
+                indicatorViewBackgroundColor:  UIColor.lightGrayColor(),
+                selectedTitleColor: .whiteColor())
+                control.cornerRadius = 8.0
+
+                control.titleFont = UIFont(name: "HelveticaNeue", size: 14.0)!
+            
+                control.addTarget(self, action: #selector(ViewController.navigationSegmentedControlValueChanged(_:)), forControlEvents: .ValueChanged)
+            self.view.addSubview(control)
+            
         }
     
     }
     
+    func navigationSegmentedControlValueChanged(sender: BetterSegmentedControl) {
+        if sender.index == 0 {
+            print("Turning lights on.")
+            hourly = true
+            carouselLabel.text = hourlyTemp[carouselIndex].time
+        }
+        else {
+            print("Turning lights off.")
+            hourly = false
+            carouselLabel.text = dailyDate[carouselIndex]
+        }
+        
+        iCarouselView.reloadData()
+    }
+
 
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -229,8 +274,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
             view!.alpha = 1.0
         }
         
+        if hourly {
         imageView.image = UIImage(named: "\(iconHourly[index])")
         tempLabel.text = "\(hourlyTemp[index].tempForhour)°C"
+        }else{
+            imageView.image = UIImage(named: "\(iconDaily[index])")
+            tempLabel.text = "\(minMaxDailyTemp[index].max)°C | \(minMaxDailyTemp[index].min)°C "
+        }
        
         return weatherView
         
@@ -276,7 +326,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         if hourlyTemp.count != 0 {
                 
             carouselIndex = iCarouselView.currentItemIndex
-            carouselLabel.text = hourlyTemp[carouselIndex].time
+            
+            if hourly{
+              carouselLabel.text = hourlyTemp[carouselIndex].time
+            }else{
+              carouselLabel.text = dailyDate[carouselIndex]
+               
+            }
         
         }
     }

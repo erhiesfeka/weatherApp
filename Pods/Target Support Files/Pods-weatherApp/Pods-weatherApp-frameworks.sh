@@ -84,8 +84,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/BetterSegmentedControl/BetterSegmentedControl.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ForecastIO/ForecastIO.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/BetterSegmentedControl/BetterSegmentedControl.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ForecastIO/ForecastIO.framework"
 fi
