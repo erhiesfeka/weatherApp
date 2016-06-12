@@ -27,7 +27,7 @@ class WeatherData {
         func ltzAbbrev() -> String { return NSTimeZone.localTimeZone().abbreviation ?? "" }
         timezone = ltzAbbrev()
         
-        forecastIOClient.getForecast(latitude: latitude, longitude: longitude) { (currentForecast, error) -> Void in
+        forecastIOClient.getForecast(latitude: 45.4, longitude: -75.6) { (currentForecast, error) -> Void in
             if let currentForecast = currentForecast {
                 //  We got the current forecast!
                 // purge all values
