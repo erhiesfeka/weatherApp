@@ -92,8 +92,8 @@
                                     <action selector="changeUnit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yiI-9d-wjz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Poe-iR-u5A">
-                                <rect key="frame" x="348" y="17" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Poe-iR-u5A">
+                                <rect key="frame" x="316" y="627" width="59" height="36"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="revealPopUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e0r-CI-IKP"/>
@@ -109,20 +109,24 @@
                             <constraint firstItem="6ZA-af-aOQ" firstAttribute="top" secondItem="PEu-Gg-eae" secondAttribute="bottom" constant="8" symbolic="YES" id="5wy-vx-h9B"/>
                             <constraint firstAttribute="trailing" secondItem="EQK-lM-Ad7" secondAttribute="trailing" id="9gM-4h-XIK"/>
                             <constraint firstItem="PEu-Gg-eae" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-7" id="Avr-UH-WHN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Poe-iR-u5A" secondAttribute="trailing" constant="19" id="BNn-uh-6j9"/>
                             <constraint firstItem="EQK-lM-Ad7" firstAttribute="top" secondItem="35w-VF-u4G" secondAttribute="bottom" constant="21" id="Bl8-Lv-2aj"/>
                             <constraint firstItem="zkQ-EU-bYA" firstAttribute="top" secondItem="VAf-6H-KDX" secondAttribute="bottom" constant="49" id="DVx-gQ-Ril"/>
                             <constraint firstItem="6ZA-af-aOQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="32" id="Fga-k4-wbO"/>
                             <constraint firstItem="PEu-Gg-eae" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="FvX-EA-Leb"/>
                             <constraint firstItem="VAf-6H-KDX" firstAttribute="top" secondItem="EQK-lM-Ad7" secondAttribute="bottom" constant="-7" id="GF6-Sk-xh8"/>
+                            <constraint firstItem="Poe-iR-u5A" firstAttribute="leading" secondItem="zkQ-EU-bYA" secondAttribute="trailing" constant="65" id="Gzc-e4-Inx"/>
                             <constraint firstItem="ODv-mH-TmP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HcF-x4-DrK"/>
                             <constraint firstItem="zkQ-EU-bYA" firstAttribute="centerX" secondItem="EQK-lM-Ad7" secondAttribute="centerX" constant="1" id="Il3-5N-h5t"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zkQ-EU-bYA" secondAttribute="bottom" constant="29" id="JW3-RC-Lxn"/>
                             <constraint firstItem="ODv-mH-TmP" firstAttribute="leading" secondItem="PEu-Gg-eae" secondAttribute="leading" id="JZ3-uW-TgY"/>
+                            <constraint firstItem="Poe-iR-u5A" firstAttribute="top" secondItem="EQK-lM-Ad7" secondAttribute="bottom" constant="76" id="Lm6-HE-1ba"/>
                             <constraint firstItem="EQK-lM-Ad7" firstAttribute="centerX" secondItem="PEu-Gg-eae" secondAttribute="centerX" constant="-3" id="QCb-mU-Byo"/>
                             <constraint firstItem="ODv-mH-TmP" firstAttribute="centerX" secondItem="EQK-lM-Ad7" secondAttribute="centerX" id="S3Z-fS-b0U"/>
                             <constraint firstItem="VAf-6H-KDX" firstAttribute="top" secondItem="ODv-mH-TmP" secondAttribute="bottom" constant="13" id="afX-R4-Lrb"/>
                             <constraint firstItem="35w-VF-u4G" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-3" id="bZk-il-obl"/>
                             <constraint firstItem="35w-VF-u4G" firstAttribute="centerX" secondItem="ODv-mH-TmP" secondAttribute="centerX" id="cLz-WN-QjJ"/>
+                            <constraint firstItem="Poe-iR-u5A" firstAttribute="bottom" secondItem="zkQ-EU-bYA" secondAttribute="bottom" id="nIg-Yz-hb3"/>
                             <constraint firstItem="EQK-lM-Ad7" firstAttribute="top" secondItem="ODv-mH-TmP" secondAttribute="bottom" constant="75" id="trh-iF-fn8"/>
                             <constraint firstItem="VAf-6H-KDX" firstAttribute="centerX" secondItem="EQK-lM-Ad7" secondAttribute="centerX" constant="1" id="yec-f1-pO7"/>
                             <constraint firstAttribute="bottom" secondItem="EQK-lM-Ad7" secondAttribute="bottom" constant="132" id="z0F-Jh-aBQ"/>
@@ -148,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-959" y="18"/>
+            <point key="canvasLocation" x="-1037" y="18"/>
         </scene>
         <!--Detailed Card View-->
         <scene sceneID="2bH-VI-1Zk">
