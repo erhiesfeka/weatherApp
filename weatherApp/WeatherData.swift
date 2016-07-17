@@ -18,16 +18,32 @@ class WeatherData {
     var iconHourly:[String] = []
     var timezone = ""
     var dailyDate: [String] = []
+    var unit:String = String()
  
 
     func getweather(){
         
-        forecastIOClient.units = .Auto
+        switch tempFaren {
+            
+        case 1:
+            
+            forecastIOClient.units = .US
+            
+        case 2:
+            
+             forecastIOClient.units = .SI
+            
+        default:
+            forecastIOClient.units = .Auto
+            
+        }
+        
+        
         
         func ltzAbbrev() -> String { return NSTimeZone.localTimeZone().abbreviation ?? "" }
         timezone = ltzAbbrev()
         
-        forecastIOClient.getForecast(latitude: 45.4, longitude: -75.6) { (currentForecast, error) -> Void in
+        forecastIOClient.getForecast(latitude: latitude, longitude: longitude) { (currentForecast, error) -> Void in
             if let currentForecast = currentForecast {
                 //  We got the current forecast!
                 // purge all values
@@ -35,8 +51,6 @@ class WeatherData {
                 self.minMaxDailyTemp.removeAll()
                 self.iconHourly.removeAll()
                 self.dailyDate.removeAll()
-                
-                
                 
                 var thirdCounter = 0
                 
@@ -79,7 +93,30 @@ class WeatherData {
                print(self.hourlyTemp)
                print(self.dailyDate)
                print(self.iconHourly)
-               print(self.iconDaily)    
+               print(self.iconDaily)
+               let unit = currentForecast.flags!.units!
+               print(unit)
+                
+                if unit == "us"{
+                    
+                    self.unit = "°F"
+                    tempFaren = 1
+                    
+                }else{
+                    self.unit = "°C"
+                    tempFaren = 2
+                }
+               
+             /*
+                switch unit {
+                    
+                    case "us":
+                    self.tempUnit = false
+                    
+                default:
+                   self.tempUnit = true
+                    
+                } */
                 
                 
             } else if let error = error {

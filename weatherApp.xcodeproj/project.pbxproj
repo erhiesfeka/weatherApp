@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E504E5371CF8CFF5001BCC37 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504E5361CF8CFF5001BCC37 /* WeatherData.swift */; };
+		E50E06A21D3C104F006CE3E6 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50E06A11D3C104F006CE3E6 /* PopUpViewController.swift */; };
 		E550A9CC1C5D4D0E00C840EB /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550A9CB1C5D4D0E00C840EB /* SwiftyJSON.swift */; };
 		E550A9CE1C5E6E8300C840EB /* Decider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550A9CD1C5E6E8300C840EB /* Decider.swift */; };
 		E550A9E21C5EAA9500C840EB /* 01d.png in Resources */ = {isa = PBXBuildFile; fileRef = E550A9D01C5EAA9500C840EB /* 01d.png */; };
@@ -85,6 +86,7 @@
 		1BA740EAA0EEF77B2219A6E0 /* Pods_weatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A90A028F3978571E69795E5B /* Pods-weatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-weatherApp/Pods-weatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		E504E5361CF8CFF5001BCC37 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		E50E06A11D3C104F006CE3E6 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		E550A9CA1C5D4C1900C840EB /* SwiftyJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
 		E550A9CB1C5D4D0E00C840EB /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		E550A9CD1C5E6E8300C840EB /* Decider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decider.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				E5E4B5D91CCE9040008F4E1C /* DetailedCardView.swift */,
 				E58D02D11C2F283600839E97 /* ViewController.swift */,
 				E550A9CD1C5E6E8300C840EB /* Decider.swift */,
+				E50E06A11D3C104F006CE3E6 /* PopUpViewController.swift */,
 				E504E5361CF8CFF5001BCC37 /* WeatherData.swift */,
 				E58D02D31C2F283600839E97 /* Main.storyboard */,
 				E58D02D61C2F283600839E97 /* Assets.xcassets */,
@@ -564,6 +567,7 @@
 				E5E4B5DA1CCE9040008F4E1C /* DetailedCardView.swift in Sources */,
 				E550A9CC1C5D4D0E00C840EB /* SwiftyJSON.swift in Sources */,
 				E583FE781CF4D02700D455AB /* HolderView.swift in Sources */,
+				E50E06A21D3C104F006CE3E6 /* PopUpViewController.swift in Sources */,
 				E504E5371CF8CFF5001BCC37 /* WeatherData.swift in Sources */,
 				E583FE811CF4D08E00D455AB /* ArcLayer.swift in Sources */,
 				E58D02D01C2F283600839E97 /* AppDelegate.swift in Sources */,

@@ -19,7 +19,8 @@ import BetterSegmentedControl
     var tempNow:Int = Int()
     var latitude:Double = Double()
     var longitude:Double = Double()
-    var hourly = false
+    var tempFaren:Int = 0
+
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate {
@@ -38,6 +39,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     var city:String = String()
     var holderView = HolderView(frame: CGRectZero)
     
+    var unit:String = String()
+    var hourly = true
 
     
     // Labels Declared
@@ -49,30 +52,36 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     // @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var whatToWearLabel: UILabel!
     @IBOutlet weak var iCarouselView: iCarousel!
-    
  
-  
-    @IBAction func showMe(sender: AnyObject) {
+    @IBAction func revealPopUp(sender: AnyObject) {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("sbPopUpID") as! PopUpViewController
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMoveToParentViewController(self)
         
-        if hourly{
+    }
+ 
+    @IBAction func changeUnit(sender: AnyObject) {
+        
+        if tempFaren == 1 {
             
-            hourly = false
+            tempFaren = 2
             
+        }else if tempFaren == 2{
+            tempFaren = 1
         }else{
-        
-           hourly = true
+            
+            tempFaren = 0
         }
         
-        iCarouselView.reloadData()
-       // carouselLabel.reloadData()
+        getWeather(0.5)
     }
+  
+
     
     
-    @IBAction func setCityTapped(sender: AnyObject) {
-        
-        openCityAlert()
-        
-    }
+
     
     func openCityAlert(){
         
@@ -125,13 +134,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     
     // MARK: Weather Service Delegate
     
-    func getWeather() {
+ 
+    func getWeather(waitTime: Double) {
         
-          weatherData.getweather()
+        weatherData.getweather()
         
-        
-        delay(3.0) {
+        delay(waitTime) {
             
+            self.unit = self.weatherData.unit
+            print( "This is what you should use for units \(self.unit)")
             self.cityLabel.text = self.city
             self.hourlyTemp =  self.weatherData.hourlyTemp
             self.iconHourly = self.weatherData.iconHourly
@@ -145,24 +156,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
             self.iCarouselView.reloadData()
             
             
-            let control = BetterSegmentedControl(
-                frame: CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.75, width: self.view.bounds.width * 0.50, height: 25.0),
-                titles: ["Hourly", "Daily"],
-                index: 1,
-                backgroundColor: .whiteColor(),
-                titleColor: .blackColor(),
-                indicatorViewBackgroundColor:  UIColor.lightGrayColor(),
-                selectedTitleColor: .whiteColor())
-                control.cornerRadius = 8.0
-
-                control.titleFont = UIFont(name: "HelveticaNeue", size: 14.0)!
-            
-                control.addTarget(self, action: #selector(ViewController.navigationSegmentedControlValueChanged(_:)), forControlEvents: .ValueChanged)
-            self.view.addSubview(control)
-            
         }
-    
+        
     }
+    
     
     func navigationSegmentedControlValueChanged(sender: BetterSegmentedControl) {
         if sender.index == 0 {
@@ -196,13 +193,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         
             print(">>> My City is \(self.city)")
             
-            self.getWeather()
+            self.getWeather(3.0)
             self.lManager.stopUpdatingLocation()
       
             }
             
          }
-
+ 
     }
     
     
@@ -227,6 +224,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         self.lManager.requestAlwaysAuthorization()
         self.lManager.startUpdatingLocation()
         lManager.delegate = self
+        
+        let control = BetterSegmentedControl(
+            frame: CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.75, width: self.view.bounds.width * 0.50, height: 25.0),
+            titles: ["Hourly", "Daily"],
+            index: 0,
+            backgroundColor: .whiteColor(),
+            titleColor: .blackColor(),
+            indicatorViewBackgroundColor:  UIColor.lightGrayColor(),
+            selectedTitleColor: .whiteColor())
+        control.cornerRadius = 8.0
+        
+        control.titleFont = UIFont(name: "HelveticaNeue", size: 14.0)!
+        
+        control.addTarget(self, action: #selector(ViewController.navigationSegmentedControlValueChanged(_:)), forControlEvents: .ValueChanged)
+        self.view.addSubview(control)
         
         
     }
@@ -254,8 +266,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
             
             imageView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).CGColor
         
-            
-            
             tempLabel = UILabel(frame:weatherView.bounds)
             tempLabel.backgroundColor = UIColor.clearColor()
             tempLabel.center = CGPointMake(180, 284)
@@ -276,10 +286,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         
         if hourly {
         imageView.image = UIImage(named: "\(iconHourly[index])")
-        tempLabel.text = "\(hourlyTemp[index].tempForhour)°C"
+        tempLabel.text = "\(hourlyTemp[index].tempForhour) \(self.unit)"
         }else{
             imageView.image = UIImage(named: "\(iconDaily[index])")
-            tempLabel.text = "\(minMaxDailyTemp[index].max)°C | \(minMaxDailyTemp[index].min)°C "
+            tempLabel.text = "\(minMaxDailyTemp[index].max) \(self.unit) | \(minMaxDailyTemp[index].min) \(self.unit)"
         }
        
         return weatherView
