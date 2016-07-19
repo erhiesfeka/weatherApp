@@ -30,6 +30,9 @@ xcuserdata/
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
+contents.xcworkspacedata
+UserInterfaceState.xcuserstate
+
 
 # Swift Package Manager
 #
