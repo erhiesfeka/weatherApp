@@ -87,7 +87,7 @@ class WeatherData {
                     thirdCounter += 3
                 }
                 
-              //  print(currentForecast.hourly?.data![0].apparentTemperatureMax)
+
                 
                print(self.minMaxDailyTemp)
                print(self.hourlyTemp)
@@ -107,16 +107,7 @@ class WeatherData {
                     tempFaren = 2
                 }
                
-             /*
-                switch unit {
-                    
-                    case "us":
-                    self.tempUnit = false
-                    
-                default:
-                   self.tempUnit = true
-                    
-                } */
+      
                 
                 
             } else if let error = error {

@@ -134,7 +134,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     
     // MARK: Weather Service Delegate
     
- 
+
     func getWeather(waitTime: Double) {
         
         weatherData.getweather()
@@ -174,6 +174,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         }
         
         iCarouselView.reloadData()
+        
     }
 
 
@@ -229,7 +230,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
             frame: CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.75, width: self.view.bounds.width * 0.50, height: 25.0),
             titles: ["Hourly", "Daily"],
             index: 0,
-            backgroundColor: .whiteColor(),
+            backgroundColor: .clearColor(),
             titleColor: .blackColor(),
             indicatorViewBackgroundColor:  UIColor.lightGrayColor(),
             selectedTitleColor: .whiteColor())
@@ -252,6 +253,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         var imageView: UIImageView
         
         imageView = UIImageView(frame: CGRectMake(0, 0, 100, 200))
+        //imageView.backgroundColor = Colors.blue
         
         if view == nil {
             weatherView = UIView(frame: CGRectMake(0, 0, 200, 300))
@@ -260,15 +262,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
             weatherView.layer.cornerRadius = 8.0
             weatherView.layer.borderWidth = 4
             weatherView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).CGColor
+           // weatherView.backgroundColor = Colors.red
             
-            imageView.center = CGPointMake(110,130)
+            imageView.center = weatherView.center
             imageView.contentMode = .ScaleAspectFit
             
             imageView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).CGColor
         
-            tempLabel = UILabel(frame:weatherView.bounds)
+            tempLabel = UILabel(frame:CGRectMake(0, 0, 200, 20))
+            imageView.contentMode = .ScaleAspectFit
             tempLabel.backgroundColor = UIColor.clearColor()
-            tempLabel.center = CGPointMake(180, 284)
+            tempLabel.textAlignment = NSTextAlignment.Center
+            tempLabel.center = CGPointMake(100 , 284)
+           
+            
+            
+            
         
             tempLabel.font = tempLabel.font.fontWithSize(20)
             tempLabel.tag = 1
@@ -287,10 +296,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         if hourly {
         imageView.image = UIImage(named: "\(iconHourly[index])")
         tempLabel.text = "\(hourlyTemp[index].tempForhour) \(self.unit)"
+        
+            
+            
+           
         }else{
             imageView.image = UIImage(named: "\(iconDaily[index])")
             tempLabel.text = "\(minMaxDailyTemp[index].max) \(self.unit) | \(minMaxDailyTemp[index].min) \(self.unit)"
+          
+            
         }
+        
        
         return weatherView
         
