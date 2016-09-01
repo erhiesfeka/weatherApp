@@ -8,7 +8,8 @@
 
 import UIKit
 
-class PopUpViewController: UIViewController {
+class PopUpViewController: UIViewController{
+    @IBOutlet weak var popUpView: UIView!
 
    
     @IBAction func closePopUp(sender: AnyObject) {
@@ -20,6 +21,7 @@ class PopUpViewController: UIViewController {
         super.viewDidLoad()
         
          self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
+        popUpView.layer.cornerRadius = 11.0
         // Do any additional setup after loading the view.
     }
 
@@ -29,14 +31,8 @@ class PopUpViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
+    
+   
 }

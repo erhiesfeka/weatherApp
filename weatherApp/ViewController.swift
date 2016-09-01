@@ -408,7 +408,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     
     func buttonPressed(sender: UIButton!) {
         view.backgroundColor = Colors.white
-        view.subviews.map({ $0.removeFromSuperview() })
         holderView = HolderView(frame: CGRectZero)
         addHolderView()
     }
