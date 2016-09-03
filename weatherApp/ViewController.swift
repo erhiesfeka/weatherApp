@@ -411,6 +411,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         holderView = HolderView(frame: CGRectZero)
         addHolderView()
     }
+  
     
 }
 
