@@ -16,7 +16,7 @@ public class APIClient : NSObject {
     private static let forecastIOURL = "https://api.forecast.io/forecast/"
     
     /// Units in which the response will be provided. US is default as per Forecast.io docs.
-    public var units = Units.Auto
+    public var units = Units.US
     
     /**
         Creates a new `APIClient` to interact with Forecast.io's Dark Sky API.

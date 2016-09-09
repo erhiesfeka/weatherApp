@@ -188,11 +188,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tsV-kq-3uE">
-                                <rect key="frame" x="26" y="69" width="322" height="494"/>
+                            <view opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsV-kq-3uE">
+                                <rect key="frame" x="20" y="69" width="335" height="494"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwH-Tf-ak5">
-                                        <rect key="frame" x="285" y="453" width="29" height="27"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwH-Tf-ak5">
+                                        <rect key="frame" x="291" y="453" width="29" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="27" id="kYo-mo-F8L"/>
                                             <constraint firstAttribute="width" constant="29" id="lYa-aH-gj7"/>
@@ -205,7 +205,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ry3-GZ-hNS">
-                                        <rect key="frame" x="90" y="8" width="143" height="42"/>
+                                        <rect key="frame" x="96" y="8" width="143" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="lHa-Ml-ref"/>
                                         </constraints>
@@ -216,14 +216,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="wwH-Tf-ak5" secondAttribute="bottom" constant="14" id="070-jp-K7H"/>
-                                    <constraint firstItem="Ry3-GZ-hNS" firstAttribute="top" secondItem="tsV-kq-3uE" secondAttribute="topMargin" id="1ES-8e-p85"/>
-                                    <constraint firstItem="Ry3-GZ-hNS" firstAttribute="centerX" secondItem="tsV-kq-3uE" secondAttribute="centerX" id="512-Kj-NsM"/>
-                                    <constraint firstItem="wwH-Tf-ak5" firstAttribute="trailing" secondItem="tsV-kq-3uE" secondAttribute="trailingMargin" id="9TC-f7-Rpt"/>
-                                    <constraint firstItem="Ry3-GZ-hNS" firstAttribute="leading" secondItem="tsV-kq-3uE" secondAttribute="leading" constant="90" id="IFM-R4-TkW"/>
+                                    <constraint firstItem="Ry3-GZ-hNS" firstAttribute="centerX" secondItem="tsV-kq-3uE" secondAttribute="centerX" id="3L2-3k-IV3"/>
+                                    <constraint firstItem="Ry3-GZ-hNS" firstAttribute="top" secondItem="tsV-kq-3uE" secondAttribute="topMargin" id="IW0-Kv-x2d"/>
+                                    <constraint firstAttribute="trailing" secondItem="wwH-Tf-ak5" secondAttribute="trailing" constant="15" id="O3s-ii-vFf"/>
+                                    <constraint firstAttribute="bottom" secondItem="wwH-Tf-ak5" secondAttribute="bottom" constant="14" id="Ugu-qA-LqQ"/>
+                                    <constraint firstItem="Ry3-GZ-hNS" firstAttribute="leading" secondItem="tsV-kq-3uE" secondAttribute="leading" constant="96" id="cLL-V1-zSM"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwe-vM-IOf">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwe-vM-IOf">
                                 <rect key="frame" x="26" y="130" width="322" height="372"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -233,14 +233,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vwe-vM-IOf" firstAttribute="centerY" secondItem="tsV-kq-3uE" secondAttribute="centerY" id="51u-MA-tM3"/>
-                            <constraint firstItem="vwe-vM-IOf" firstAttribute="leading" secondItem="tsV-kq-3uE" secondAttribute="leading" id="8Fo-ec-UDE"/>
-                            <constraint firstItem="f99-De-MAg" firstAttribute="top" secondItem="tsV-kq-3uE" secondAttribute="bottom" constant="104" id="FJg-Vf-9G5"/>
-                            <constraint firstItem="tsV-kq-3uE" firstAttribute="centerX" secondItem="K0a-3g-v5N" secondAttribute="centerX" id="PsV-zA-bwo"/>
-                            <constraint firstItem="vwe-vM-IOf" firstAttribute="top" secondItem="bKm-ec-ftt" secondAttribute="bottom" constant="110" id="Ugj-XW-db6"/>
-                            <constraint firstItem="tsV-kq-3uE" firstAttribute="leading" secondItem="K0a-3g-v5N" secondAttribute="leadingMargin" constant="10" id="bOM-A9-di8"/>
-                            <constraint firstItem="vwe-vM-IOf" firstAttribute="trailing" secondItem="tsV-kq-3uE" secondAttribute="trailing" id="huX-op-qnV"/>
-                            <constraint firstItem="tsV-kq-3uE" firstAttribute="top" secondItem="bKm-ec-ftt" secondAttribute="bottom" constant="49" id="wzl-fG-b0Z"/>
+                            <constraint firstItem="f99-De-MAg" firstAttribute="top" secondItem="tsV-kq-3uE" secondAttribute="bottom" constant="104" id="0jw-24-g0R"/>
+                            <constraint firstItem="vwe-vM-IOf" firstAttribute="centerY" secondItem="tsV-kq-3uE" secondAttribute="centerY" id="BVS-mN-BZA"/>
+                            <constraint firstItem="tsV-kq-3uE" firstAttribute="centerX" secondItem="K0a-3g-v5N" secondAttribute="centerX" id="FZF-UK-dI5"/>
+                            <constraint firstItem="tsV-kq-3uE" firstAttribute="leading" secondItem="K0a-3g-v5N" secondAttribute="leadingMargin" constant="4" id="LBp-iV-DqQ"/>
+                            <constraint firstItem="vwe-vM-IOf" firstAttribute="top" secondItem="bKm-ec-ftt" secondAttribute="bottom" constant="110" id="TUq-lV-Sfy"/>
+                            <constraint firstItem="tsV-kq-3uE" firstAttribute="top" secondItem="bKm-ec-ftt" secondAttribute="bottom" constant="49" id="an1-Wx-wEr"/>
+                            <constraint firstItem="vwe-vM-IOf" firstAttribute="centerX" secondItem="tsV-kq-3uE" secondAttribute="centerX" id="gMz-VX-Kl0"/>
+                            <constraint firstItem="vwe-vM-IOf" firstAttribute="leading" secondItem="K0a-3g-v5N" secondAttribute="leadingMargin" constant="10" id="sN2-Wr-nbe"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -255,7 +255,7 @@
         <!--Settings View Controller-->
         <scene sceneID="q7F-5B-5lL">
             <objects>
-                <viewController id="0ao-If-a9v" customClass="SettingsViewController" customModule="weatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settings" id="0ao-If-a9v" customClass="SettingsViewController" customModule="weatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dVa-8q-Rpw"/>
                         <viewControllerLayoutGuide type="bottom" id="0BV-ZS-Wl0"/>
@@ -264,118 +264,118 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTZ-sm-vAP">
-                                <rect key="frame" x="54" y="70" width="203" height="43"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manually Select City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJg-nc-opq">
-                                <rect key="frame" x="54" y="212" width="203" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="MpS-Ds-2rj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use GPS for Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qo-Dm-eQy">
-                                <rect key="frame" x="51" y="147" width="206" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="7fQ-fx-Zlb"/>
-                                    <constraint firstAttribute="width" constant="206" id="IRO-fl-Zae"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkr-We-0mC" userLabel="Control 1" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                <rect key="frame" x="234" y="81" width="121" height="21"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
-                                        <color key="value" red="0.97254901959999995" green="0.82745098039999998" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akc-pf-KXm" userLabel="Control 1" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                <rect key="frame" x="234" y="147" width="121" height="21"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
-                                        <color key="value" red="0.97254901959999995" green="0.82745098039999998" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJy-pd-Dbz" userLabel="Control 1" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                <rect key="frame" x="234" y="212" width="121" height="21"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
-                                        <color key="value" red="0.97254901959999995" green="0.82745098039999998" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UnX-Gx-SG5">
+                                <rect key="frame" x="34" y="273" width="306" height="121"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="qxE-P5-6yc">
+                                        <rect key="frame" x="0.0" y="0.0" width="185" height="121"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTZ-sm-vAP">
+                                                <rect key="frame" x="0.0" y="0.0" width="185" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="185" id="O2A-hn-7oe"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use GPS for Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qo-Dm-eQy">
+                                                <rect key="frame" x="0.0" y="50" width="185" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="ujT-lM-pX0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manually Select City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJg-nc-opq">
+                                                <rect key="frame" x="0.0" y="97" width="185" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="29" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dkJ-eN-q8a">
+                                        <rect key="frame" x="185" y="0.0" width="121" height="121"/>
+                                        <subviews>
+                                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkr-We-0mC" userLabel="Control 1" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                                <rect key="frame" x="0.0" y="0.0" width="121" height="21"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
+                                                        <color key="value" red="0.97254901959999995" green="0.82745098039999998" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akc-pf-KXm" userLabel="Control 1" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                                <rect key="frame" x="0.0" y="50" width="121" height="21"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
+                                                        <color key="value" red="0.97254901959999995" green="0.82745098039999998" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJy-pd-Dbz" userLabel="Control 1" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                                <rect key="frame" x="0.0" y="100" width="121" height="21"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
+                                                        <color key="value" red="0.97254901959999995" green="0.82745098039999998" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="akc-pf-KXm" firstAttribute="centerY" secondItem="dkJ-eN-q8a" secondAttribute="centerY" id="RVJ-4N-FOm"/>
+                                            <constraint firstItem="akc-pf-KXm" firstAttribute="top" secondItem="dkJ-eN-q8a" secondAttribute="top" constant="50" id="dLF-M2-NfZ"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="akc-pf-KXm" firstAttribute="bottom" secondItem="2Qo-Dm-eQy" secondAttribute="bottom" id="0jh-JW-j9M"/>
-                            <constraint firstItem="2Qo-Dm-eQy" firstAttribute="top" secondItem="sTZ-sm-vAP" secondAttribute="bottom" constant="34" id="5EP-g7-ZdF"/>
-                            <constraint firstItem="cJg-nc-opq" firstAttribute="top" secondItem="2Qo-Dm-eQy" secondAttribute="bottom" constant="44" id="5Ek-7b-kWk"/>
-                            <constraint firstItem="2Qo-Dm-eQy" firstAttribute="top" secondItem="pFd-Te-SYg" secondAttribute="top" constant="147" id="5ha-zK-hAR"/>
-                            <constraint firstItem="sTZ-sm-vAP" firstAttribute="trailing" secondItem="cJg-nc-opq" secondAttribute="trailing" id="76w-4j-j8T"/>
-                            <constraint firstItem="gkr-We-0mC" firstAttribute="top" secondItem="dVa-8q-Rpw" secondAttribute="bottom" constant="81" id="JF9-rO-FhM"/>
-                            <constraint firstItem="gkr-We-0mC" firstAttribute="centerY" secondItem="sTZ-sm-vAP" secondAttribute="centerY" id="LEL-y5-Il5"/>
-                            <constraint firstItem="sTZ-sm-vAP" firstAttribute="leading" secondItem="cJg-nc-opq" secondAttribute="leading" id="OMs-UD-dSj"/>
-                            <constraint firstItem="cJg-nc-opq" firstAttribute="leading" secondItem="pFd-Te-SYg" secondAttribute="leadingMargin" constant="38" id="Rx7-CB-b72"/>
-                            <constraint firstItem="2Qo-Dm-eQy" firstAttribute="leading" secondItem="pFd-Te-SYg" secondAttribute="leadingMargin" constant="35" id="Y4Z-ZZ-wpo"/>
-                            <constraint firstItem="OJy-pd-Dbz" firstAttribute="bottom" secondItem="cJg-nc-opq" secondAttribute="bottom" id="Y5T-ZL-Gfh"/>
-                            <constraint firstItem="OJy-pd-Dbz" firstAttribute="trailing" secondItem="akc-pf-KXm" secondAttribute="trailing" id="Y8v-cc-Umz"/>
-                            <constraint firstItem="sTZ-sm-vAP" firstAttribute="top" secondItem="dVa-8q-Rpw" secondAttribute="bottom" constant="70" id="euG-oA-Yv8"/>
-                            <constraint firstItem="gkr-We-0mC" firstAttribute="leading" secondItem="pFd-Te-SYg" secondAttribute="leading" constant="234" id="iAB-ka-xsV"/>
-                            <constraint firstItem="2Qo-Dm-eQy" firstAttribute="trailing" secondItem="cJg-nc-opq" secondAttribute="trailing" id="nQx-3d-o2g"/>
-                            <constraint firstItem="OJy-pd-Dbz" firstAttribute="trailing" secondItem="gkr-We-0mC" secondAttribute="trailing" id="oCQ-5w-TcI"/>
-                            <constraint firstItem="akc-pf-KXm" firstAttribute="top" secondItem="2Qo-Dm-eQy" secondAttribute="top" id="pWq-Ix-7Xg"/>
-                            <constraint firstItem="OJy-pd-Dbz" firstAttribute="leading" secondItem="akc-pf-KXm" secondAttribute="leading" id="rXB-VT-SxA"/>
-                            <constraint firstItem="OJy-pd-Dbz" firstAttribute="top" secondItem="cJg-nc-opq" secondAttribute="top" id="u9V-u0-Xt0"/>
-                            <constraint firstItem="OJy-pd-Dbz" firstAttribute="leading" secondItem="gkr-We-0mC" secondAttribute="leading" id="y5a-FP-xSd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gkr-We-0mC" secondAttribute="trailing" constant="4" id="yNN-bL-C7c"/>
+                            <constraint firstItem="UnX-Gx-SG5" firstAttribute="centerX" secondItem="pFd-Te-SYg" secondAttribute="centerX" id="6sY-o0-uBM"/>
+                            <constraint firstItem="UnX-Gx-SG5" firstAttribute="centerY" secondItem="pFd-Te-SYg" secondAttribute="centerY" id="7YF-e2-Nmf"/>
+                            <constraint firstItem="UnX-Gx-SG5" firstAttribute="leading" secondItem="pFd-Te-SYg" secondAttribute="leadingMargin" constant="18" id="ujU-nv-IP0"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -386,23 +386,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpw-hQ-rju" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="842.5" y="47.5"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="fls-lp-g8g">
-            <objects>
-                <viewController id="J5r-S3-4WV" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZMc-NS-TyH"/>
-                        <viewControllerLayoutGuide type="bottom" id="qZz-PQ-EI1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fj9-th-2Oh">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e1I-p8-E0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>

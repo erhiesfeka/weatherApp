@@ -21,6 +21,11 @@ import BetterSegmentedControl
     var longitude:Double = Double()
     var tempFaren:Int = 0
 
+protocol mainViewControllerDelegate: class {
+    
+    func weatherDataReceived(data:String)
+    
+}
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate {
@@ -39,8 +44,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     var city:String = String()
     var holderView = HolderView(frame: CGRectZero)
     
-    var unit:String = String()
+    var unit:String = ""
     var hourly = true
+    
+   weak var delegate:mainViewControllerDelegate? = nil
 
     
     // Labels Declared
@@ -54,13 +61,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     @IBOutlet weak var iCarouselView: iCarousel!
  
     @IBAction func revealPopUp(sender: AnyObject) {
+       
+        print("settings button reveals popup")
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("sbPopUpID") as! PopUpViewController
+        
         self.addChildViewController(popOverVC)
+       
         popOverVC.view.frame = self.view.frame
+        
         self.view.addSubview(popOverVC.view)
         popOverVC.didMoveToParentViewController(self)
+        print("This is unit when the settings button is pressed \(unit)")
         
     }
+    
+ 
  
     @IBAction func changeUnit(sender: AnyObject) {
         
@@ -411,7 +426,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         holderView = HolderView(frame: CGRectZero)
         addHolderView()
     }
-  
+    
+    func callDelegate() {
+        
+        if (delegate != nil){
+            
+            
+            delegate!.weatherDataReceived(self.unit)
+            print("Delegate is not nil.This is the tempUnit \(self.unit)")
+        }
+    }
+
     
 }
 
