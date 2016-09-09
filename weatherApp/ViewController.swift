@@ -17,15 +17,12 @@ import BetterSegmentedControl
     var description:String = String()
     var currentDesc:String = String()
     var tempNow:Int = Int()
+     var unit:String = String()
     var latitude:Double = Double()
     var longitude:Double = Double()
     var tempFaren:Int = 0
 
-protocol mainViewControllerDelegate: class {
-    
-    func weatherDataReceived(data:String)
-    
-}
+
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate {
@@ -44,10 +41,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     var city:String = String()
     var holderView = HolderView(frame: CGRectZero)
     
-    var unit:String = ""
+    
     var hourly = true
     
-   weak var delegate:mainViewControllerDelegate? = nil
+
 
     
     // Labels Declared
@@ -92,6 +89,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         
         getWeather(0.5)
     }
+    
+  /*  func changeUniit(){
+        if tempFaren == 1 {
+            
+            tempFaren = 2
+            
+        }else if tempFaren == 2{
+            tempFaren = 1
+        }else{
+            
+            tempFaren = 0
+        }
+        
+        getWeather(0.5)
+ 
+    
+    }*/
   
 
     
@@ -156,8 +170,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         
         delay(waitTime) {
             
-            self.unit = self.weatherData.unit
-            print( "This is what you should use for units \(self.unit)")
+            unit = self.weatherData.unit
+            print( "This is what you should use for units \(unit)")
             self.cityLabel.text = self.city
             self.hourlyTemp =  self.weatherData.hourlyTemp
             self.iconHourly = self.weatherData.iconHourly
@@ -178,12 +192,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     
     func navigationSegmentedControlValueChanged(sender: BetterSegmentedControl) {
         if sender.index == 0 {
-            print("Turning lights on.")
             hourly = true
             carouselLabel.text = hourlyTemp[carouselIndex].time
         }
         else {
-            print("Turning lights off.")
             hourly = false
             carouselLabel.text = dailyDate[carouselIndex]
         }
@@ -310,14 +322,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         
         if hourly {
         imageView.image = UIImage(named: "\(iconHourly[index])")
-        tempLabel.text = "\(hourlyTemp[index].tempForhour) \(self.unit)"
+        tempLabel.text = "\(hourlyTemp[index].tempForhour) \(unit)"
         
             
             
            
         }else{
             imageView.image = UIImage(named: "\(iconDaily[index])")
-            tempLabel.text = "\(minMaxDailyTemp[index].max) \(self.unit) | \(minMaxDailyTemp[index].min) \(self.unit)"
+            tempLabel.text = "\(minMaxDailyTemp[index].max) \(unit) | \(minMaxDailyTemp[index].min) \(unit)"
           
             
         }
@@ -427,15 +439,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         addHolderView()
     }
     
-    func callDelegate() {
-        
-        if (delegate != nil){
-            
-            
-            delegate!.weatherDataReceived(self.unit)
-            print("Delegate is not nil.This is the tempUnit \(self.unit)")
-        }
-    }
+
 
     
 }
