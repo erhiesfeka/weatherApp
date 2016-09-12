@@ -16,6 +16,7 @@ class SettingsViewController: UIViewController {
     
     var tempCelcius:Bool = Bool()
     var vc = ViewController()
+    var wd = WeatherData()
    
    
     
@@ -74,17 +75,23 @@ class SettingsViewController: UIViewController {
  
     
     func navigationSegmentedControlValueChanged(sender: BetterSegmentedControl) {
-        if sender.index == 0 {
+        if sender.index == 1 {
             
             print("Temperature is celcius")
             
-           // vc.changeUniit()
+            vc.changeUniit()
+            
+            wd.getweather()
+         //   vc.iCarouselView.reloadData()
+            
             
            
         }
         else {
             print("Temperature is farenheit")
-           // vc.changeUniit()
+         vc.changeUniit()
+            wd.getweather()
+         //   vc.iCarouselView.reloadData()
         }
         
     }

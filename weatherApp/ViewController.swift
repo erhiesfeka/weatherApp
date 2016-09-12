@@ -90,7 +90,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         getWeather(0.5)
     }
     
-  /*  func changeUniit(){
+    func changeUniit(){
         if tempFaren == 1 {
             
             tempFaren = 2
@@ -101,11 +101,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
             
             tempFaren = 0
         }
-        
-        getWeather(0.5)
- 
+    }
     
-    }*/
+    func reloadiCarouselData() {
+        iCarouselView.reloadData()
+        print("iwascalled")
+    }
   
 
     
@@ -235,14 +236,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib
+       NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reloadiCarouselData), name: "reloadiCarousel", object: nil)
          addHolderView()
        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+     
     }
     
     override func viewWillAppear(animated: Bool) {

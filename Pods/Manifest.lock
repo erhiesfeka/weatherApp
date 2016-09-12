@@ -3,13 +3,13 @@ PODS:
   - ForecastIO (1.6.1)
 
 DEPENDENCIES:
-  - BetterSegmentedControl (~> 0.3)
+  - BetterSegmentedControl
   - ForecastIO
 
 SPEC CHECKSUMS:
   BetterSegmentedControl: d41b1785e2f0d3f823ce5017d0482440cc6aa584
   ForecastIO: fa5ef84db6414b200bbd7a6b5f27669f394eadc9
 
-PODFILE CHECKSUM: 66f410cecdb9070074f51d44a3a26143f13d5098
+PODFILE CHECKSUM: f7495d7904dbe308271ecf12fda0de9c24714095
 
 COCOAPODS: 1.0.0

@@ -8,13 +8,18 @@
 
 import UIKit
 
+
+
 class PopUpViewController: UIViewController{
+    var vc = ViewController()
+ 
     @IBOutlet weak var popUpView: UIView!
 
    
     @IBAction func closePopUp(sender: AnyObject) {
-        
+        NSNotificationCenter.defaultCenter().postNotificationName("reloadiCarousel", object: nil)
         self.view.removeFromSuperview()
+        
     }
     
     override func viewDidLoad() {
