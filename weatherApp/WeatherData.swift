@@ -8,6 +8,8 @@
 
 import Foundation
 import ForecastIO
+let userDefaults = NSUserDefaults.standardUserDefaults()
+
 
 class WeatherData {
     
@@ -19,7 +21,7 @@ class WeatherData {
     var timezone = ""
     var dailyDate: [String] = []
     var unit:String = String()
- 
+  
 
     func getweather(){
         
@@ -97,6 +99,7 @@ class WeatherData {
                let unit = currentForecast.flags!.units!
                print(unit)
                 
+                
                 if unit == "us"{
                     
                     self.unit = "°F"
@@ -107,7 +110,7 @@ class WeatherData {
                     tempFaren = 2
                 }
                
-      
+             userDefaults.setObject(tempFaren, forKey: "defaultUnit")  //tempFaren, forKey: "defaultUnit")
                 
                 
             } else if let error = error {

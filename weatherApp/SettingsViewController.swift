@@ -18,7 +18,8 @@ class SettingsViewController: UIViewController {
     var vc = ViewController()
     var wd = WeatherData()
    
-   
+    
+    
     
    
 
@@ -32,6 +33,7 @@ class SettingsViewController: UIViewController {
         control1.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
         control1.alwaysAnnouncesValue = true
         control1.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControlValueChanged(_:)), forControlEvents: .ValueChanged)
+        
         if unit == "°C"{
             do{
            try control1.setIndex(0)
@@ -62,7 +64,7 @@ class SettingsViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        
+     
         
     }
     
@@ -79,19 +81,19 @@ class SettingsViewController: UIViewController {
             
             print("Temperature is celcius")
             
-            vc.changeUniit()
+            tempFaren = 1
             
-            wd.getweather()
-         //   vc.iCarouselView.reloadData()
-            
+             NSNotificationCenter.defaultCenter().postNotificationName("reloadiCarousel", object: nil)
             
            
         }
         else {
             print("Temperature is farenheit")
-         vc.changeUniit()
-            wd.getweather()
-         //   vc.iCarouselView.reloadData()
+
+            tempFaren = 2
+           NSNotificationCenter.defaultCenter().postNotificationName("reloadiCarousel", object: nil)
+         
+         
         }
         
     }

@@ -104,7 +104,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     }
     
     func reloadiCarouselData() {
-        iCarouselView.reloadData()
+        getWeather(0.5)
         print("iwascalled")
     }
   

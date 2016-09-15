@@ -57,6 +57,10 @@
 		E5C45FAE1D02140F00AC3ED4 /* PartlyCloudyNight.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C45FA71D02140F00AC3ED4 /* PartlyCloudyNight.png */; };
 		E5C45FAF1D02140F00AC3ED4 /* Rain.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C45FA81D02140F00AC3ED4 /* Rain.png */; };
 		E5C45FB01D02140F00AC3ED4 /* Snow.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C45FA91D02140F00AC3ED4 /* Snow.png */; };
+		E5D13CB71D8769A600EF3D17 /* Gotham Nights Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D13CB31D87681000EF3D17 /* Gotham Nights Bold Italic.otf */; };
+		E5D13CB81D8769A600EF3D17 /* Gotham Nights Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D13CB41D87681000EF3D17 /* Gotham Nights Bold.otf */; };
+		E5D13CB91D8769A600EF3D17 /* Gotham Nights Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D13CB51D87681000EF3D17 /* Gotham Nights Italic.otf */; };
+		E5D13CBA1D8769A600EF3D17 /* Gotham Nights.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D13CB61D87681000EF3D17 /* Gotham Nights.otf */; };
 		E5E4B5DA1CCE9040008F4E1C /* DetailedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E4B5D91CCE9040008F4E1C /* DetailedCardView.swift */; };
 		E5EB173F1C6F86F20094AE86 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EB173E1C6F86F20094AE86 /* iCarousel.m */; };
 		E5EB17411C6F87060094AE86 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EB17401C6F87060094AE86 /* QuartzCore.framework */; };
@@ -150,6 +154,10 @@
 		E5C45FA71D02140F00AC3ED4 /* PartlyCloudyNight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PartlyCloudyNight.png; sourceTree = "<group>"; };
 		E5C45FA81D02140F00AC3ED4 /* Rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rain.png; sourceTree = "<group>"; };
 		E5C45FA91D02140F00AC3ED4 /* Snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Snow.png; sourceTree = "<group>"; };
+		E5D13CB31D87681000EF3D17 /* Gotham Nights Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Nights Bold Italic.otf"; sourceTree = "<group>"; };
+		E5D13CB41D87681000EF3D17 /* Gotham Nights Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Nights Bold.otf"; sourceTree = "<group>"; };
+		E5D13CB51D87681000EF3D17 /* Gotham Nights Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Nights Italic.otf"; sourceTree = "<group>"; };
+		E5D13CB61D87681000EF3D17 /* Gotham Nights.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Nights.otf"; sourceTree = "<group>"; };
 		E5E4B5D91CCE9040008F4E1C /* DetailedCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailedCardView.swift; path = ../DetailedCardView.swift; sourceTree = "<group>"; };
 		E5EB173C1C6F86F10094AE86 /* weatherApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "weatherApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		E5EB173D1C6F86F20094AE86 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
@@ -313,6 +321,7 @@
 		E58D02CE1C2F283600839E97 /* weatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				E5D13CB21D8767D600EF3D17 /* Fonts */,
 				E50E60051D3E91DA00AE7ED0 /* backgrounds */,
 				E583FE821CF4D0ED00D455AB /* Utilities */,
 				E583FE761CF4CFDA00D455AB /* Loader View */,
@@ -354,6 +363,17 @@
 				E58D02F11C2F283600839E97 /* Info.plist */,
 			);
 			path = weatherAppUITests;
+			sourceTree = "<group>";
+		};
+		E5D13CB21D8767D600EF3D17 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E5D13CB31D87681000EF3D17 /* Gotham Nights Bold Italic.otf */,
+				E5D13CB41D87681000EF3D17 /* Gotham Nights Bold.otf */,
+				E5D13CB51D87681000EF3D17 /* Gotham Nights Italic.otf */,
+				E5D13CB61D87681000EF3D17 /* Gotham Nights.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		E5EB17431C7626CA0094AE86 /* carousel pics */ = {
@@ -481,6 +501,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D13CB71D8769A600EF3D17 /* Gotham Nights Bold Italic.otf in Resources */,
+				E5D13CB81D8769A600EF3D17 /* Gotham Nights Bold.otf in Resources */,
+				E5D13CB91D8769A600EF3D17 /* Gotham Nights Italic.otf in Resources */,
+				E5D13CBA1D8769A600EF3D17 /* Gotham Nights.otf in Resources */,
 				E50E600F1D3EB3A800AE7ED0 /* close.png in Resources */,
 				E5EB17531C7626F00094AE86 /* 6.jpg in Resources */,
 				E50E600D1D3EB18300AE7ED0 /* Gear-512.png in Resources */,
