@@ -50,6 +50,7 @@
 		E58D02DA1C2F283600839E97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58D02D81C2F283600839E97 /* LaunchScreen.storyboard */; };
 		E58D02E51C2F283600839E97 /* weatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D02E41C2F283600839E97 /* weatherAppTests.swift */; };
 		E58D02F01C2F283600839E97 /* weatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D02EF1C2F283600839E97 /* weatherAppUITests.swift */; };
+		E5996AB41D8C74BF009E0038 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = E5996AB31D8C74BF009E0038 /* reload.png */; };
 		E5C45FAA1D02140F00AC3ED4 /* ClearDay.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C45FA31D02140F00AC3ED4 /* ClearDay.png */; };
 		E5C45FAB1D02140F00AC3ED4 /* ClearNight.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C45FA41D02140F00AC3ED4 /* ClearNight.png */; };
 		E5C45FAC1D02140F00AC3ED4 /* Cloudy.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C45FA51D02140F00AC3ED4 /* Cloudy.png */; };
@@ -147,6 +148,7 @@
 		E58D02EB1C2F283600839E97 /* weatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58D02EF1C2F283600839E97 /* weatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherAppUITests.swift; sourceTree = "<group>"; };
 		E58D02F11C2F283600839E97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5996AB31D8C74BF009E0038 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
 		E5C45FA31D02140F00AC3ED4 /* ClearDay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ClearDay.png; sourceTree = "<group>"; };
 		E5C45FA41D02140F00AC3ED4 /* ClearNight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ClearNight.png; sourceTree = "<group>"; };
 		E5C45FA51D02140F00AC3ED4 /* Cloudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloudy.png; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		E550A9CF1C5EAA7200C840EB /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				E5996AB31D8C74BF009E0038 /* reload.png */,
 				E50E600E1D3EB3A800AE7ED0 /* close.png */,
 				E50E60101D3EB65A00AE7ED0 /* close2.png */,
 				E50E600C1D3EB18300AE7ED0 /* Gear-512.png */,
@@ -542,6 +545,7 @@
 				E50E600B1D3E966A00AE7ED0 /* embrace.jpg in Resources */,
 				E550A9F01C5EAA9500C840EB /* 13d.png in Resources */,
 				E58D02D71C2F283600839E97 /* Assets.xcassets in Resources */,
+				E5996AB41D8C74BF009E0038 /* reload.png in Resources */,
 				E58D02D51C2F283600839E97 /* Main.storyboard in Resources */,
 				E550A9EC1C5EAA9500C840EB /* 10d.png in Resources */,
 				E5C45FAF1D02140F00AC3ED4 /* Rain.png in Resources */,

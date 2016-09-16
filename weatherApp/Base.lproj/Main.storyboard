@@ -73,6 +73,20 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Poe-iR-u5A">
+                                <rect key="frame" x="13" y="20" width="27" height="25"/>
+                                <state key="normal" title="Button" image="Gear-512.png"/>
+                                <connections>
+                                    <action selector="revealPopUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e0r-CI-IKP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKD-67-9iB">
+                                <rect key="frame" x="166" y="654" width="83" height="30"/>
+                                <state key="normal" title="Reload Data"/>
+                                <connections>
+                                    <action selector="reloadData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nb6-L1-93b"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkQ-EU-bYA">
                                 <rect key="frame" x="165" y="633" width="86" height="30"/>
                                 <constraints>
@@ -81,13 +95,6 @@
                                 <state key="normal" title="Change Unit"/>
                                 <connections>
                                     <action selector="changeUnit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yiI-9d-wjz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Poe-iR-u5A">
-                                <rect key="frame" x="13" y="20" width="27" height="25"/>
-                                <state key="normal" title="Button" image="Gear-512.png"/>
-                                <connections>
-                                    <action selector="revealPopUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e0r-CI-IKP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -101,6 +108,7 @@
                             <constraint firstAttribute="trailing" secondItem="EQK-lM-Ad7" secondAttribute="trailing" id="9gM-4h-XIK"/>
                             <constraint firstItem="PEu-Gg-eae" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-7" id="Avr-UH-WHN"/>
                             <constraint firstItem="EQK-lM-Ad7" firstAttribute="top" secondItem="35w-VF-u4G" secondAttribute="bottom" constant="21" id="Bl8-Lv-2aj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lKD-67-9iB" secondAttribute="bottom" constant="8" symbolic="YES" id="DNe-qr-cD3"/>
                             <constraint firstItem="6ZA-af-aOQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="32" id="Fga-k4-wbO"/>
                             <constraint firstItem="PEu-Gg-eae" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="FvX-EA-Leb"/>
                             <constraint firstItem="ODv-mH-TmP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HcF-x4-DrK"/>
@@ -111,11 +119,15 @@
                             <constraint firstItem="ODv-mH-TmP" firstAttribute="centerX" secondItem="EQK-lM-Ad7" secondAttribute="centerX" id="S3Z-fS-b0U"/>
                             <constraint firstItem="35w-VF-u4G" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-3" id="bZk-il-obl"/>
                             <constraint firstItem="35w-VF-u4G" firstAttribute="centerX" secondItem="ODv-mH-TmP" secondAttribute="centerX" id="cLz-WN-QjJ"/>
+                            <constraint firstItem="lKD-67-9iB" firstAttribute="centerX" secondItem="EQK-lM-Ad7" secondAttribute="centerX" id="qg9-bm-YOg"/>
                             <constraint firstItem="EQK-lM-Ad7" firstAttribute="top" secondItem="ODv-mH-TmP" secondAttribute="bottom" constant="75" id="trh-iF-fn8"/>
                             <constraint firstAttribute="bottom" secondItem="EQK-lM-Ad7" secondAttribute="bottom" constant="132" id="z0F-Jh-aBQ"/>
                             <constraint firstAttribute="bottom" secondItem="ODv-mH-TmP" secondAttribute="bottom" constant="205" id="zmY-HS-SXY"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="zkQ-EU-bYA"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="22q-Iw-iSh"/>
                                 <exclude reference="trh-iF-fn8"/>

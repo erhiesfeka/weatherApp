@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController {
         control1.titles = ["°C","°F"]
         control1.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
         control1.alwaysAnnouncesValue = true
-        control1.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControlValueChanged(_:)), forControlEvents: .ValueChanged)
+       
         
         if unit == "°C"{
             do{
@@ -47,6 +47,7 @@ class SettingsViewController: UIViewController {
                 print ("no such index")
             }
         }
+        control1.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControlValueChanged(_:)), forControlEvents: .ValueChanged)
         
         control2.titles = ["Yes","No"]
         control2.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
@@ -77,13 +78,16 @@ class SettingsViewController: UIViewController {
  
     
     func navigationSegmentedControlValueChanged(sender: BetterSegmentedControl) {
+        print("Nav controller changed")
+        
         if sender.index == 1 {
             
             print("Temperature is celcius")
             
             tempFaren = 1
             
-             NSNotificationCenter.defaultCenter().postNotificationName("reloadiCarousel", object: nil)
+         
+            //NSNotificationCenter.defaultCenter().postNotificationName("reloadiCarousel", object: nil)
             
            
         }
@@ -91,11 +95,11 @@ class SettingsViewController: UIViewController {
             print("Temperature is farenheit")
 
             tempFaren = 2
-           NSNotificationCenter.defaultCenter().postNotificationName("reloadiCarousel", object: nil)
-         
-         
+            
         }
         
+         userDefaults.setObject(tempFaren, forKey: "defaultUnit")
+        NSNotificationCenter.defaultCenter().postNotificationName("reloadiCarousel", object: nil)
     }
     
 

@@ -25,6 +25,11 @@ class WeatherData {
 
     func getweather(){
         
+        if userDefaults.objectForKey("defaultUnit") != nil {
+            
+            tempFaren = userDefaults.objectForKey("defaultUnit") as! Int
+        }
+        
         switch tempFaren {
             
         case 1:
@@ -110,7 +115,7 @@ class WeatherData {
                     tempFaren = 2
                 }
                
-             userDefaults.setObject(tempFaren, forKey: "defaultUnit")  //tempFaren, forKey: "defaultUnit")
+               
                 
                 
             } else if let error = error {

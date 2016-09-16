@@ -73,22 +73,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     }
     
  
- 
-    @IBAction func changeUnit(sender: AnyObject) {
-        
-        if tempFaren == 1 {
-            
-            tempFaren = 2
-            
-        }else if tempFaren == 2{
-            tempFaren = 1
-        }else{
-            
-            tempFaren = 0
-        }
+  
+    @IBAction func reloadData(sender: AnyObject) {
         
         getWeather(0.5)
     }
+ 
+  
     
     func changeUniit(){
         if tempFaren == 1 {
@@ -101,6 +92,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
             
             tempFaren = 0
         }
+        
     }
     
     func reloadiCarouselData() {
