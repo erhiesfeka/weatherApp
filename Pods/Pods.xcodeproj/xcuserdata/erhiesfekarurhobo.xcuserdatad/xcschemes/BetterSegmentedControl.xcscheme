@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B1E5975C671F6FF884360822D5B73CD"
-               BuildableName = "Pods_weatherApp.framework"
-               BlueprintName = "Pods-weatherApp"
+               BlueprintIdentifier = "3C068A58B0DECF71FC3B64A1C1B68BBC"
+               BuildableName = "BetterSegmentedControl.framework"
+               BlueprintName = "BetterSegmentedControl"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B1E5975C671F6FF884360822D5B73CD"
-            BuildableName = "Pods_weatherApp.framework"
-            BlueprintName = "Pods-weatherApp"
+            BlueprintIdentifier = "3C068A58B0DECF71FC3B64A1C1B68BBC"
+            BuildableName = "BetterSegmentedControl.framework"
+            BlueprintName = "BetterSegmentedControl"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
