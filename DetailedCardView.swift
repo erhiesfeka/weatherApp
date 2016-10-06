@@ -13,7 +13,7 @@ class DetailedCardView: UIViewController{
 
     @IBOutlet weak var label: UILabel!
     
-    @IBAction func button(sender: AnyObject) {
+    @IBAction func button(_ sender: AnyObject) {
         
        
         
@@ -31,7 +31,7 @@ override func didReceiveMemoryWarning() {
     // Dispose of any resources that can be recreated.
 }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         let tempy = 7
         //let tempy = WeatherData[selectedItem]
         

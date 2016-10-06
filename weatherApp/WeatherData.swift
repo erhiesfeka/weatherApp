@@ -8,7 +8,8 @@
 
 import Foundation
 import ForecastIO
-let userDefaults = NSUserDefaults.standardUserDefaults()
+
+let userDefaults = UserDefaults.standard
 
 
 class WeatherData {
@@ -25,9 +26,9 @@ class WeatherData {
 
     func getweather(){
         
-        if userDefaults.objectForKey("defaultUnit") != nil {
+        if userDefaults.object(forKey: "defaultUnit") != nil {
             
-            tempFaren = userDefaults.objectForKey("defaultUnit") as! Int
+            tempFaren = userDefaults.object(forKey: "defaultUnit") as! Int
         }
         
         switch tempFaren {
@@ -47,7 +48,7 @@ class WeatherData {
         
         
         
-        func ltzAbbrev() -> String { return NSTimeZone.localTimeZone().abbreviation ?? "" }
+        func ltzAbbrev() -> String { return NSTimeZone.local.abbreviation() ?? "" }
         timezone = ltzAbbrev()
         
         forecastIOClient.getForecast(latitude: latitude, longitude: longitude) { (currentForecast, error) -> Void in
@@ -63,13 +64,13 @@ class WeatherData {
                 
                 for index in 0...6 {
                     
-                    let hourlyDateFormatter = NSDateFormatter()
+                    let hourlyDateFormatter = DateFormatter()
                     hourlyDateFormatter.dateFormat = "EEEE , HH:mm"
-                    hourlyDateFormatter.timeZone = NSTimeZone(abbreviation: self.timezone)
+                    hourlyDateFormatter.timeZone = TimeZone(abbreviation: self.timezone)
                     
-                    let dailyDateFormatter = NSDateFormatter()
+                    let dailyDateFormatter = DateFormatter()
                     dailyDateFormatter.dateFormat = "EEEE"
-                    dailyDateFormatter.timeZone = NSTimeZone(abbreviation: self.timezone)
+                    dailyDateFormatter.timeZone = TimeZone(abbreviation: self.timezone)
                     
                     if index == 0 {
                         
@@ -81,8 +82,8 @@ class WeatherData {
                         
                     }else{
                         
-                        self.hourlyTemp.append((time: hourlyDateFormatter.stringFromDate((currentForecast.hourly?.data![thirdCounter].time)!), tempForhour: (Int(round((currentForecast.hourly?.data![thirdCounter].temperature)!)))))
-                        self.dailyDate.append(dailyDateFormatter.stringFromDate((currentForecast.daily?.data![index].time)!))
+                        self.hourlyTemp.append((time: hourlyDateFormatter.string(from: (currentForecast.hourly?.data![thirdCounter].time)!), tempForhour: (Int(round((currentForecast.hourly?.data![thirdCounter].temperature)!)))))
+                        self.dailyDate.append(dailyDateFormatter.string(from: (currentForecast.daily?.data![index].time)!))
                         self.iconHourly.append("\((currentForecast.hourly?.data![thirdCounter].icon)!)")
                     }
                     

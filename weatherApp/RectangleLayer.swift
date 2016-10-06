@@ -12,9 +12,9 @@ class RectangleLayer: CAShapeLayer {
   
   override init() {
     super.init()
-    fillColor = Colors.clear.CGColor
+    fillColor = Colors.clear.cgColor
     lineWidth = 5.0
-    path = rectanglePathFull.CGPath
+    path = rectanglePathFull.cgPath
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -23,16 +23,16 @@ class RectangleLayer: CAShapeLayer {
   
   var rectanglePathFull: UIBezierPath {
     let rectanglePath = UIBezierPath()
-    rectanglePath.moveToPoint(CGPoint(x: 0.0, y: 100.0))
-    rectanglePath.addLineToPoint(CGPoint(x: 0.0, y: -lineWidth))
-    rectanglePath.addLineToPoint(CGPoint(x: 100.0, y: -lineWidth))
-    rectanglePath.addLineToPoint(CGPoint(x: 100.0, y: 100.0))
-    rectanglePath.addLineToPoint(CGPoint(x: -lineWidth / 2, y: 100.0))
-    rectanglePath.closePath()
+    rectanglePath.move(to: CGPoint(x: 0.0, y: 100.0))
+    rectanglePath.addLine(to: CGPoint(x: 0.0, y: -lineWidth))
+    rectanglePath.addLine(to: CGPoint(x: 100.0, y: -lineWidth))
+    rectanglePath.addLine(to: CGPoint(x: 100.0, y: 100.0))
+    rectanglePath.addLine(to: CGPoint(x: -lineWidth / 2, y: 100.0))
+    rectanglePath.close()
     return rectanglePath
   }
   
-  func animateStrokeWithColor(color: UIColor) {
+  func animateStrokeWithColor(_ color: UIColor) {
     
   }
 }

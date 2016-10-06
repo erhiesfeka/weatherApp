@@ -13,6 +13,7 @@ import BetterSegmentedControl
 
 
 
+
     var selectedItem :Int = Int()
     var description:String = String()
     var currentDesc:String = String()
@@ -39,7 +40,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     var i = Int()
     var carouselIndex:Int = Int()
     var city:String = String()
-    var holderView = HolderView(frame: CGRectZero)
+    var holderView = HolderView(frame: CGRect.zero)
     
     
     var hourly = true
@@ -57,24 +58,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     @IBOutlet weak var whatToWearLabel: UILabel!
     @IBOutlet weak var iCarouselView: iCarousel!
  
-    @IBAction func revealPopUp(sender: AnyObject) {
+    @IBAction func revealPopUp(_ sender: AnyObject) {
        
         print("settings button reveals popup")
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("sbPopUpID") as! PopUpViewController
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PopUpViewController
         
         self.addChildViewController(popOverVC)
        
         popOverVC.view.frame = self.view.frame
         
         self.view.addSubview(popOverVC.view)
-        popOverVC.didMoveToParentViewController(self)
+        popOverVC.didMove(toParentViewController: self)
         print("This is unit when the settings button is pressed \(unit)")
         
     }
     
  
   
-    @IBAction func reloadData(sender: AnyObject) {
+    @IBAction func reloadData(_ sender: AnyObject) {
         
         getWeather(0.5)
     }
@@ -110,15 +111,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         //create alert controller
         
         let alert = UIAlertController(title: "City", message: "Please Enter City Name",
-                                      preferredStyle: UIAlertControllerStyle.Alert)
+                                      preferredStyle: UIAlertControllerStyle.alert)
         
         //create Cancel action
-        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
         
         alert.addAction(cancel)
         
         //createe OK action
-        let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action: UIAlertAction) -> Void in
+        let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action: UIAlertAction) -> Void in
 
             
             let textFeild = alert.textFields?[0]
@@ -131,24 +132,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         alert.addAction(ok)
         
         //Add text Feild
-        alert.addTextFieldWithConfigurationHandler { (textFeild:UITextField) -> Void in
+        alert.addTextField { (textFeild:UITextField) -> Void in
             
             textFeild.placeholder = "City Name"
         }
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
         
     }
     
   
-    func delay(delay: Double, closure: ()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(),
-            closure
+    func delay(_ delay: Double, closure: @escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC),
+            execute: closure
         )
     }
     
@@ -157,7 +154,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     // MARK: Weather Service Delegate
     
 
-    func getWeather(waitTime: Double) {
+    func getWeather(_ waitTime: Double) {
         
         weatherData.getweather()
         
@@ -174,7 +171,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
             self.removeHolderView()
             // self.whatToWearLabel.text = weather.decideClothes()
             self.iCarouselView.alpha = 1
-            self.iCarouselView.type = iCarouselType.Linear
+            self.iCarouselView.type = iCarouselType.linear
             self.iCarouselView.reloadData()
             
             
@@ -183,7 +180,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     }
     
     
-    func navigationSegmentedControlValueChanged(sender: BetterSegmentedControl) {
+    func navigationSegmentedControlValueChanged(_ sender: BetterSegmentedControl) {
         if sender.index == 0 {
             hourly = true
             carouselLabel.text = hourlyTemp[carouselIndex].time
@@ -199,7 +196,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
 
 
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
          let myCurrentloc = locations[locations.count-1]
         
@@ -228,7 +225,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.reloadiCarouselData), name: "reloadiCarousel", object: nil)
+       NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reloadiCarouselData), name: NSNotification.Name(rawValue: "reloadiCarousel"), object: nil)
          addHolderView()
        
     }
@@ -238,7 +235,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
      
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         
         self.lManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -250,15 +247,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
             frame: CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.75, width: self.view.bounds.width * 0.50, height: 25.0),
             titles: ["Hourly", "Daily"],
             index: 0,
-            backgroundColor: .clearColor(),
-            titleColor: .blackColor(),
-            indicatorViewBackgroundColor:  UIColor.lightGrayColor(),
-            selectedTitleColor: .whiteColor())
+          backgroundColor: .clear,
+            titleColor: .black,
+            indicatorViewBackgroundColor:  UIColor.lightGray,
+            selectedTitleColor: .white)
         control.cornerRadius = 8.0
         
         control.titleFont = UIFont(name: "HelveticaNeue", size: 14.0)!
         
-        control.addTarget(self, action: #selector(ViewController.navigationSegmentedControlValueChanged(_:)), forControlEvents: .ValueChanged)
+        control.addTarget(self, action: #selector(ViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
         self.view.addSubview(control)
         
         
@@ -266,40 +263,40 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     
     
     
-    func carousel(carousel: iCarousel, viewForItemAtIndex index: Int, reusingView view: UIView?) -> UIView {
+    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         
         var weatherView : UIView!
         var tempLabel: UILabel
         var imageView: UIImageView
         
-        imageView = UIImageView(frame: CGRectMake(0, 0, 100, 200))
+        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
         //imageView.backgroundColor = Colors.blue
         
         if view == nil {
-            weatherView = UIView(frame: CGRectMake(0, 0, 200, 300))
+            weatherView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 300))
             
-            weatherView.contentMode = .ScaleAspectFit
+            weatherView.contentMode = .scaleAspectFit
             weatherView.layer.cornerRadius = 8.0
             weatherView.layer.borderWidth = 4
-            weatherView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).CGColor
+            weatherView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
            // weatherView.backgroundColor = Colors.red
             
             imageView.center = weatherView.center
-            imageView.contentMode = .ScaleAspectFit
+            imageView.contentMode = .scaleAspectFit
             
-            imageView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).CGColor
+            imageView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
         
-            tempLabel = UILabel(frame:CGRectMake(0, 0, 200, 20))
-            imageView.contentMode = .ScaleAspectFit
-            tempLabel.backgroundColor = UIColor.clearColor()
-            tempLabel.textAlignment = NSTextAlignment.Center
-            tempLabel.center = CGPointMake(100 , 284)
+            tempLabel = UILabel(frame:CGRect(x: 0, y: 0, width: 200, height: 20))
+            imageView.contentMode = .scaleAspectFit
+            tempLabel.backgroundColor = UIColor.clear
+            tempLabel.textAlignment = NSTextAlignment.center
+            tempLabel.center = CGPoint(x: 100 , y: 284)
            
             
             
             
         
-            tempLabel.font = tempLabel.font.fontWithSize(20)
+            tempLabel.font = tempLabel.font.withSize(20)
             tempLabel.tag = 1
             weatherView.addSubview(tempLabel)
             weatherView.addSubview(imageView)
@@ -333,22 +330,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         
     }
     
-    func carousel(carousel: iCarousel, valueForOption option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
+    func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
         
         
         switch (option)
         {
-        case .Spacing:
+        case .spacing:
             return value * 1.1
             
-        case .FadeMax:
+        case .fadeMax:
             return 0.0
-        case .FadeMin:
+        case .fadeMin:
             return 0.0
-        case .FadeRange:
+        case .fadeRange:
             return  1.0
             
-        case .FadeMinAlpha:
+        case .fadeMinAlpha:
             return 0.2
             
         // Error cannot convert return expression
@@ -359,7 +356,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         
     }
     
-    func numberOfItemsInCarousel(carousel: iCarousel) -> Int {
+    func numberOfItems(in carousel: iCarousel) -> Int {
         
      //  let numberOfItemsInArray = Int(imageArray.count) + 1
         
@@ -367,7 +364,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         
     }
     
-    func carouselCurrentItemIndexDidChange(carousel: iCarousel) {
+    func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
         
         if hourlyTemp.count != 0 {
                 
@@ -383,14 +380,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         }
     }
     
-    func carousel(carousel: iCarousel, didSelectItemAtIndex index: Int) {
+    func carousel(_ carousel: iCarousel, didSelectItemAt index: Int) {
         
-        let DetailedCardView:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CardView")
+        let DetailedCardView:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardView")
         // self.presentViewController(viewController, animated: true, completion: nil)
         
         selectedItem = index
         
-        self.presentViewController(DetailedCardView, animated: true, completion: nil)
+        self.present(DetailedCardView, animated: true, completion: nil)
         
     }
     
@@ -421,14 +418,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
     
     func addButton() {
         let button = UIButton()
-        button.frame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
-        button.addTarget(self, action: #selector(ViewController.buttonPressed(_:)), forControlEvents: .TouchUpInside)
+        button.frame = CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height)
+        button.addTarget(self, action: #selector(ViewController.buttonPressed(_:)), for: .touchUpInside)
         view.addSubview(button)
     }
     
-    func buttonPressed(sender: UIButton!) {
+    func buttonPressed(_ sender: UIButton!) {
         view.backgroundColor = Colors.white
-        holderView = HolderView(frame: CGRectZero)
+        holderView = HolderView(frame: CGRect.zero)
         addHolderView()
     }
     

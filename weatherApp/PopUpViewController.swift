@@ -16,7 +16,7 @@ class PopUpViewController: UIViewController{
     @IBOutlet weak var popUpView: UIView!
 
    
-    @IBAction func closePopUp(sender: AnyObject) {
+    @IBAction func closePopUp(_ sender: AnyObject) {
       //  NSNotificationCenter.defaultCenter().postNotificationName("reloadiCarousel", object: nil)
         self.view.removeFromSuperview()
         
@@ -25,7 +25,7 @@ class PopUpViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
+         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         popUpView.layer.cornerRadius = 11.0
         // Do any additional setup after loading the view.
     }

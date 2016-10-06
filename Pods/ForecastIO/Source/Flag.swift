@@ -1,6 +1,6 @@
 //
 //  Flag.swift
-//  Forecast.io
+//  ForecastIO
 //
 //  Created by Satyam Ghodasara on 7/19/15.
 //  Copyright (c) 2015 Satyam. All rights reserved.
@@ -29,13 +29,13 @@ public struct Flag {
     /// Contains the IDs for each METAR station used in servicing this request.
     public let metarStations: Array<String>?
     
-    /// The presence of this property indicates that data from api.met.no was used to facilitate this request (as per their license agreement with Forecast.io).
+    /// The presence of this property indicates that data from api.met.no was used to facilitate this request (as per their license agreement).
     public let metnoLicense: Bool?
     
     /// Contains the IDs for each data station used in servicing this request.
     public let sources: Array<String>?
     
-    /// The presence of this property indicates which units were used for the data in this request. "US" units are default.
+    /// The presence of this property indicates which units were used for the data in this request. `US` units are default.
     public let units: String?
     
     /**
