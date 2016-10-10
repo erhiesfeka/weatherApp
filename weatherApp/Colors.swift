@@ -13,4 +13,6 @@ struct Colors {
   static let red = UIColor(red: 209.0 / 255.0, green: 42.0 / 255.0, blue: 24.0 / 255.0, alpha: 1.0)
   static let white = UIColor.white
   static let clear = UIColor.clear
+  static let labelBlue = UIColor(red: 211.0 / 255.0, green: 230.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
+  static let pink = UIColor(red: 219.0 / 255.0, green: 10.0 / 255.0, blue: 91.0 / 255.0, alpha: 1.0)
 }

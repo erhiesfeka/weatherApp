@@ -14,7 +14,7 @@ class OvalLayer: CAShapeLayer {
   
   override init() {
     super.init()
-    fillColor = UIColor.lightGray.cgColor  //Colors.gray.CGColor
+    fillColor = Colors.pink.cgColor//UIColor.lightGray.cgColor  //Colors.gray.CGColor
     path = ovalPathSmall.cgPath
   }
   

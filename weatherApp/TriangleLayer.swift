@@ -14,8 +14,8 @@ class TriangleLayer: CAShapeLayer {
   
   override init() {
     super.init()
-    fillColor = UIColor.lightGray.cgColor
-    strokeColor = UIColor.lightGray.cgColor
+    fillColor = Colors.pink.cgColor//UIColor.lightGray.cgColor
+    strokeColor = Colors.pink.cgColor //UIColor.lightGray.cgColor
     lineWidth = 7.0
     lineCap = kCALineCapRound
     lineJoin = kCALineJoinRound

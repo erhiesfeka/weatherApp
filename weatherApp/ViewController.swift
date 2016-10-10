@@ -172,6 +172,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         
         delay(waitTime) {
             
+            
+         
+            
             unit = self.weatherData.unit
             print( "This is what you should use for units \(unit)")
             self.cityLabel.text = self.city
@@ -258,62 +261,84 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         lManager.delegate = self
         
         let control = BetterSegmentedControl(
-            frame: CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.75, width: self.view.bounds.width * 0.50, height: 25.0),
+            frame: CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.80, width: self.view.bounds.width * 0.50, height: 25.0),
             titles: ["Hourly", "Daily"],
             index: 0,
             backgroundColor: .clear,
             titleColor: .black,
-            indicatorViewBackgroundColor:  UIColor.lightGray,
-            selectedTitleColor: .white)
+            indicatorViewBackgroundColor:  Colors.pink,
+            selectedTitleColor: Colors.labelBlue)
         control.cornerRadius = 8.0
         
         control.titleFont = UIFont(name: "HelveticaNeue", size: 14.0)!
         
         control.addTarget(self, action: #selector(ViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
-        self.view.insertSubview(control, belowSubview: view)
+        self.view.addSubview(control)
         
-        self.view.subviews[0].insertSubview(control, at: 0)
     }
     
-    
+  
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         
         var weatherView : UIView!
         var tempLabel: UILabel
         var imageView: UIImageView
+        var backgroundView = UIImageView()
         
         imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
         //imageView.backgroundColor = Colors.blue
         
         if view == nil {
-            weatherView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 300))
-            
+            weatherView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 370))
+        
             weatherView.contentMode = .scaleAspectFit
-            weatherView.layer.cornerRadius = 8.0
-            weatherView.layer.borderWidth = 4
-            weatherView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
-            // weatherView.backgroundColor = Colors.red
+            weatherView.layer.cornerRadius = 12.0
+         //   weatherView.layer.borderWidth = 4
+          //  weatherView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
+            weatherView.backgroundColor = Colors.white
             
             imageView.center = weatherView.center
             imageView.contentMode = .scaleAspectFit
             
             imageView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
             
-            tempLabel = UILabel(frame:CGRect(x: 0, y: 0, width: 200, height: 20))
+            tempLabel = UILabel(frame:CGRect(x: 0, y: 0, width: 250, height: 60))
             imageView.contentMode = .scaleAspectFit
             tempLabel.backgroundColor = UIColor.clear
             tempLabel.textAlignment = NSTextAlignment.center
             tempLabel.center = CGPoint(x: 100 , y: 284)
             
+
             
             
+           
+            let maskPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 250, height: 260),
+                                        byRoundingCorners: [.topLeft, .topRight],
+                                        cornerRadii: CGSize(width: 8.0, height: 8.0))
+            
+            let shape = CAShapeLayer()
+            shape.path = maskPath.cgPath
+      
+            carouselLabel.textColor = Colors.labelBlue
+            backgroundView.frame = maskPath.bounds
+           // backgroundView.image = UIImage(named: "CloudyDay.jpeg")
+            backgroundView.layer.masksToBounds = true
+           // backgroundView.layer.cornerRadius = 8.0
+            backgroundView.contentMode = .scaleToFill
+            backgroundView.tintColor = Colors.pink
+            
+             backgroundView.layer.mask = shape
             
             
-            tempLabel.font = tempLabel.font.withSize(20)
+            tempLabel.font = UIFont(name:"Optima-Regular", size: 45.0)
             tempLabel.tag = 1
+            tempLabel.textColor = UIColor.white
+            tempLabel.center = backgroundView.center
+           // tempLabel.font.
+            weatherView.addSubview(backgroundView)
             weatherView.addSubview(tempLabel)
-            weatherView.addSubview(imageView)
+          //  weatherView.addSubview(imageView)
             
             
         }else{
@@ -325,15 +350,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, iCarouselData
         }
         
         if hourly {
-            imageView.image = UIImage(named: "\(iconHourly[index])")
-            tempLabel.text = "\(hourlyTemp[index].tempForhour) \(unit)"
+            backgroundView.image = UIImage(named: "\(iconHourly[index]).jpg")
+            tempLabel.text = "\(hourlyTemp[index].tempForhour)\(unit)"
             
             
             
             
         }else{
-            imageView.image = UIImage(named: "\(iconDaily[index])")
-            tempLabel.text = "\(minMaxDailyTemp[index].max) \(unit) | \(minMaxDailyTemp[index].min) \(unit)"
+            backgroundView.image = UIImage(named: "\(iconDaily[index]).jpg")
+            tempLabel.text = "\(minMaxDailyTemp[index].max)\(unit) | \(minMaxDailyTemp[index].min)\(unit)"
             
             
         }
