@@ -12,43 +12,47 @@ import Foundation
 
 class Decider {
 
-var clothesDecision = [String]()
 
+
+var clothesDecision = [String]()
+/*
  
-func decideClothes() -> String {
+func decideClothes() -> [String] {
 // Decides what clothes to wear based on temperature
+ //   var myWeatherData:WeatherData = WeatherData()
+    let avgTemp = myWeatherData.avgApparentTemp
     
     for index in 0...7{
         
-        if (index  < 0 ) {
+        if (avgTemp[index]  < 0 ) {
         
-        clothesDecision.append(" It will be \(index) degrees at. Have a winter jacket handy today")
+        clothesDecision.append(" It will be extremely cold, have a heavy jacket handy.")
         
-        }else if (index > 0 && index < 10 ) {
+        }else if (avgTemp[index] >= 0 && avgTemp[index] <= 13 ) {
         
-        clothesDecision.append(" It will be \(index) degrees. Have a jacket handy today")
+        clothesDecision.append("It will be cold, have a jacket handy today")
         
-        } else if (index > 13 && index < 20){
+        } else if (avgTemp[index] >= 14 && avgTemp[index] <= 20){
         
-        clothesDecision.append(" It will be \(index) degrees . Have a sweater handy")
+        clothesDecision.append(" It will be chilly, have a sweater handy")
         
         
-        } else if (index > 20 && index < 25) {
+        } else if (avgTemp[index] > 20 && avgTemp[index] < 25) {
         
-        clothesDecision.append("It will be \(index) degrees . Wear a T shirt and shorts")
+        clothesDecision.append("Comfortable temperature, dress comfy")
         
         } else {
         
-        clothesDecision.append ("It will be \(index) degrees . Carry a water bottle, Fucking hot")
+        clothesDecision.append ("Stay home! its burning outside")
         
         }
         
     }
    
    
-  // print(clothesDecision)
-   return(clothesDecision[0])
- }
+   print(clothesDecision)
+   return(clothesDecision)
+ }*/
     
 func decideWeatherGear(){
 // Decides what kind of weather gear to wear based on Weather conditions. For example: wear winter boots because it will snow

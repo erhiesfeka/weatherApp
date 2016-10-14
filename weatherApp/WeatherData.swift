@@ -11,6 +11,10 @@ import ForecastIO
 
 let userDefaults = UserDefaults.standard
 
+protocol weatherDataDelegate {
+    
+    func setWeather(weather: WeatherStruct)
+}
 
 class WeatherData {
     
@@ -21,25 +25,45 @@ class WeatherData {
     var iconHourly:[String] = []
     var timezone = ""
     var dailyDate: [String] = []
+    var region:String = String()
     var unit:String = String()
-  
-
-    func getweather(){
+    var minMaxDailyApparentTemp:[(min: Int, max: Int)] = []//minmax temp for daily based on how it feels like
+    var avgApparentTemp:[Int] = []
+    var delegate:weatherDataDelegate?
+    
+    
+    func averageOf(numbers: Int...) -> Float {
         
-        if userDefaults.object(forKey: "defaultUnit") != nil {
-            
-            tempFaren = userDefaults.object(forKey: "defaultUnit") as! Int
+        var numberTotal = numbers.count
+        if numberTotal == 0 {
+            return 0
         }
+        var sum = 0
         
-        switch tempFaren {
+        for number in numbers {
+            sum += number
+        }
+        return Float(sum)/Float(numberTotal)
+    }
+    
+
+    
+    func getweather(){
+        print("%%%%% Get WEATHER CALLED")
+        if userDefaults.object(forKey: "savedUnit") != nil {
             
-        case 1:
+             selectedUnit = tempUnit(rawValue: userDefaults.string(forKey: "savedUnit")!)!
+        }
+       
+        switch selectedUnit {
+            
+        case .farenheit:
             
             forecastIOClient.units = .US
             
-        case 2:
+        case .celsius:
             
-             forecastIOClient.units = .SI
+            forecastIOClient.units = .SI
             
         default:
             forecastIOClient.units = .Auto
@@ -59,6 +83,9 @@ class WeatherData {
                 self.minMaxDailyTemp.removeAll()
                 self.iconHourly.removeAll()
                 self.dailyDate.removeAll()
+                self.iconDaily.removeAll()
+                self.avgApparentTemp.removeAll()
+                self.minMaxDailyApparentTemp.removeAll()
                 
                 var thirdCounter = 0
                 
@@ -74,11 +101,11 @@ class WeatherData {
                     
                     if index == 0 {
                         
-                       self.hourlyTemp.append((time:"Now" , tempForhour: (Int(round((currentForecast.currently!.temperature)!)))))
+                        self.hourlyTemp.append((time:"Now" , tempForhour: (Int(round((currentForecast.currently!.temperature)!)))))
                         
-                       self.dailyDate.append("Today")
+                        self.dailyDate.append("Today")
                         
-                       self.iconHourly.append("\(currentForecast.currently!.icon!)")
+                        self.iconHourly.append("\(currentForecast.currently!.icon!)")
                         
                     }else{
                         
@@ -90,54 +117,57 @@ class WeatherData {
                     self.iconDaily.append("\(currentForecast.daily!.data![index].icon!)")
                     self.minMaxDailyTemp.append((min: (Int(round((currentForecast.daily?.data![index].temperatureMin)!))), max: (Int(round((currentForecast.daily?.data![index].temperatureMax)!)))))
                     
+                    //Aparent temp stuff for what to wear
+                    self.minMaxDailyApparentTemp.append((min:(Int(round((currentForecast.daily?.data![index].apparentTemperatureMin)!))) , max: (Int(round((currentForecast.daily?.data![index].apparentTemperatureMax)!)))))
+                    let minApparentTemp = self.minMaxDailyApparentTemp[index].min
+                    let maxApparentTemp = self.minMaxDailyApparentTemp[index].max
+                    self.avgApparentTemp.append(Int(round((self.averageOf(numbers: minApparentTemp, maxApparentTemp)))))
                     
-                        
+                    
                     thirdCounter += 3
                 }
                 
-
+                self.region = currentForecast.flags!.units!
+                /*
+                 print(self.minMaxDailyTemp)
+                 print(self.hourlyTemp)
+                 print(self.dailyDate)
+                 print(self.iconHourly)
+                 print(self.iconDaily)
+                 print( ">>>heres the appparent min max temp \(self.minMaxDailyApparentTemp)")
+                 print( ">>>heres the appparent average temp \(self.avgApparentTemp)")
+                 
+                 print(unit)
+                 */
                 
-               print(self.minMaxDailyTemp)
-               print(self.hourlyTemp)
-               print(self.dailyDate)
-               print(self.iconHourly)
-               print(self.iconDaily)
-               let unit = currentForecast.flags!.units!
-               print(unit)
-                
-                
-                if unit == "us"{
+                if self.region == "us"{
                     
                     self.unit = "°F"
-                    tempFaren = 1
+                    selectedUnit = .farenheit
+                    
                     
                 }else{
                     self.unit = "°C"
-                    tempFaren = 2
+                    selectedUnit = .celsius
                 }
-               
-               
+                
                 
                 
             } else if let error = error {
                 
                 print(error)
-            
+                
             }
         }
         
+        let weather = WeatherStruct(hourlyTemp: self.hourlyTemp, minMaxDailyTemp: self.minMaxDailyTemp, iconDaily: self.iconDaily, iconHourly: self.iconHourly, dailyDate: self.dailyDate, minMaxDailyApparentTemp: self.minMaxDailyApparentTemp, avgApparentTemp: self.avgApparentTemp, unit: self.unit)
+        
+        if delegate != nil  {
+            
+                self.delegate!.setWeather(weather: weather)
+    
+        }
     }
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

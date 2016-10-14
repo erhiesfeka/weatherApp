@@ -17,6 +17,7 @@ class PopUpViewController: UIViewController{
 
    
     @IBAction func closePopUp(_ sender: AnyObject) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadiCarousel"), object: nil)
          NotificationCenter.default.post(name: NSNotification.Name(rawValue: "removePopUP"), object: nil)
         self.view.removeFromSuperview()
         
