@@ -203,7 +203,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         self.getWeather()
         self.iCarouselView.reloadData()
 
-      //  let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.reloadiCarouselData), userInfo: nil, repeats: true)
+        let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.reloadiCarouselData), userInfo: nil, repeats: true)
         
     }
     
