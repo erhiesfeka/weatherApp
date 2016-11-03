@@ -32,6 +32,7 @@ class WeatherData {
     var delegate:weatherDataDelegate?
     
     
+    
     func averageOf(numbers: Int...) -> Float {
         
         var numberTotal = numbers.count

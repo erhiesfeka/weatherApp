@@ -26,6 +26,7 @@ var latitude:Double = Double()
 var longitude:Double = Double()
 var selectedUnit:tempUnit = .unknownDefault
 
+
 //Global Function
 func delay(_ delay: Double, closure: @escaping ()->()) {
     DispatchQueue.main.asyncAfter(
@@ -37,10 +38,12 @@ func delay(_ delay: Double, closure: @escaping ()->()) {
 
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate, decideWeatherDelegate {
     
     // ViewController class Variables
     var weatherData:WeatherData = WeatherData()
+    var decider:Decider = Decider()
+    var decision:[String] = []
     var hourlyTemp:[(time: String, tempForhour: Int)] = [] // hourly temp for 2 days in the future/ every three hours
     var minMaxDailyTemp:[(min: Int, max: Int)] = []// plus 7 days
     var iconDaily:[String] = []
@@ -115,12 +118,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     func getWeather() {
         self.weatherData.getweather()
+        
+       NotificationCenter.default.post(name: Notification.Name(rawValue: "startDeciding"), object: nil)
+        
     }
     
     func setWeather(weather: WeatherStruct) {
-        print("****ViewController setweather")
-        print("***hourly temp: \(weather.hourlyTemp)")
-        print("**** IconHourly \(weather.iconHourly)")
+   //     print("****ViewController setweather")
+  //      print("***hourly temp: \(weather.hourlyTemp)")
+  //      print("**** IconHourly \(weather.iconHourly)")
         
         if weather.hourlyTemp.count != 7 {
             
@@ -128,8 +134,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             delay(3.0) {
                 self.getWeather()
             }
-                
-            
             
         }else{
             
@@ -148,6 +152,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             self.iCarouselView.reloadData()
             
         }
+    }
+    
+    func decideWeather(decision: DecisionStruct) {
+        self.decision = decision.clothesDecision
+        print(">>>>> Decision \(self.decision)")
     }
     
     
@@ -196,6 +205,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reloadiCarouselData), name: NSNotification.Name(rawValue: "reloadiCarousel"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.removePopUP), name: NSNotification.Name(rawValue: "removePopUP"), object: nil)
+        self.decider.addObserver()
+        
+        self.decider.delegate = self
         addHolderView()
         
        
@@ -243,6 +255,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         
         var weatherView : UIView!
         var tempLabel: UILabel
+        var decisionLabel: UILabel
         var imageView: UIImageView
         let backgroundView = UIImageView()
         
@@ -250,51 +263,66 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         //imageView.backgroundColor = Colors.blue
         
         if view == nil {
-            weatherView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 370))
-            
-            weatherView.contentMode = .scaleAspectFit
-            weatherView.layer.cornerRadius = 12.0
-            //   weatherView.layer.borderWidth = 4
-            //  weatherView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
-            weatherView.backgroundColor = Colors.white
-            
-            imageView.center = weatherView.center
-            imageView.contentMode = .scaleAspectFit
-            
-            imageView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
-            
-            tempLabel = UILabel(frame:CGRect(x: 0, y: 0, width: 250, height: 60))
-            imageView.contentMode = .scaleAspectFit
-            tempLabel.backgroundColor = UIColor.clear
-            tempLabel.textAlignment = NSTextAlignment.center
-            tempLabel.center = CGPoint(x: 100 , y: 284)
-            
             
             let maskPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 250, height: 260),
-                                        byRoundingCorners: [.topLeft, .topRight],
-                                        cornerRadii: CGSize(width: 8.0, height: 8.0))
+                                       byRoundingCorners: [.topLeft, .topRight],
+                                       cornerRadii: CGSize(width: 8.0, height: 8.0))
             
             let shape = CAShapeLayer()
             shape.path = maskPath.cgPath
             
-            carouselLabel.textColor = Colors.labelBlue
+            weatherView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 370))
+            weatherView.contentMode = .scaleAspectFit
+            weatherView.layer.cornerRadius = 12.0
+            //weatherView.layer.borderWidth = 4
+            //weatherView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
+            weatherView.backgroundColor = Colors.white
+            
+            imageView.center = weatherView.center
+            imageView.contentMode = .scaleAspectFit
+            imageView.layer.borderColor =  UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
+            imageView.contentMode = .scaleAspectFit
+            
             backgroundView.frame = maskPath.bounds
-            // backgroundView.image = UIImage(named: "CloudyDay.jpeg")
             backgroundView.layer.masksToBounds = true
-            // backgroundView.layer.cornerRadius = 8.0
             backgroundView.contentMode = .scaleToFill
             backgroundView.tintColor = Colors.pink
-            
             backgroundView.layer.mask = shape
             
-            
+            tempLabel = UILabel(frame:CGRect(x: 0, y: 450, width: 250, height: 60))
+            tempLabel.backgroundColor = UIColor.clear
+            tempLabel.textAlignment = NSTextAlignment.center
+            tempLabel.center = backgroundView.center
+            tempLabel.textAlignment = NSTextAlignment.center
             tempLabel.font = UIFont(name:"Optima-Regular", size: 45.0)
             tempLabel.tag = 1
             tempLabel.textColor = UIColor.white
-            tempLabel.center = backgroundView.center
+         
+            
+            
+            
+            decisionLabel = UILabel(frame:CGRect(x: 0, y: 0, width: 250, height: 60))
+            decisionLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+            decisionLabel.numberOfLines = 3
+            decisionLabel.textAlignment = NSTextAlignment.center
+            decisionLabel.backgroundColor = UIColor.clear
+            decisionLabel.font = UIFont(name:"Optima-Regular", size: 16)
+            decisionLabel.tag = 2
+            decisionLabel.textColor = UIColor.black
+            decisionLabel.center = CGPoint(x: backgroundView.frame.origin.x + 128 , y: backgroundView.frame.origin.y + 310)
+            
+            
+            
+            
+            carouselLabel.textColor = Colors.labelBlue
+            
+            
+            
+            
             // tempLabel.font.
             weatherView.addSubview(backgroundView)
             weatherView.addSubview(tempLabel)
+            weatherView.addSubview(decisionLabel)
             //  weatherView.addSubview(imageView)
             
             
@@ -302,24 +330,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             
             weatherView = view
             tempLabel = weatherView.viewWithTag(1) as! UILabel!
+            decisionLabel = weatherView.viewWithTag(2) as! UILabel!
             
             view!.alpha = 1.0
         }
+        
+      
+            
         
         if hourly {
             backgroundView.image = UIImage(named: "\(iconHourly[index]).jpg")
             tempLabel.text = "\(hourlyTemp[index].tempForhour)\(self.unit)"
             
+            if self.decision.count != 0{
+            decisionLabel.text = "\(self.decision[index])"
             
-            
-            
+            }
         }else{
             backgroundView.image = UIImage(named: "\(iconDaily[index]).jpg")
             tempLabel.text = "\(minMaxDailyTemp[index].max)\(self.unit) | \(minMaxDailyTemp[index].min)\(self.unit)"
+            if self.decision.count != 0{
+            decisionLabel.text = "\(self.decision[index])"
             
-            
+            }
         }
-        
+       
         
         return weatherView
         

@@ -25,6 +25,7 @@
 		E513FADF1DBBC16900FD91E9 /* rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E513FAD81DBBC16900FD91E9 /* rain.jpg */; };
 		E513FAE01DBBC16900FD91E9 /* snow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E513FAD91DBBC16900FD91E9 /* snow.jpg */; };
 		E526B65A1D79F2B800A23C40 /* BetterSegmentedControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */; };
+		E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52F69181DC93906006439B3 /* DecisionStruct.swift */; };
 		E550A9CE1C5E6E8300C840EB /* Decider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550A9CD1C5E6E8300C840EB /* Decider.swift */; };
 		E56424041DABD6BE00F64255 /* purpleBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E56424031DABD6BE00F64255 /* purpleBackground.jpg */; };
 		E583FE781CF4D02700D455AB /* HolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FE771CF4D02700D455AB /* HolderView.swift */; };
@@ -89,6 +90,7 @@
 		E513FAD81DBBC16900FD91E9 /* rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rain.jpg; sourceTree = "<group>"; };
 		E513FAD91DBBC16900FD91E9 /* snow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snow.jpg; sourceTree = "<group>"; };
 		E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BetterSegmentedControl.framework; path = "../../Library/Developer/Xcode/DerivedData/weatherApp-dcwzowbpkfqulxhjispwhgvqajjp/Build/Products/Debug-iphonesimulator/BetterSegmentedControl/BetterSegmentedControl.framework"; sourceTree = "<group>"; };
+		E52F69181DC93906006439B3 /* DecisionStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecisionStruct.swift; sourceTree = "<group>"; };
 		E550A9CD1C5E6E8300C840EB /* Decider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decider.swift; sourceTree = "<group>"; };
 		E56424031DABD6BE00F64255 /* purpleBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = purpleBackground.jpg; sourceTree = "<group>"; };
 		E583FE771CF4D02700D455AB /* HolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolderView.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				E550A9CF1C5EAA7200C840EB /* Icons */,
 				E58D02DB1C2F283600839E97 /* Info.plist */,
 				E5EB173C1C6F86F10094AE86 /* weatherApp-Bridging-Header.h */,
+				E52F69181DC93906006439B3 /* DecisionStruct.swift */,
 			);
 			path = weatherApp;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 			files = (
 				E583FE7E1CF4D08400D455AB /* RectangleLayer.swift in Sources */,
 				E58D02D21C2F283600839E97 /* ViewController.swift in Sources */,
+				E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */,
 				E5EB173F1C6F86F20094AE86 /* iCarousel.m in Sources */,
 				E583FE7D1CF4D08400D455AB /* OvalLayer.swift in Sources */,
 				E550A9CE1C5E6E8300C840EB /* Decider.swift in Sources */,
