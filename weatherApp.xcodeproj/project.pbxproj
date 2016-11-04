@@ -260,6 +260,7 @@
 				E550A9CD1C5E6E8300C840EB /* Decider.swift */,
 				E50E06A11D3C104F006CE3E6 /* PopUpViewController.swift */,
 				E504E5361CF8CFF5001BCC37 /* WeatherData.swift */,
+				E52F69181DC93906006439B3 /* DecisionStruct.swift */,
 				E58D02D31C2F283600839E97 /* Main.storyboard */,
 				E58D02D61C2F283600839E97 /* Assets.xcassets */,
 				E58D02D81C2F283600839E97 /* LaunchScreen.storyboard */,
@@ -268,7 +269,6 @@
 				E550A9CF1C5EAA7200C840EB /* Icons */,
 				E58D02DB1C2F283600839E97 /* Info.plist */,
 				E5EB173C1C6F86F10094AE86 /* weatherApp-Bridging-Header.h */,
-				E52F69181DC93906006439B3 /* DecisionStruct.swift */,
 			);
 			path = weatherApp;
 			sourceTree = "<group>";

@@ -19,6 +19,9 @@ class Decider: weatherDataDelegate {
     var myWeatherData:WeatherData = WeatherData()
     var avgTempArray:[Int] = []
     var delegate: decideWeatherDelegate?
+    var precipIntensityArray:[Float] = []
+    var precipTypeArray:[String] = []
+    var precipProbabilityArray:[Float] = []
     
     func addObserver() {
         self.myWeatherData.delegate = self
@@ -65,28 +68,60 @@ class Decider: weatherDataDelegate {
         }
         
         
-       // print(clothesDecision)
+        // print(clothesDecision)
         return(clothesDecision)
     }
     
-    func decideWeatherGear(){
+    func decideWeatherGear() {
         // Decides what kind of weather gear to wear based on Weather conditions. For example: wear winter boots because it will snow
         
         
     }
     
-    
+    func decidePrecipIntensity() -> [String]{
+        
+        var precipIntensity = [String]()
+        
+        if avgTempArray.count == 7 {
+            
+            for index in 0...6{
+                
+                if precipIntensityArray[index] > 0 && precipIntensityArray[index] <= 0.017 {
+                    precipIntensity.append("Very light")
+                    
+                } else if precipIntensityArray[index] > 0.017 && precipIntensityArray[index] <= 0.1{
+                    precipIntensity.append("Light")
+                }else if precipIntensityArray[index] > 0.1 && precipIntensityArray[index] <= 0.4{
+                    precipIntensity.append("Moderate")
+                }else if precipIntensityArray[index] > 0.4 {
+                    precipIntensity.append("Heavy")
+                }
+                
+            }
+            
+            
+            
+        }
+        return precipIntensity
+    }
     
     func setWeather(weather: WeatherStruct) {
         //Set the fucking weather
         
         self.avgTempArray = weather.avgApparentTemp
         
-        print("$$$$$$ Average apparent temp Array \(avgTempArray)")
-        let decision = decideClothes()
+        self.precipTypeArray = weather.precipitationType
         
-        let myDecision = DecisionStruct(clothesDecision: decision)
-       
+        self.precipIntensityArray = weather.precipitationIntensity
+        
+        print("$$$$$$ Average apparent temp Array \(avgTempArray)")
+        let clothesDecision = decideClothes()
+        let intensityDecision = decidePrecipIntensity()
+        
+        let myDecision = DecisionStruct(clothesDecision: clothesDecision, precipDecision: intensityDecision)
+        
+        
+        
         if delegate != nil {
             self.delegate?.decideWeather(decision: myDecision)
         }
@@ -100,8 +135,8 @@ class Decider: weatherDataDelegate {
     
     
     
+    
+    
 }
-
-
 
 

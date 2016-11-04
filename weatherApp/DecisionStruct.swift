@@ -11,11 +11,12 @@ import Foundation
 struct DecisionStruct {
   
     let clothesDecision:[String]
+    let precipDecision:[String]
     
     
-    init(clothesDecision:[String]){
+    init(clothesDecision:[String], precipDecision:[String]){
         
         self.clothesDecision = clothesDecision
-        
+        self.precipDecision = precipDecision
     }
 }

@@ -27,6 +27,7 @@ var longitude:Double = Double()
 var selectedUnit:tempUnit = .unknownDefault
 
 
+
 //Global Function
 func delay(_ delay: Double, closure: @escaping ()->()) {
     DispatchQueue.main.asyncAfter(
@@ -43,7 +44,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     // ViewController class Variables
     var weatherData:WeatherData = WeatherData()
     var decider:Decider = Decider()
-    var decision:[String] = []
+    var clothesDecision:[String] = []
+    var precipIntensityDecision:[String] = []
     var hourlyTemp:[(time: String, tempForhour: Int)] = [] // hourly temp for 2 days in the future/ every three hours
     var minMaxDailyTemp:[(min: Int, max: Int)] = []// plus 7 days
     var iconDaily:[String] = []
@@ -59,6 +61,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     let blurEffectView = UIVisualEffectView()
     var unit:String = String()
     var hourly = true
+    var precipType:[String] = []
+    
     
     // Outlets Declared
     
@@ -144,8 +148,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             self.hourlyTemp =  weather.hourlyTemp
             self.iconHourly = weather.iconHourly
             self.iconDaily = weather.iconDaily
+            print(self.iconDaily)
             self.minMaxDailyTemp = weather.minMaxDailyTemp
             self.dailyDate = weather.dailyDate
+            self.precipType = weather.precipitationType
             self.removeHolderView()
             self.iCarouselView.alpha = 1
             self.iCarouselView.type = iCarouselType.linear
@@ -155,8 +161,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     }
     
     func decideWeather(decision: DecisionStruct) {
-        self.decision = decision.clothesDecision
-        print(">>>>> Decision \(self.decision)")
+        self.clothesDecision = decision.clothesDecision
+        self.precipIntensityDecision = decision.precipDecision
+        
+        print(">>>>> Decision \(self.clothesDecision)")
     }
     
     
@@ -342,15 +350,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             backgroundView.image = UIImage(named: "\(iconHourly[index]).jpg")
             tempLabel.text = "\(hourlyTemp[index].tempForhour)\(self.unit)"
             
-            if self.decision.count != 0{
-            decisionLabel.text = "\(self.decision[index])"
+            if self.clothesDecision.count != 0 && self.precipType.count != 0 {
+                decisionLabel.text = "\(self.clothesDecision[index]) \(self.precipIntensityDecision[index]) \(self.precipType[index]) expected."
             
             }
         }else{
             backgroundView.image = UIImage(named: "\(iconDaily[index]).jpg")
             tempLabel.text = "\(minMaxDailyTemp[index].max)\(self.unit) | \(minMaxDailyTemp[index].min)\(self.unit)"
-            if self.decision.count != 0{
-            decisionLabel.text = "\(self.decision[index])"
+            
+            if self.clothesDecision.count != 0 && self.precipType.count != 0{
+            decisionLabel.text = "\(self.clothesDecision[index]) \(self.precipIntensityDecision[index]) \(self.precipType[index]) expected."
             
             }
         }
