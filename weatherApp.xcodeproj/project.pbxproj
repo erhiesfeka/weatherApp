@@ -26,6 +26,7 @@
 		E513FAE01DBBC16900FD91E9 /* snow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E513FAD91DBBC16900FD91E9 /* snow.jpg */; };
 		E526B65A1D79F2B800A23C40 /* BetterSegmentedControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */; };
 		E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52F69181DC93906006439B3 /* DecisionStruct.swift */; };
+		E545B3ED1DD2593700E51E45 /* sleet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E545B3EC1DD2593700E51E45 /* sleet.jpg */; };
 		E550A9CE1C5E6E8300C840EB /* Decider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550A9CD1C5E6E8300C840EB /* Decider.swift */; };
 		E56424041DABD6BE00F64255 /* purpleBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E56424031DABD6BE00F64255 /* purpleBackground.jpg */; };
 		E583FE781CF4D02700D455AB /* HolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FE771CF4D02700D455AB /* HolderView.swift */; };
@@ -91,6 +92,7 @@
 		E513FAD91DBBC16900FD91E9 /* snow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snow.jpg; sourceTree = "<group>"; };
 		E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BetterSegmentedControl.framework; path = "../../Library/Developer/Xcode/DerivedData/weatherApp-dcwzowbpkfqulxhjispwhgvqajjp/Build/Products/Debug-iphonesimulator/BetterSegmentedControl/BetterSegmentedControl.framework"; sourceTree = "<group>"; };
 		E52F69181DC93906006439B3 /* DecisionStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecisionStruct.swift; sourceTree = "<group>"; };
+		E545B3EC1DD2593700E51E45 /* sleet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sleet.jpg; sourceTree = "<group>"; };
 		E550A9CD1C5E6E8300C840EB /* Decider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decider.swift; sourceTree = "<group>"; };
 		E56424031DABD6BE00F64255 /* purpleBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = purpleBackground.jpg; sourceTree = "<group>"; };
 		E583FE771CF4D02700D455AB /* HolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolderView.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				E513FAD41DBBC16900FD91E9 /* clear-night.jpg */,
 				E513FAD51DBBC16900FD91E9 /* cloudy.jpg */,
 				E513FAD61DBBC16900FD91E9 /* partly-cloudy-day.jpg */,
+				E545B3EC1DD2593700E51E45 /* sleet.jpg */,
 				E513FAD71DBBC16900FD91E9 /* partly-cloudy-night.jpg */,
 				E513FAD81DBBC16900FD91E9 /* rain.jpg */,
 				E513FAD91DBBC16900FD91E9 /* snow.jpg */,
@@ -436,6 +439,7 @@
 				E513FAE01DBBC16900FD91E9 /* snow.jpg in Resources */,
 				E513FADE1DBBC16900FD91E9 /* partly-cloudy-night.jpg in Resources */,
 				E50E600F1D3EB3A800AE7ED0 /* close.png in Resources */,
+				E545B3ED1DD2593700E51E45 /* sleet.jpg in Resources */,
 				E50E600D1D3EB18300AE7ED0 /* Gear-512.png in Resources */,
 				E50E60091D3E95B400AE7ED0 /* stairs_b.jpg in Resources */,
 				E50E60071D3E926500AE7ED0 /* wg_blurred_backgrounds_14.jpg in Resources */,

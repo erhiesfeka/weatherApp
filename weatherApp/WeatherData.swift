@@ -33,7 +33,7 @@ class WeatherData {
     var minMaxDailyApparentTemp:[(min: Int, max: Int)] = []//minmax temp for daily based on how it feels like
     var avgApparentTemp:[Int] = []
     var delegate:weatherDataDelegate?
-    var minProbablePrecip:Float = 0.31
+   
     
     
     
@@ -135,8 +135,8 @@ class WeatherData {
                     //Precipitation array to decide weather gear
                     if currentForecast.daily?.data![index].precipType == nil {
                         self.precipitationType.append("none")
-                        self.precipitationIntensity.append(0.0)
-                        self.precipitationProbability.append(0.0)
+                        self.precipitationIntensity.append(0)
+                        self.precipitationProbability.append(0)
                     }else{
                     self.precipitationType.append("\((currentForecast.daily?.data![index].precipType)!)")
                     self.precipitationIntensity.append((currentForecast.daily?.data![index].precipIntensity)!)
@@ -157,11 +157,15 @@ class WeatherData {
                  print( ">>>heres the appparent average temp \(self.avgApparentTemp)")
                  
                  print(unit)
+                 
+                 print("This is the precipitationt Type %%% \(self.precipitationType)")
+                 print("This is the precipitationt Intensity %%% \(self.precipitationIntensity)")
+                 print("This is the precipitationt Probability %%% \(self.precipitationProbability)")
                  */
-                print("This is the precipitationt Type %%% \(self.precipitationType)")
-                print("This is the precipitationt Intensity %%% \(self.precipitationIntensity)")
-                print("This is the precipitationt Probability %%% \(self.precipitationProbability)")
+                 print("This is the precipitationt Probability %%% \(self.precipitationProbability)")
+                 print(self.iconDaily)
                 
+                 print("This is the precipitationt Intensity %%% \(self.precipitationIntensity)")
                 
                 
                 if self.region == "us"{

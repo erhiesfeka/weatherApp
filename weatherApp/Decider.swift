@@ -43,7 +43,7 @@ class Decider: weatherDataDelegate {
                 
                 if (avgTempArray[index]  < 0 ) {
                     
-                    clothesDecision.append(" It will be extremely cold, have a heavy jacket handy.")
+                    clothesDecision.append(" It will be extremely cold, have a heavy jacket handy")
                     
                 }else if (avgTempArray[index] >= 0 && avgTempArray[index] <= 13 ) {
                     
@@ -93,32 +93,59 @@ class Decider: weatherDataDelegate {
                     precipIntensity.append("Light")
                 }else if precipIntensityArray[index] > 0.1 && precipIntensityArray[index] <= 0.4{
                     precipIntensity.append("Moderate")
-                }else if precipIntensityArray[index] > 0.4 {
+                }else  {
                     precipIntensity.append("Heavy")
                 }
-                
             }
-            
-            
             
         }
         return precipIntensity
     }
     
+    func concantenateDecision() -> [String] {
+        
+        var finalDecision = [String]()
+        
+        
+        
+        return finalDecision
+    }
+    
+    
+    
     func setWeather(weather: WeatherStruct) {
         //Set the fucking weather
         
-        self.avgTempArray = weather.avgApparentTemp
+        self.precipTypeArray.removeAll()
+        self.precipProbabilityArray.removeAll()
+        
         
         self.precipTypeArray = weather.precipitationType
-        
+        self.precipProbabilityArray = weather.precipitationProbability
+        self.avgTempArray = weather.avgApparentTemp
         self.precipIntensityArray = weather.precipitationIntensity
         
-        print("$$$$$$ Average apparent temp Array \(avgTempArray)")
+       // print("$$$$$$ Average apparent temp Array \(avgTempArray)")
+        
         let clothesDecision = decideClothes()
         let intensityDecision = decidePrecipIntensity()
+        var finalDecision :[String] = []
         
-        let myDecision = DecisionStruct(clothesDecision: clothesDecision, precipDecision: intensityDecision)
+      //  print ("intensity decision **** \(intensityDecision)")
+            
+        if precipProbabilityArray.count == 7 && precipTypeArray.count == 7 && intensityDecision.count == 7 {
+            
+        
+        for index in 0 ... 6 {
+            
+            if precipProbabilityArray[index] < 0.5 {
+                finalDecision.append("")
+            }else{
+                finalDecision.append("\(intensityDecision[index]) \(precipTypeArray[index]) expected")
+            }
+        }
+        
+        let myDecision = DecisionStruct(clothesDecision: clothesDecision, precipDecision: intensityDecision, finalDecision: finalDecision)
         
         
         
@@ -126,7 +153,7 @@ class Decider: weatherDataDelegate {
             self.delegate?.decideWeather(decision: myDecision)
         }
         
-        
+        }
     }
     
     

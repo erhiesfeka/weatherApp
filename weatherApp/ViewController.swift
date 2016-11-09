@@ -60,8 +60,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     var holderView = HolderView(frame: CGRect.zero)
     let blurEffectView = UIVisualEffectView()
     var unit:String = String()
-    var hourly = true
+    var hourly = false
     var precipType:[String] = []
+    var finalDecision:[String] = []
     
     
     // Outlets Declared
@@ -163,6 +164,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     func decideWeather(decision: DecisionStruct) {
         self.clothesDecision = decision.clothesDecision
         self.precipIntensityDecision = decision.precipDecision
+        self.finalDecision = decision.finalDecision
         
         print(">>>>> Decision \(self.clothesDecision)")
     }
@@ -170,12 +172,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     func navigationSegmentedControlValueChanged(_ sender: BetterSegmentedControl) {
         if sender.index == 0 {
-            hourly = true
-            carouselLabel.text = hourlyTemp[carouselIndex].time
-        }
-        else {
             hourly = false
             carouselLabel.text = dailyDate[carouselIndex]
+            
+            
+        }
+        else {
+            
+            hourly = true
+            carouselLabel.text = hourlyTemp[carouselIndex].time
+            
         }
         
         iCarouselView.reloadData()
@@ -243,7 +249,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         
         let control = BetterSegmentedControl(
             frame: CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.80, width: self.view.bounds.width * 0.50, height: 25.0),
-            titles: ["Hourly", "Daily"],
+            titles: ["Daily", "Current"],
             index: 0,
             backgroundColor: .clear,
             titleColor: .black,
@@ -311,12 +317,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             
             decisionLabel = UILabel(frame:CGRect(x: 0, y: 0, width: 250, height: 60))
             decisionLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+            if #available(iOS 8.2, *) {
+                decisionLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightSemibold)
+            } else {
+                // Fallback on earlier versions
+                 decisionLabel.font = UIFont(name:"Optima-Regular", size: 16)
+            }
             decisionLabel.numberOfLines = 3
             decisionLabel.textAlignment = NSTextAlignment.center
             decisionLabel.backgroundColor = UIColor.clear
-            decisionLabel.font = UIFont(name:"Optima-Regular", size: 16)
+           
             decisionLabel.tag = 2
-            decisionLabel.textColor = UIColor.black
+            decisionLabel.textColor = Colors.bottomLabelBlue
             decisionLabel.center = CGPoint(x: backgroundView.frame.origin.x + 128 , y: backgroundView.frame.origin.y + 310)
             
             
@@ -351,7 +363,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             tempLabel.text = "\(hourlyTemp[index].tempForhour)\(self.unit)"
             
             if self.clothesDecision.count != 0 && self.precipType.count != 0 {
-                decisionLabel.text = "\(self.clothesDecision[index]) \(self.precipIntensityDecision[index]) \(self.precipType[index]) expected."
+                decisionLabel.text = "\(self.clothesDecision[index]). \(self.finalDecision[index])"
             
             }
         }else{
@@ -359,7 +371,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             tempLabel.text = "\(minMaxDailyTemp[index].max)\(self.unit) | \(minMaxDailyTemp[index].min)\(self.unit)"
             
             if self.clothesDecision.count != 0 && self.precipType.count != 0{
-            decisionLabel.text = "\(self.clothesDecision[index]) \(self.precipIntensityDecision[index]) \(self.precipType[index]) expected."
+            decisionLabel.text = "\(self.clothesDecision[index]). \(self.finalDecision[index])"
             
             }
         }
