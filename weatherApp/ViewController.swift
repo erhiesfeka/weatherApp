@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import BetterSegmentedControl
+import UserNotifications
 
 enum tempUnit: String{
 
@@ -35,6 +36,7 @@ func delay(_ delay: Double, closure: @escaping ()->()) {
         execute: closure
     )
 }
+
 
 
 
@@ -118,7 +120,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         self.blurEffectView.removeFromSuperview()
     }
     
-    
+    func localNotification(){
+        
+        let calendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
+        var dateFire = NSDate()
+        
+        var fireComponents = calendar.components([.day, .month,.year,.hour,.minute], from:dateFire as Date)
+        
+        if (fireComponents.hour! >= 19) {
+            dateFire=dateFire.addingTimeInterval(86400)  // Use tomorrow's date
+            
+            fireComponents=calendar.components([.day, .month,.year,.hour,.minute], from:dateFire as Date)
+        }
+        
+        
+        fireComponents.hour = 17
+        fireComponents.minute = 25
+        
+        dateFire = calendar.date(from: fireComponents)! as NSDate
+        
+        let localNotification = UILocalNotification()
+        localNotification.fireDate = dateFire as Date
+        localNotification.alertBody = "A new day has begun! Don't get caught outside with the wrong clothes for the weather?"
+        localNotification.repeatInterval = NSCalendar.Unit.day
+        
+       // UIApplication.shared.cancelAllLocalNotifications()
+        UIApplication.shared.scheduleLocalNotification(localNotification)
+        
+        
+    }
   
     
     func getWeather() {
@@ -220,6 +250,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reloadiCarouselData), name: NSNotification.Name(rawValue: "reloadiCarousel"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.removePopUP), name: NSNotification.Name(rawValue: "removePopUP"), object: nil)
         self.decider.addObserver()
+        
+        localNotification()
         
         self.decider.delegate = self
         addHolderView()
