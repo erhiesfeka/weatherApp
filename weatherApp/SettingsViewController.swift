@@ -8,11 +8,14 @@
 
 import UIKit
 import BetterSegmentedControl
+import GooglePlaces
 
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var control1: BetterSegmentedControl!
-    // @IBOutlet weak var control2: BetterSegmentedControl!
+    @IBOutlet weak var control2: BetterSegmentedControl!
+ 
+    
     //  @IBOutlet weak var control3: BetterSegmentedControl!
     
     var tempCelcius:Bool = Bool()
@@ -46,13 +49,23 @@ class SettingsViewController: UIViewController {
         default:
             print("*>*>*> something's not right")
         }
+        
         control1.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
-        /*
+        
          control2.titles = ["Yes","No"]
          control2.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
          control2.alwaysAnnouncesValue = true
-         control2.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
-         
+        
+        do{
+            try control2.set(2, animated: false)
+        }catch _{
+            print ("no such index")
+        }
+         control2.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControl2ValueChanged(_:)), for: .valueChanged)
+        
+        
+        
+         /*
          control3.titles = ["Yes","No"]
          control3.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
          control3.alwaysAnnouncesValue = true
@@ -103,7 +116,62 @@ class SettingsViewController: UIViewController {
         
     }
     
+    func navigationSegmentedControl2ValueChanged(_ sender: BetterSegmentedControl){
+        if sender.index == 1 {
+            
+            print("Manually enter location")
+           
+            let autocompleteController = GMSAutocompleteViewController()
+             autocompleteController.delegate = self
+            self.present(autocompleteController, animated: true, completion: nil)
+            
+            
+        }
+        else {
+            
+             print("Dont Manually enter location")
+            
+        }
+        
+    }
     
     
+
+
+    
+    
+}
+
+extension SettingsViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place name: ", place.name)
+        print("Place address: ", place.formattedAddress)
+        print("Place attributions: ", place.attributions)
+        print("Place Longitude: ", place.coordinate.longitude)
+        print("Place Latitude: ", place.coordinate.latitude)
+        self.dismiss(animated: true, completion: nil)
+        self.view.removeFromSuperview()
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
     
 }

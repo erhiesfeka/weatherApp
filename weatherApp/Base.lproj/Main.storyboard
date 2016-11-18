@@ -246,10 +246,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="323" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gkr-We-0mC" userLabel="Control 1" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Temperature Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTZ-sm-vAP">
+                                <rect key="frame" x="16" y="49" width="164" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="2mX-Va-DR7"/>
+                                    <constraint firstAttribute="width" constant="164" id="uky-6p-muZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Manually Set Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqe-O0-fXW">
+                                <rect key="frame" x="16" y="81" width="143" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="143" id="8Oe-T1-dfM"/>
+                                    <constraint firstAttribute="height" constant="52" id="RD4-Dr-Zjy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6p-1a-qod" userLabel="Control 2" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <rect key="frame" x="188" y="93" width="130" height="24"/>
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="2Le-oJ-TZN"/>
+                                    <constraint firstAttribute="width" constant="130" id="Ecb-L0-VPw"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
+                                        <color key="value" red="0.97254901959999995" green="0.82745098039999998" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkr-We-0mC" userLabel="Control 1" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
                                 <rect key="frame" x="188" y="49" width="130" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="GEn-fs-cOP"/>
+                                    <constraint firstAttribute="width" constant="130" id="hRv-sS-Mla"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
                                         <color key="value" red="0.97254901959999995" green="0.82745098039999998" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -268,23 +316,27 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Temperature Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTZ-sm-vAP">
-                                <rect key="frame" x="9" y="49" width="185" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="a6p-1a-qod" secondAttribute="trailing" constant="5" id="0D0-2o-Zum"/>
+                            <constraint firstItem="gkr-We-0mC" firstAttribute="top" secondItem="dVa-8q-Rpw" secondAttribute="bottom" constant="49" id="6Pd-1u-W5G"/>
+                            <constraint firstAttribute="trailing" secondItem="gkr-We-0mC" secondAttribute="trailing" constant="5" id="LDT-GF-UeU"/>
+                            <constraint firstItem="0BV-ZS-Wl0" firstAttribute="top" secondItem="pqe-O0-fXW" secondAttribute="bottom" constant="239" id="Mm3-mC-qha"/>
+                            <constraint firstItem="sTZ-sm-vAP" firstAttribute="top" secondItem="dVa-8q-Rpw" secondAttribute="bottom" constant="49" id="cUl-8t-F9s"/>
+                            <constraint firstItem="pqe-O0-fXW" firstAttribute="leading" secondItem="pFd-Te-SYg" secondAttribute="leadingMargin" constant="5" id="ibe-Ae-vdm"/>
+                            <constraint firstItem="sTZ-sm-vAP" firstAttribute="leading" secondItem="pFd-Te-SYg" secondAttribute="leadingMargin" constant="5" id="tIC-Uu-Ij6"/>
+                            <constraint firstItem="0BV-ZS-Wl0" firstAttribute="top" secondItem="a6p-1a-qod" secondAttribute="bottom" constant="255" id="yie-2P-URn"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="control1" destination="gkr-We-0mC" id="n9r-by-BoU"/>
+                        <outlet property="control2" destination="a6p-1a-qod" id="5mf-ep-B9k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpw-hQ-rju" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018.4" y="46.776611694152926"/>
+            <point key="canvasLocation" x="972" y="46.776611694152926"/>
         </scene>
     </scenes>
     <resources>

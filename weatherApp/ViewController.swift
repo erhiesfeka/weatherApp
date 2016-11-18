@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import BetterSegmentedControl
 import UserNotifications
+import GooglePlaces
 
 enum tempUnit: String{
 
@@ -41,7 +42,7 @@ func delay(_ delay: Double, closure: @escaping ()->()) {
 
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate, decideWeatherDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate, decideWeatherDelegate  {
     
     // ViewController class Variables
     var weatherData:WeatherData = WeatherData()
