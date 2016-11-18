@@ -58,7 +58,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     var label =  String()
     var i = Int()
     var carouselIndex:Int = Int()
-    var city:String = String()
+    var city:String? = String()
     var holderView = HolderView(frame: CGRect.zero)
     let blurEffectView = UIVisualEffectView()
     var unit:String = String()
@@ -81,6 +81,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     // Settings Button to reveal popup
     @IBAction func revealPopUp(_ sender: AnyObject) {
         
+    openSettings()
+        
+    }
+    
+    
+    
+    // ReloadData debug option
+    @IBAction func reloadData(_ sender: AnyObject) {
+        
+        self.getWeather()
+    }
+    
+    func openSettings(){
+        
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         self.blurEffectView.effect = blurEffect
         blurEffectView.frame = view.bounds
@@ -97,17 +111,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
         print("This is unit when the settings button is pressed \(self.unit)")
-        
     }
-    
-    
-    // ReloadData debug option
-    @IBAction func reloadData(_ sender: AnyObject) {
-        
-        self.getWeather()
-    }
-    
-    
     func reloadiCarouselData() {
         
         self.getWeather()
@@ -121,31 +125,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     }
     
     func localNotification(){
-        
+        UIApplication.shared.cancelAllLocalNotifications()
         let calendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
         var dateFire = NSDate()
         
         var fireComponents = calendar.components([.day, .month,.year,.hour,.minute], from:dateFire as Date)
         
-        if (fireComponents.hour! >= 19) {
+        if (fireComponents.hour! >= 7) {
             dateFire=dateFire.addingTimeInterval(86400)  // Use tomorrow's date
             
             fireComponents=calendar.components([.day, .month,.year,.hour,.minute], from:dateFire as Date)
         }
         
         
-        fireComponents.hour = 17
-        fireComponents.minute = 25
+        fireComponents.hour = 7
+        fireComponents.minute = 0
         
         dateFire = calendar.date(from: fireComponents)! as NSDate
         
         let localNotification = UILocalNotification()
         localNotification.fireDate = dateFire as Date
-        localNotification.alertBody = "A new day has begun! Don't get caught outside with the wrong clothes for the weather?"
+        localNotification.alertBody = "A new day has begun! Don't get caught outside with the wrong clothes for the weather!"
         localNotification.repeatInterval = NSCalendar.Unit.day
+        localNotification.applicationIconBadgeNumber = 1
+       // localNotification.soundName = "
         
-       // UIApplication.shared.cancelAllLocalNotifications()
         UIApplication.shared.scheduleLocalNotification(localNotification)
+        print("here>>>\(UIApplication.shared.scheduledLocalNotifications)")
+  
         
         
     }
@@ -237,7 +244,49 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
                 
             }
             
+       
+            
         }
+        
+    }
+    
+    func openCityAlert(){
+        
+        //create alert controller
+       
+        let alert = UIAlertController(title: "Location services off", message: "Turn on location services from your phone's settings or enter location manually",
+                                      preferredStyle: UIAlertControllerStyle.alert)
+        
+        //create Cancel action
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        
+        alert.addAction(cancel)
+        
+        //createe OK action
+        let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action: UIAlertAction) -> Void in
+        //    let textFeild = alert.textFields?[0]
+         //   self.city = textFeild?.text!
+            
+          //  self.cityLabel.text = self.city
+            self.openSettings()
+            
+            
+        }
+        
+        alert.addAction(ok)
+        
+        //Add text Feild
+       /* alert.addTextField { (textFeild:UITextField) -> Void in
+            
+            textFeild.placeholder = "City Name"
+        }*/
+        
+       self.present(alert, animated: true, completion: nil)
+       //self.present(alert, animated: true) {
+           
+      //  }
+        
+        
         
     }
     
@@ -245,6 +294,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
         self.weatherData.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reloadiCarouselData), name: NSNotification.Name(rawValue: "reloadiCarousel"), object: nil)
@@ -260,10 +312,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             
         self.getWeather()
         self.iCarouselView.reloadData()
-
+        
+        
+        
         let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.reloadiCarouselData), userInfo: nil, repeats: true)
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .notDetermined, .restricted, .denied:
+                print("No access")
+                openCityAlert()
+            case .authorizedAlways, .authorizedWhenInUse:
+                print("Access")
+            default:
+                print("...")
+            }
+        } else {
+            print("Location services are not enabled")
+            
+        }
+        
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -293,9 +367,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         
         control.addTarget(self, action: #selector(ViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
         self.view.addSubview(control)
+      
         
     }
-    
+    func willEnterForeground() {
+        
+        UIApplication.shared.applicationIconBadgeNumber = 0
+
+    }
+  
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         

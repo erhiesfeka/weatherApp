@@ -163,7 +163,7 @@ class WeatherData {
                  print("This is the precipitationt Probability %%% \(self.precipitationProbability)")
                  */
                  print("This is the precipitationt Probability %%% \(self.precipitationProbability)")
-                 print(self.iconDaily)
+                 print("Icondaily \(self.iconHourly)")
                 
                  print("This is the precipitationt Intensity %%% \(self.precipitationIntensity)")
                 
