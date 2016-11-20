@@ -45,16 +45,16 @@ class Decider: weatherDataDelegate {
                     
                     clothesDecision.append(" It will be extremely cold, have a heavy jacket handy")
                     
-                }else if (avgTempArray[index] >= 0 && avgTempArray[index] <= 13 ) {
+                }else if (avgTempArray[index] >= 0 && avgTempArray[index] <= 11 ) {
                     
                     clothesDecision.append("It will be cold, have a jacket handy today")
                     
-                } else if (avgTempArray[index] >= 14 && avgTempArray[index] <= 20){
+                } else if (avgTempArray[index] >= 12 && avgTempArray[index] <= 18){
                     
                     clothesDecision.append(" It will be chilly, have a sweater handy")
                     
                     
-                } else if (avgTempArray[index] > 20 && avgTempArray[index] < 25) {
+                } else if (avgTempArray[index] > 18 && avgTempArray[index] < 25) {
                     
                     clothesDecision.append("Comfortable temperature, dress comfy")
                     

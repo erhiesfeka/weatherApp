@@ -11,9 +11,21 @@ import BetterSegmentedControl
 import GooglePlaces
 
 
+
 class SettingsViewController: UIViewController {
     @IBOutlet weak var control1: BetterSegmentedControl!
     @IBOutlet weak var control2: BetterSegmentedControl!
+    @IBOutlet weak var selectCityButton: UIButton!
+    @IBAction func Select(_ sender: Any) {
+        
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        let filter = GMSAutocompleteFilter()
+        filter.type = .city
+        autocompleteController.autocompleteFilter = filter
+        self.present(autocompleteController, animated: true, completion: nil)
+        
+    }
  
     
     //  @IBOutlet weak var control3: BetterSegmentedControl!
@@ -26,6 +38,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        // Temperature Unit control
         
         control1.titles = ["°C","°F"]
         control1.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
@@ -50,19 +64,32 @@ class SettingsViewController: UIViewController {
             print("*>*>*> something's not right")
         }
         
+        //Manually set location COntrol
+        if manualLocation == false{
+            selectCityButton.isEnabled = false
+        }
         control1.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
         
          control2.titles = ["Yes","No"]
          control2.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
          control2.alwaysAnnouncesValue = true
         
+        if manualLocation == false {
+            
         do{
-            try control2.set(2, animated: false)
+            try control2.set(1, animated: false)
         }catch _{
             print ("no such index")
         }
-         control2.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControl2ValueChanged(_:)), for: .valueChanged)
-        
+         
+        }else{
+            do{
+                try control2.set(0, animated: false)
+            }catch _{
+                print ("no such index")
+            }
+        }
+        control2.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControl2ValueChanged(_:)), for: .valueChanged)
         
         
          /*
@@ -117,28 +144,26 @@ class SettingsViewController: UIViewController {
     }
     
     func navigationSegmentedControl2ValueChanged(_ sender: BetterSegmentedControl){
-        if sender.index == 1 {
-            
+        if sender.index == 0 {
+            selectCityButton.isEnabled = true
             print("Manually enter location")
+            
+            manualLocation = true
+            
            
-            let autocompleteController = GMSAutocompleteViewController()
-             autocompleteController.delegate = self
-            self.present(autocompleteController, animated: true, completion: nil)
-            
-            
         }
         else {
-            
+             selectCityButton.isEnabled = false
              print("Dont Manually enter location")
-            
+             manualLocation = false
+             city = ""
+             latitude = 0
+             longitude = 0
         }
         
     }
     
-    
 
-
-    
     
 }
 
@@ -149,11 +174,16 @@ extension SettingsViewController: GMSAutocompleteViewControllerDelegate {
         print("Place name: ", place.name)
         print("Place address: ", place.formattedAddress)
         print("Place attributions: ", place.attributions)
+        city = place.name
         print("Place Longitude: ", place.coordinate.longitude)
+        latitude = place.coordinate.latitude
+        longitude = place.coordinate.longitude
         print("Place Latitude: ", place.coordinate.latitude)
         self.dismiss(animated: true, completion: nil)
-        self.view.removeFromSuperview()
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "clickClose"), object: nil)
     }
+    
+    
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         // TODO: handle the error.

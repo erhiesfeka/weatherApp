@@ -13,7 +13,7 @@ import UserNotifications
 import GooglePlaces
 
 enum tempUnit: String{
-
+    
     case celsius = "°C"
     case farenheit = "°F"
     case unknownDefault = "Unit"
@@ -24,12 +24,11 @@ var selectedItem :Int = Int()
 var description:String = String()
 var currentDesc:String = String()
 var tempNow:Int = Int()
-var latitude:Double = Double()
-var longitude:Double = Double()
+var latitude:Double? = Double()
+var longitude:Double? = Double()
 var selectedUnit:tempUnit = .unknownDefault
-
-
-
+var city:String? = String()
+var manualLocation = false
 //Global Function
 func delay(_ delay: Double, closure: @escaping ()->()) {
     DispatchQueue.main.asyncAfter(
@@ -37,9 +36,6 @@ func delay(_ delay: Double, closure: @escaping ()->()) {
         execute: closure
     )
 }
-
-
-
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate, decideWeatherDelegate  {
@@ -59,7 +55,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     var label =  String()
     var i = Int()
     var carouselIndex:Int = Int()
-    var city:String? = String()
+    
     var holderView = HolderView(frame: CGRect.zero)
     let blurEffectView = UIVisualEffectView()
     var unit:String = String()
@@ -82,7 +78,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     // Settings Button to reveal popup
     @IBAction func revealPopUp(_ sender: AnyObject) {
         
-    openSettings()
+        openSettings()
         
     }
     
@@ -149,27 +145,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         localNotification.alertBody = "A new day has begun! Don't get caught outside with the wrong clothes for the weather!"
         localNotification.repeatInterval = NSCalendar.Unit.day
         localNotification.applicationIconBadgeNumber = 1
-       // localNotification.soundName = "
         
         UIApplication.shared.scheduleLocalNotification(localNotification)
-        print("here>>>\(UIApplication.shared.scheduledLocalNotifications)")
-  
+        
+        
         
         
     }
-  
+    
     
     func getWeather() {
+        
         self.weatherData.getweather()
         
-       NotificationCenter.default.post(name: Notification.Name(rawValue: "startDeciding"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "startDeciding"), object: nil)
         
     }
     
     func setWeather(weather: WeatherStruct) {
-   //     print("****ViewController setweather")
-  //      print("***hourly temp: \(weather.hourlyTemp)")
-  //      print("**** IconHourly \(weather.iconHourly)")
+        //     print("****ViewController setweather")
+        //      print("***hourly temp: \(weather.hourlyTemp)")
+        //      print("**** IconHourly \(weather.iconHourly)")
         
         if weather.hourlyTemp.count != 7 {
             
@@ -181,9 +177,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         }else{
             
             self.unit = weather.unit
-          //  self.unit = selectedUnit.rawValue
+            //  self.unit = selectedUnit.rawValue
             print( "This is what you should use for units \(self.unit)")
-            self.cityLabel.text = self.city
+            self.cityLabel.text = city
             self.hourlyTemp =  weather.hourlyTemp
             self.iconHourly = weather.iconHourly
             self.iconDaily = weather.iconDaily
@@ -230,22 +226,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+        print("Location Manager Called")
         let myCurrentloc = locations[locations.count-1]
         
         latitude = myCurrentloc.coordinate.latitude
         longitude = myCurrentloc.coordinate.longitude
         
-        
         CLGeocoder().reverseGeocodeLocation(myCurrentloc) { (myPlacements, geoError) -> Void in
             
             if let myPlacement = myPlacements?.first {
-                self.city = myPlacement.locality!
+                city = myPlacement.locality!
                 
                 self.lManager.stopUpdatingLocation()
-                
             }
-            
-       
             
         }
         
@@ -254,7 +247,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     func openCityAlert(){
         
         //create alert controller
-       
+        
         let alert = UIAlertController(title: "Location services off", message: "Turn on location services from your phone's settings or enter location manually",
                                       preferredStyle: UIAlertControllerStyle.alert)
         
@@ -265,30 +258,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         
         //createe OK action
         let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action: UIAlertAction) -> Void in
-        //    let textFeild = alert.textFields?[0]
-         //   self.city = textFeild?.text!
             
-          //  self.cityLabel.text = self.city
             self.openSettings()
-            
             
         }
         
         alert.addAction(ok)
         
-        //Add text Feild
-       /* alert.addTextField { (textFeild:UITextField) -> Void in
-            
-            textFeild.placeholder = "City Name"
-        }*/
+        print (" THis is my city: \(city)")
         
-       self.present(alert, animated: true, completion: nil)
-       //self.present(alert, animated: true) {
-           
-      //  }
-        
-        
-        
+        if city == "" {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     
@@ -296,7 +277,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
         self.weatherData.delegate = self
         
@@ -309,18 +290,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         self.decider.delegate = self
         addHolderView()
         
-       
-            
         self.getWeather()
         self.iCarouselView.reloadData()
         
-        
+        print("Latitude and Longitude are: \(latitude) && \(longitude)")
         
         let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.reloadiCarouselData), userInfo: nil, repeats: true)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         if CLLocationManager.locationServicesEnabled() {
             switch(CLLocationManager.authorizationStatus()) {
             case .notDetermined, .restricted, .denied:
@@ -347,12 +327,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     override func viewWillAppear(_ animated: Bool) {
         
+        if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            if manualLocation == false{
+                self.lManager.desiredAccuracy = kCLLocationAccuracyBest
+                self.lManager.requestAlwaysAuthorization()
+                self.lManager.startUpdatingLocation()
+                lManager.delegate = self
+            }
+        }
         
-        
-        self.lManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.lManager.requestAlwaysAuthorization()
-        self.lManager.startUpdatingLocation()
-        lManager.delegate = self
         
         let control = BetterSegmentedControl(
             frame: CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.80, width: self.view.bounds.width * 0.50, height: 25.0),
@@ -368,15 +351,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         
         control.addTarget(self, action: #selector(ViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
         self.view.addSubview(control)
-      
+        
         
     }
     func willEnterForeground() {
         
         UIApplication.shared.applicationIconBadgeNumber = 0
-
+        
     }
-  
+    
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         
@@ -392,8 +375,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         if view == nil {
             
             let maskPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 250, height: 260),
-                                       byRoundingCorners: [.topLeft, .topRight],
-                                       cornerRadii: CGSize(width: 8.0, height: 8.0))
+                                        byRoundingCorners: [.topLeft, .topRight],
+                                        cornerRadii: CGSize(width: 8.0, height: 8.0))
             
             let shape = CAShapeLayer()
             shape.path = maskPath.cgPath
@@ -424,9 +407,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             tempLabel.font = UIFont(name:"Optima-Regular", size: 45.0)
             tempLabel.tag = 1
             tempLabel.textColor = UIColor.white
-         
-            
-            
             
             decisionLabel = UILabel(frame:CGRect(x: 0, y: 0, width: 250, height: 60))
             decisionLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -434,23 +414,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
                 decisionLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightSemibold)
             } else {
                 // Fallback on earlier versions
-                 decisionLabel.font = UIFont(name:"Optima-Regular", size: 16)
+                decisionLabel.font = UIFont(name:"Optima-Regular", size: 16)
             }
             decisionLabel.numberOfLines = 3
             decisionLabel.textAlignment = NSTextAlignment.center
             decisionLabel.backgroundColor = UIColor.clear
-           
+            
             decisionLabel.tag = 2
             decisionLabel.textColor = Colors.bottomLabelBlue
             decisionLabel.center = CGPoint(x: backgroundView.frame.origin.x + 128 , y: backgroundView.frame.origin.y + 310)
             
             
-            
-            
             carouselLabel.textColor = Colors.labelBlue
-            
-            
-            
             
             // tempLabel.font.
             weatherView.addSubview(backgroundView)
@@ -468,8 +443,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             view!.alpha = 1.0
         }
         
-      
-            
+        
+        
         
         if hourly {
             backgroundView.image = UIImage(named: "\(iconHourly[index]).jpg")
@@ -477,18 +452,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             
             if self.clothesDecision.count != 0 && self.precipType.count != 0 {
                 decisionLabel.text = "\(self.clothesDecision[index]). \(self.finalDecision[index])"
-            
+                
             }
         }else{
             backgroundView.image = UIImage(named: "\(iconDaily[index]).jpg")
             tempLabel.text = "\(minMaxDailyTemp[index].max)\(self.unit) | \(minMaxDailyTemp[index].min)\(self.unit)"
             
             if self.clothesDecision.count != 0 && self.precipType.count != 0{
-            decisionLabel.text = "\(self.clothesDecision[index]). \(self.finalDecision[index])"
-            
+                decisionLabel.text = "\(self.clothesDecision[index]). \(self.finalDecision[index])"
+                
             }
         }
-       
+        
         
         return weatherView
         

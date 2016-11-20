@@ -80,7 +80,11 @@ class WeatherData {
         func ltzAbbrev() -> String { return NSTimeZone.local.abbreviation() ?? "" }
         timezone = ltzAbbrev()
         
-        forecastIOClient.getForecast(latitude: latitude, longitude: longitude) { (currentForecast, error) -> Void in
+        if latitude == 0 && longitude == 0 {
+            // location services didn't work
+            
+        }else{
+        forecastIOClient.getForecast(latitude: latitude!, longitude: longitude!) { (currentForecast, error) -> Void in
             if let currentForecast = currentForecast {
                 
                 
@@ -162,11 +166,12 @@ class WeatherData {
                  print("This is the precipitationt Intensity %%% \(self.precipitationIntensity)")
                  print("This is the precipitationt Probability %%% \(self.precipitationProbability)")
                  */
-                 print("This is the precipitationt Probability %%% \(self.precipitationProbability)")
+                 //print("This is the precipitationt Probability %%% \(self.precipitationProbability)")
                  print("Icondaily \(self.iconHourly)")
                 
-                 print("This is the precipitationt Intensity %%% \(self.precipitationIntensity)")
-                
+                 //print("This is the precipitationt Intensity %%% \(self.precipitationIntensity)")
+                print( ">>>heres the appparent average temp \(self.avgApparentTemp)")
+
                 
                 if self.region == "us"{
                     
@@ -187,7 +192,7 @@ class WeatherData {
                 
             }
         }
-        
+        }
         let weather = WeatherStruct(hourlyTemp: self.hourlyTemp, minMaxDailyTemp: self.minMaxDailyTemp, iconDaily: self.iconDaily, iconHourly: self.iconHourly, dailyDate: self.dailyDate, minMaxDailyApparentTemp: self.minMaxDailyApparentTemp, avgApparentTemp: self.avgApparentTemp, unit: self.unit, precipitationType: self.precipitationType, precipitationIntensity: self.precipitationIntensity, precipitationProbability: self.precipitationProbability)
         
         if delegate != nil  {
