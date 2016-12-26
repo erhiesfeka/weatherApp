@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import BetterSegmentedControl
+import BubbleTransition
 import UserNotifications
 import GooglePlaces
 
@@ -38,7 +39,7 @@ func delay(_ delay: Double, closure: @escaping ()->()) {
 }
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate, decideWeatherDelegate  {
+class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate, decideWeatherDelegate, UIViewControllerTransitioningDelegate  {
     
     // ViewController class Variables
     var weatherData:WeatherData = WeatherData()
@@ -49,6 +50,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     var minMaxDailyTemp:[(min: Int, max: Int)] = []// plus 7 days
     var iconDaily:[String] = []
     var iconHourly:[String] = []
+    var hourlySummary:[String] = []
     var timezone = ""
     var dailyDate: [String] = []
     let lManager = CLLocationManager()
@@ -62,6 +64,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     var hourly = false
     var precipType:[String] = []
     var finalDecision:[String] = []
+    let transition = BubbleTransition()
+    
     
     
     // Outlets Declared
@@ -74,6 +78,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     @IBOutlet weak var whatToWearLabel: UILabel!
     @IBOutlet weak var iCarouselView: iCarousel!
     @IBOutlet weak var reloadButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
     
     // Settings Button to reveal popup
     @IBAction func revealPopUp(_ sender: AnyObject) {
@@ -88,9 +93,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     @IBAction func reloadData(_ sender: AnyObject) {
         
         self.getWeather()
+        iCarouselView.reloadData()
     }
     
     func openSettings(){
+        
+        let controller = PopUpViewController()
+        controller.modalPresentationStyle = .custom
+        controller.transitioningDelegate = self
+        
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         self.blurEffectView.effect = blurEffect
@@ -100,6 +111,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         
         print("settings button reveals popup")
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbPopUpID") as! PopUpViewController
+    
         
         self.addChildViewController(popOverVC)
         
@@ -109,11 +121,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         popOverVC.didMove(toParentViewController: self)
         print("This is unit when the settings button is pressed \(self.unit)")
     }
+    
+    
+    // MARK: UIViewControllerTransitioningDelegate
+    
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        transition.startingPoint = settingsButton.center
+        transition.bubbleColor = cityLabel.textColor
+        
+        return transition
+    }
+    
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .dismiss
+        transition.startingPoint = settingsButton.center
+        transition.bubbleColor = cityLabel.textColor
+        return transition
+    }
+    
+    
     func reloadiCarouselData() {
         
         self.getWeather()
         self.iCarouselView.reloadData()
-        print("iwascalled")
+        print("ReloadCarouselWascalled")
     }
     
     func removePopUP(){
@@ -183,7 +215,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             self.hourlyTemp =  weather.hourlyTemp
             self.iconHourly = weather.iconHourly
             self.iconDaily = weather.iconDaily
-            print(self.iconDaily)
+            self.hourlySummary = weather.hourlySummary
+            print(" Icon Daily friom set weather >>> \(self.iconDaily)")
             self.minMaxDailyTemp = weather.minMaxDailyTemp
             self.dailyDate = weather.dailyDate
             self.precipType = weather.precipitationType
@@ -236,7 +269,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             
             if let myPlacement = myPlacements?.first {
                 city = myPlacement.locality!
-                
+                self.cityLabel.text = city
                 self.lManager.stopUpdatingLocation()
             }
             
@@ -272,6 +305,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         }
     }
     
+    func updateLocation(){
+        
+        if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            if manualLocation == false{
+                self.lManager.desiredAccuracy = kCLLocationAccuracyBest
+                self.lManager.requestAlwaysAuthorization()
+                self.lManager.startUpdatingLocation()
+                lManager.delegate = self
+            }
+        }
+        self.cityLabel.text = city
+        self.getWeather()
+    }
+    
     
     
     override func viewDidLoad() {
@@ -283,6 +330,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.reloadiCarouselData), name: NSNotification.Name(rawValue: "reloadiCarousel"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.removePopUP), name: NSNotification.Name(rawValue: "removePopUP"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.updateLocation), name: NSNotification.Name(rawValue: "updateLocation"), object: nil)
+        
         self.decider.addObserver()
         
         localNotification()
@@ -295,12 +344,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         
         print("Latitude and Longitude are: \(latitude) && \(longitude)")
         
-        let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.reloadiCarouselData), userInfo: nil, repeats: true)
+        
+        
+       
+        
+       //   let timer = Timer.scheduledTimer(timeInterval: 300.0, target: self, selector: #selector(ViewController.reloadiCarouselData), userInfo: nil, repeats: true)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
+        self.getWeather()
+        self.iCarouselView.reloadData()
+        
+        print("view did appear")
         if CLLocationManager.locationServicesEnabled() {
             switch(CLLocationManager.authorizationStatus()) {
             case .notDetermined, .restricted, .denied:
@@ -326,25 +383,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            if manualLocation == false{
-                self.lManager.desiredAccuracy = kCLLocationAccuracyBest
-                self.lManager.requestAlwaysAuthorization()
-                self.lManager.startUpdatingLocation()
-                lManager.delegate = self
-            }
-        }
+        self.cityLabel.text = city
+        self.getWeather()
+        self.iCarouselView.reloadData()
+        self.updateLocation()
+     
         
         
         let control = BetterSegmentedControl(
-            frame: CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.80, width: self.view.bounds.width * 0.50, height: 25.0),
+            frame: CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.80, width: self.view.bounds.width * 0.50, height: 30.0),
             titles: ["Daily", "Current"],
             index: 0,
-            backgroundColor: .clear,
-            titleColor: .black,
-            indicatorViewBackgroundColor:  Colors.pink,
-            selectedTitleColor: Colors.labelBlue)
+            backgroundColor: .white,
+            titleColor: cityLabel.textColor,
+            indicatorViewBackgroundColor:  cityLabel.textColor,
+            selectedTitleColor: .white)
         control.cornerRadius = 8.0
         
         control.titleFont = UIFont(name: "HelveticaNeue", size: 14.0)!
@@ -404,7 +457,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             tempLabel.textAlignment = NSTextAlignment.center
             tempLabel.center = backgroundView.center
             tempLabel.textAlignment = NSTextAlignment.center
-            tempLabel.font = UIFont(name:"Optima-Regular", size: 45.0)
+            tempLabel.font = UIFont(name:"Optima-Regular", size: 40.0)
             tempLabel.tag = 1
             tempLabel.textColor = UIColor.white
             
@@ -421,11 +474,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             decisionLabel.backgroundColor = UIColor.clear
             
             decisionLabel.tag = 2
-            decisionLabel.textColor = Colors.bottomLabelBlue
+            decisionLabel.textColor = cityLabel.textColor
             decisionLabel.center = CGPoint(x: backgroundView.frame.origin.x + 128 , y: backgroundView.frame.origin.y + 310)
             
             
-            carouselLabel.textColor = Colors.labelBlue
+            carouselLabel.textColor = UIColor.white
+            
             
             // tempLabel.font.
             weatherView.addSubview(backgroundView)
@@ -451,8 +505,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             tempLabel.text = "\(hourlyTemp[index].tempForhour)\(self.unit)"
             
             if self.clothesDecision.count != 0 && self.precipType.count != 0 {
-                decisionLabel.text = "\(self.clothesDecision[index]). \(self.finalDecision[index])"
-                
+                decisionLabel.text = hourlySummary[index]//"\(self.clothesDecision[index]). \(self.finalDecision[index])"
+                print(hourlySummary.count)
             }
         }else{
             backgroundView.image = UIImage(named: "\(iconDaily[index]).jpg")
@@ -519,12 +573,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     func carousel(_ carousel: iCarousel, didSelectItemAt index: Int) {
         
+        self.getWeather()
+        /*
         let DetailedCardView:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardView")
         // self.presentViewController(viewController, animated: true, completion: nil)
         
         selectedItem = index
         
-        self.present(DetailedCardView, animated: true, completion: nil)
+        self.present(DetailedCardView, animated: true, completion: nil)*/
         
     }
     

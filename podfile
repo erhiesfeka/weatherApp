@@ -3,6 +3,7 @@ target "weatherApp" do
     pod 'BetterSegmentedControl', '~> 0.5'
     pod 'ForecastIO', :git => "https://github.com/sxg/ForecastIO.git", :branch => "swift3"
     pod 'GooglePlaces'
+    pod 'BubbleTransition', '~> 2.0.0'
 
   end
   use_frameworks!

@@ -14,6 +14,7 @@ struct WeatherStruct {
     let iconDaily:[String]
     let iconHourly:[String]
     let dailyDate:[String]
+    let hourlySummary:[String]
     let minMaxDailyApparentTemp:[(min: Int, max: Int)]
     let avgApparentTemp:[Int]
     let unit:String
@@ -21,7 +22,7 @@ struct WeatherStruct {
     let precipitationIntensity:[Float]
     let precipitationProbability:[Float]
     
-    init(hourlyTemp:[(time: String, tempForhour: Int)], minMaxDailyTemp:[(min: Int, max: Int)], iconDaily:[String],iconHourly:[String],dailyDate: [String], minMaxDailyApparentTemp:[(min: Int, max: Int)],avgApparentTemp:[Int], unit:String, precipitationType:[String], precipitationIntensity:[Float],precipitationProbability:[Float]){
+    init(hourlyTemp:[(time: String, tempForhour: Int)], minMaxDailyTemp:[(min: Int, max: Int)], iconDaily:[String],iconHourly:[String],dailyDate: [String], minMaxDailyApparentTemp:[(min: Int, max: Int)],avgApparentTemp:[Int], unit:String, precipitationType:[String], precipitationIntensity:[Float],precipitationProbability:[Float], hourlySummary:[String]){
         
         self.hourlyTemp = hourlyTemp
         self.minMaxDailyTemp = minMaxDailyTemp
@@ -34,6 +35,7 @@ struct WeatherStruct {
         self.precipitationType = precipitationType
         self.precipitationIntensity = precipitationIntensity
         self.precipitationProbability = precipitationProbability
+        self.hourlySummary = hourlySummary
         
         
     }

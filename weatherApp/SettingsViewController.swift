@@ -48,7 +48,7 @@ class SettingsViewController: UIViewController {
         switch selectedUnit {
         case .farenheit:
             do{
-                try control1.set(1, animated: false)
+                try control1.setIndex(1, animated: false)
             }catch _{
                 print ("no such index")
             }
@@ -56,7 +56,7 @@ class SettingsViewController: UIViewController {
         case .celsius:
             
             do{
-                try control1.set(0, animated: false) //setIndex(0)
+                try control1.setIndex(0, animated: false) //setIndex(0)
             }catch _{
                 print ("no such index")
             }
@@ -77,14 +77,14 @@ class SettingsViewController: UIViewController {
         if manualLocation == false {
             
         do{
-            try control2.set(1, animated: false)
+            try control2.setIndex(1, animated: false)
         }catch _{
             print ("no such index")
         }
          
         }else{
             do{
-                try control2.set(0, animated: false)
+                try control2.setIndex(0, animated: false)
             }catch _{
                 print ("no such index")
             }
@@ -118,7 +118,6 @@ class SettingsViewController: UIViewController {
     
     func navigationSegmentedControlValueChanged(_ sender: BetterSegmentedControl) {
      
-        
         if sender.index == 1 {
             
             print("Temperature is farenheit")
@@ -134,12 +133,8 @@ class SettingsViewController: UIViewController {
         
         
         userDefaults.set(selectedUnit.rawValue, forKey: "savedUnit")
-        
-       
        
         NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadiCarousel"), object: nil)
-       
-        
         
     }
     
@@ -153,12 +148,14 @@ class SettingsViewController: UIViewController {
            
         }
         else {
+         
              selectCityButton.isEnabled = false
              print("Dont Manually enter location")
              manualLocation = false
              city = ""
              latitude = 0
              longitude = 0
+             NotificationCenter.default.post(name: Notification.Name(rawValue: "updateLocation"), object: nil)
         }
         
     }
@@ -171,9 +168,7 @@ extension SettingsViewController: GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print("Place name: ", place.name)
-        print("Place address: ", place.formattedAddress)
-        print("Place attributions: ", place.attributions)
+        print("Place name: \(place.name)")
         city = place.name
         print("Place Longitude: ", place.coordinate.longitude)
         latitude = place.coordinate.latitude

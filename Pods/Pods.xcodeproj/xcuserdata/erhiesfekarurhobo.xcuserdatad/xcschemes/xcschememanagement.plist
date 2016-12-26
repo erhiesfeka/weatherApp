@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BubbleTransition.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ForecastIO.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,6 +27,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>24EBC592799318C7387FA2122E620576</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3C068A58B0DECF71FC3B64A1C1B68BBC</key>
 		<dict>
 			<key>primary</key>
@@ -32,7 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B1E5975C671F6FF884360822D5B73CD</key>
+		<key>7372CA79CE92E7AC032175441663EBE4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

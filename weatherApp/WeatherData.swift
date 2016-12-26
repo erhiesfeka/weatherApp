@@ -17,8 +17,10 @@ protocol weatherDataDelegate {
 }
 
 class WeatherData {
+    let apiKeyGmail = "f93c4413a8f218fe4ad58aaf42cdfeb3" //erhiesfeka1@gmail.com
+    let apikeyYahoo = "14d701ee5e2ba63179528de2bee40348" // erhiesfeka@yahoo.com
     
-    var forecastIOClient = APIClient(apiKey: "14d701ee5e2ba63179528de2bee40348")
+    var forecastIOClient = APIClient(apiKey: "f93c4413a8f218fe4ad58aaf42cdfeb3")
     var hourlyTemp:[(time: String, tempForhour: Int)] = [] // hourly temp for 2 days in the future/ every three hours
     var minMaxDailyTemp:[(min: Int, max: Int)] = []// plus 7 days
     var iconDaily:[String] = []
@@ -32,6 +34,8 @@ class WeatherData {
     var unit:String = String()
     var minMaxDailyApparentTemp:[(min: Int, max: Int)] = []//minmax temp for daily based on how it feels like
     var avgApparentTemp:[Int] = []
+    var testApparentTemp:[Int] = []
+    var hourlySummary:[String] = []
     var delegate:weatherDataDelegate?
    
     
@@ -90,11 +94,13 @@ class WeatherData {
                 
                 // purge all old values
                 self.hourlyTemp.removeAll()
+                self.hourlySummary.removeAll()
                 self.minMaxDailyTemp.removeAll()
                 self.iconHourly.removeAll()
                 self.dailyDate.removeAll()
                 self.iconDaily.removeAll()
                 self.avgApparentTemp.removeAll()
+                self.testApparentTemp.removeAll()
                 self.minMaxDailyApparentTemp.removeAll()
                 self.precipitationProbability.removeAll()
                 self.precipitationIntensity.removeAll()
@@ -120,11 +126,14 @@ class WeatherData {
                         
                         self.iconHourly.append("\(currentForecast.currently!.icon!)")
                         
+                        self.hourlySummary.append("\(currentForecast.currently!.summary!)")
+                        
                     }else{
                         
                         self.hourlyTemp.append((time: hourlyDateFormatter.string(from: (currentForecast.hourly?.data![thirdCounter].time)!), tempForhour: (Int(round((currentForecast.hourly?.data![thirdCounter].temperature)!)))))
                         self.dailyDate.append(dailyDateFormatter.string(from: (currentForecast.daily?.data![index].time)!))
                         self.iconHourly.append("\((currentForecast.hourly?.data![thirdCounter].icon)!)")
+                        self.hourlySummary.append("\((currentForecast.hourly?.data![thirdCounter].summary)!)")
                     }
                     
                     self.iconDaily.append("\(currentForecast.daily!.data![index].icon!)")
@@ -134,7 +143,26 @@ class WeatherData {
                     self.minMaxDailyApparentTemp.append((min:(Int(round((currentForecast.daily?.data![index].apparentTemperatureMin)!))) , max: (Int(round((currentForecast.daily?.data![index].apparentTemperatureMax)!)))))
                     let minApparentTemp = self.minMaxDailyApparentTemp[index].min
                     let maxApparentTemp = self.minMaxDailyApparentTemp[index].max
-                    self.avgApparentTemp.append(Int(round((self.averageOf(numbers: minApparentTemp, maxApparentTemp)))))
+                    let apparentTempFloat = Double(round(self.averageOf(numbers: minApparentTemp, maxApparentTemp)))
+                    var apparentTempInt:Int = Int()
+                    
+                    switch selectedUnit {
+                        
+                    case .farenheit:
+                        
+                        apparentTempInt = Int(round((apparentTempFloat - 32) * 0.55555))
+                        
+                    case .celsius:
+                        
+                        apparentTempInt = Int(round(apparentTempFloat))
+                        
+                    default:
+                        print("I dunno wtf is happening")
+                        
+                    }
+
+                    self.avgApparentTemp.append(apparentTempInt)
+                    self.testApparentTemp.append(Int(round((self.averageOf(numbers: minApparentTemp, maxApparentTemp)))))
                     
                     //Precipitation array to decide weather gear
                     if currentForecast.daily?.data![index].precipType == nil {
@@ -167,10 +195,11 @@ class WeatherData {
                  print("This is the precipitationt Probability %%% \(self.precipitationProbability)")
                  */
                  //print("This is the precipitationt Probability %%% \(self.precipitationProbability)")
-                 print("Icondaily \(self.iconHourly)")
+                 print("Icondaily \(self.iconDaily)")
                 
                  //print("This is the precipitationt Intensity %%% \(self.precipitationIntensity)")
                 print( ">>>heres the appparent average temp \(self.avgApparentTemp)")
+                print(">>> heres the TEST apparent temp \(self.testApparentTemp)")
 
                 
                 if self.region == "us"{
@@ -193,7 +222,7 @@ class WeatherData {
             }
         }
         }
-        let weather = WeatherStruct(hourlyTemp: self.hourlyTemp, minMaxDailyTemp: self.minMaxDailyTemp, iconDaily: self.iconDaily, iconHourly: self.iconHourly, dailyDate: self.dailyDate, minMaxDailyApparentTemp: self.minMaxDailyApparentTemp, avgApparentTemp: self.avgApparentTemp, unit: self.unit, precipitationType: self.precipitationType, precipitationIntensity: self.precipitationIntensity, precipitationProbability: self.precipitationProbability)
+        let weather = WeatherStruct(hourlyTemp: self.hourlyTemp, minMaxDailyTemp: self.minMaxDailyTemp, iconDaily: self.iconDaily, iconHourly: self.iconHourly, dailyDate: self.dailyDate, minMaxDailyApparentTemp: self.minMaxDailyApparentTemp, avgApparentTemp: self.avgApparentTemp, unit: self.unit, precipitationType: self.precipitationType, precipitationIntensity: self.precipitationIntensity, precipitationProbability: self.precipitationProbability, hourlySummary:self.hourlySummary)
         
         if delegate != nil  {
             

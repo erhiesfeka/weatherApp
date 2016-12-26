@@ -7,109 +7,128 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07F4B30E5394DC7CA3228FD4D1AB1080 /* BetterSegmentedControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1E43D259CC21CE534C833990DB6B2F /* BetterSegmentedControl-dummy.m */; };
-		0BA2920205ADADF0D58FE75371BF3A54 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D7942A79A7C4D19F8239C5AD5B6B86 /* Icon.swift */; };
-		114BF6039D596D7EF0F0C2FEE9E98EF3 /* BetterSegmentedControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D38D5769710EF99048A9B701C3BD6A4F /* BetterSegmentedControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2BB748EB5CC23098A917593E57073717 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97985B4B07CE180DE49C624C45123A0 /* Language.swift */; };
-		38FE24C915BEDE906ECB7D6B7FFFE8CB /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3C2E74F92BCA1737E62787C4A1581 /* DataPoint.swift */; };
-		54CEABBD3C1AD2B68C5CD8D26870AA3F /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49019ED3233DB0E020F92C6039652808 /* Units.swift */; };
+		07F4B30E5394DC7CA3228FD4D1AB1080 /* BetterSegmentedControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677258B673BAE505CEE244B796F2E48 /* BetterSegmentedControl-dummy.m */; };
+		0BA2920205ADADF0D58FE75371BF3A54 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76571B3C2AFAB5EEDED2FDD6E8EE81C9 /* Icon.swift */; };
+		114BF6039D596D7EF0F0C2FEE9E98EF3 /* BetterSegmentedControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 42AB5F307CF7866D2FC0EC0F92CB96CA /* BetterSegmentedControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2BB748EB5CC23098A917593E57073717 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE6DE6966159CA307BF0081A4B9E03D /* Language.swift */; };
+		38FE24C915BEDE906ECB7D6B7FFFE8CB /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A99CF3BE1F83DD9F64C6A5D860C53D6 /* DataPoint.swift */; };
+		54CEABBD3C1AD2B68C5CD8D26870AA3F /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979C3EA0BE6B58027E8E4715BA68A549 /* Units.swift */; };
+		6849FAAD72F79DF11E5ED301BB57035F /* BubbleTransition-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C5FE6A74095C3F93AD9D2D885B4E20EB /* BubbleTransition-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		783D09E6FEFC6B29AA8024206E692CE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
 		7A773EA1673295724D9727ACC81EF397 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		7B411D551417594910E817F2DB614303 /* Pods-weatherApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BFED69EC89766BAF39D438503EC8457 /* Pods-weatherApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B6CB3478434A3FDB1651CDB95A92062 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		7B7A688A6CE515700786DF24B99945CB /* ForecastField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4435F9961330E302D3D380E39EF621 /* ForecastField.swift */; };
-		8CE9972787B70B700B9FCD932C50B23B /* DataBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D4DA7B47F416022BCB2812D59A1AA /* DataBlock.swift */; };
-		A8697220C4CAE79FF66FBC08238F3521 /* ForecastIO-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D015121A5FE1262ABED7569ED7CB6E9 /* ForecastIO-dummy.m */; };
-		A87AFAC744709926573982EDDF2DD57F /* BetterSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C568BFFB8E3AF33A4ECA4370AE973CA /* BetterSegmentedControl.swift */; };
-		A99713129712CACC591BA6C8948FF762 /* Precipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6D1E5490B5DD66EA5BC383F3585A37 /* Precipitation.swift */; };
-		A9DFE5A6F1B6245AA2DB4A9824DA2FDE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE449DD675BA3932916D4CD047EB59A5 /* APIClient.swift */; };
-		AC2B61D05EA5DC5D01221D570D18B4A7 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8954F86DE90B9397F8E906C3672D80 /* Flag.swift */; };
-		B277FB58E686DAA36B2D9F49711BAAAE /* ForecastIO-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF637A0457E41BB66241D197D4BE7AE /* ForecastIO-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF4430AA391D70A617F166A93661939B /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680AB49D41F6B261C7632FA774F15B28 /* Forecast.swift */; };
-		D0CCD41D9F4944C66A83BCD02F6B7B92 /* Pods-weatherApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A19B5C251DD2E53C3596FCD28813FB0 /* Pods-weatherApp-dummy.m */; };
-		DB48AB099A0B83A3510300244C7C3BC8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E65600ADE66B1B3C84D13468A04179B /* Constant.swift */; };
-		E2042DDDCF8AEF70F46FCDEDF346EF9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		7B7A688A6CE515700786DF24B99945CB /* ForecastField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0135A9B65E61D8FA1EABA35CF6C3F7 /* ForecastField.swift */; };
+		8CE9972787B70B700B9FCD932C50B23B /* DataBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057E688F792260419C703DECE619F50C /* DataBlock.swift */; };
+		A8697220C4CAE79FF66FBC08238F3521 /* ForecastIO-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7691EE79E83AD912926102C53B429B40 /* ForecastIO-dummy.m */; };
+		A87AFAC744709926573982EDDF2DD57F /* BetterSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F632A51DDBE0794703659CFD5694AC3 /* BetterSegmentedControl.swift */; };
+		A99713129712CACC591BA6C8948FF762 /* Precipitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC3657DE70002BB82F73C3EBEA4237C /* Precipitation.swift */; };
+		A9DFE5A6F1B6245AA2DB4A9824DA2FDE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9746940A99F1DDF9445E3015ADF1ED89 /* APIClient.swift */; };
+		AC2B61D05EA5DC5D01221D570D18B4A7 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEF330E8EF119323BEEC9BC8D19898A /* Flag.swift */; };
+		B277FB58E686DAA36B2D9F49711BAAAE /* ForecastIO-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E759E038CF221AF7047233BF3CBE615 /* ForecastIO-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B6E2E857AF77DDF5F513F925A8824935 /* Pods-weatherApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A19B5C251DD2E53C3596FCD28813FB0 /* Pods-weatherApp-dummy.m */; };
+		BF4430AA391D70A617F166A93661939B /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DBFA19F2506FC8AE3EA9CDBD0EDD2D /* Forecast.swift */; };
+		C4E79DABD14CC24E9BDC4DABC9818652 /* BubbleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39811A52BCAEEDEBAB7AD45D661639 /* BubbleTransition.swift */; };
+		C9FD2D1EDA1DF772423A8E58EE2DC666 /* BubbleTransition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2507AE578B467DBC39D9A6D8204A1F /* BubbleTransition-dummy.m */; };
+		DB48AB099A0B83A3510300244C7C3BC8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ED4A05F79F08D9E8BFAA0ACB750037 /* Constant.swift */; };
 		E85DD0E898247D8EEF7E39A904888A05 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
-		ED970C2DC119ABF80ADC5405B16020DC /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65C13D71E6941E152A8BF76325CBB6 /* Alert.swift */; };
+		ED970C2DC119ABF80ADC5405B16020DC /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFC00EC89E08A446FBEAD991029450 /* Alert.swift */; };
+		FA4FB06D42CB6D2C2148EDA996B0F706 /* Pods-weatherApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BFED69EC89766BAF39D438503EC8457 /* Pods-weatherApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC7F9B778204B003FC0C28871D955920 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5028B99FD8CE677A6B4F410AB85F607F /* PBXContainerItemProxy */ = {
+		4039D23051C36430D4E084E1C70DAF94 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3C068A58B0DECF71FC3B64A1C1B68BBC;
-			remoteInfo = BetterSegmentedControl;
+			remoteGlobalIDString = 7372CA79CE92E7AC032175441663EBE4;
+			remoteInfo = BubbleTransition;
 		};
-		8C586381C37D555D5DE760EA3C0FB800 /* PBXContainerItemProxy */ = {
+		4C321DD053533B557E5B71EB00233480 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3CC1BEC21AEFF81CAA366057D5AFA435;
 			remoteInfo = ForecastIO;
 		};
+		9A2B08C54607CF7F8DF19DEF2452EF17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3C068A58B0DECF71FC3B64A1C1B68BBC;
+			remoteInfo = BetterSegmentedControl;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06871C1157CA8B71A62A0029F50D92EE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0C568BFFB8E3AF33A4ECA4370AE973CA /* BetterSegmentedControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BetterSegmentedControl.swift; path = Pod/Classes/BetterSegmentedControl.swift; sourceTree = "<group>"; };
-		1D015121A5FE1262ABED7569ED7CB6E9 /* ForecastIO-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ForecastIO-dummy.m"; sourceTree = "<group>"; };
-		1D4435F9961330E302D3D380E39EF621 /* ForecastField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ForecastField.swift; path = Source/ForecastField.swift; sourceTree = "<group>"; };
-		337A959A6A28C7BA5A6B6161BC292AC9 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Subspecs/Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
-		3E65600ADE66B1B3C84D13468A04179B /* Constant.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = Source/Constant.swift; sourceTree = "<group>"; };
-		3FD3C2E74F92BCA1737E62787C4A1581 /* DataPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataPoint.swift; path = Source/DataPoint.swift; sourceTree = "<group>"; };
-		4567AEA1080498B4B49EDB7170511F43 /* BetterSegmentedControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BetterSegmentedControl-prefix.pch"; sourceTree = "<group>"; };
-		49019ED3233DB0E020F92C6039652808 /* Units.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Units.swift; path = Source/Units.swift; sourceTree = "<group>"; };
+		03ABA28FC79355210E3B584FA6C4E1C9 /* ForecastIO.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ForecastIO.modulemap; sourceTree = "<group>"; };
+		057E688F792260419C703DECE619F50C /* DataBlock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataBlock.swift; path = Source/DataBlock.swift; sourceTree = "<group>"; };
+		1681803B586443185E1C84AADE14F5E0 /* Pods_weatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18EFC00EC89E08A446FBEAD991029450 /* Alert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = Source/Alert.swift; sourceTree = "<group>"; };
+		1EF30A45021DDE1E668D74788143598A /* BetterSegmentedControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BetterSegmentedControl-prefix.pch"; sourceTree = "<group>"; };
+		238B1AF776581C0DD0238A887A37502E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		247CA8BA8C42E16198D878C60B6B9845 /* BubbleTransition-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BubbleTransition-prefix.pch"; sourceTree = "<group>"; };
+		2677258B673BAE505CEE244B796F2E48 /* BetterSegmentedControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BetterSegmentedControl-dummy.m"; sourceTree = "<group>"; };
+		29DBFA19F2506FC8AE3EA9CDBD0EDD2D /* Forecast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Forecast.swift; path = Source/Forecast.swift; sourceTree = "<group>"; };
+		2A99CF3BE1F83DD9F64C6A5D860C53D6 /* DataPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataPoint.swift; path = Source/DataPoint.swift; sourceTree = "<group>"; };
+		4022EAB8B1348B0759522AD43D8245A4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42AB5F307CF7866D2FC0EC0F92CB96CA /* BetterSegmentedControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BetterSegmentedControl-umbrella.h"; sourceTree = "<group>"; };
+		4624FBC0097A7DF5F9237D260E8425E7 /* BubbleTransition.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BubbleTransition.modulemap; sourceTree = "<group>"; };
 		4B6E3AC384D29AC10CA7589F88E87FE0 /* Pods-weatherApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-weatherApp.modulemap"; sourceTree = "<group>"; };
-		51DEA49A1709286B6CCD0F278D86AB2F /* BetterSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BetterSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		54DE7A2D57C607A0CA14B00062F3E9AE /* ForecastIO-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ForecastIO-prefix.pch"; sourceTree = "<group>"; };
-		680AB49D41F6B261C7632FA774F15B28 /* Forecast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Forecast.swift; path = Source/Forecast.swift; sourceTree = "<group>"; };
+		4C0EE041CE5E7ECBF7F19124B620D703 /* ForecastIO.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ForecastIO.xcconfig; sourceTree = "<group>"; };
+		4C2507AE578B467DBC39D9A6D8204A1F /* BubbleTransition-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BubbleTransition-dummy.m"; sourceTree = "<group>"; };
+		4EE6DE6966159CA307BF0081A4B9E03D /* Language.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Language.swift; path = Source/Language.swift; sourceTree = "<group>"; };
+		585865A376A99D7CF221C2EC69721174 /* ForecastIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ForecastIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B0135A9B65E61D8FA1EABA35CF6C3F7 /* ForecastField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ForecastField.swift; path = Source/ForecastField.swift; sourceTree = "<group>"; };
+		65E80657B0FDC7E67D653EB0981E6B99 /* ForecastIO-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ForecastIO-prefix.pch"; sourceTree = "<group>"; };
 		6A19B5C251DD2E53C3596FCD28813FB0 /* Pods-weatherApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-weatherApp-dummy.m"; sourceTree = "<group>"; };
-		6D19D0AF7A6FF3259010607C7A319243 /* ForecastIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ForecastIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D6D1E5490B5DD66EA5BC383F3585A37 /* Precipitation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Precipitation.swift; path = Source/Precipitation.swift; sourceTree = "<group>"; };
 		6F144A3C79359BBEA7023E4FEF7F5B9F /* Pods-weatherApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-weatherApp-resources.sh"; sourceTree = "<group>"; };
-		8B6D4DA7B47F416022BCB2812D59A1AA /* DataBlock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataBlock.swift; path = Source/DataBlock.swift; sourceTree = "<group>"; };
+		76571B3C2AFAB5EEDED2FDD6E8EE81C9 /* Icon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Icon.swift; path = Source/Icon.swift; sourceTree = "<group>"; };
+		7691EE79E83AD912926102C53B429B40 /* ForecastIO-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ForecastIO-dummy.m"; sourceTree = "<group>"; };
+		7E759E038CF221AF7047233BF3CBE615 /* ForecastIO-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ForecastIO-umbrella.h"; sourceTree = "<group>"; };
+		84C22644B984C2154C42AB7149AFCE59 /* BetterSegmentedControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BetterSegmentedControl.modulemap; sourceTree = "<group>"; };
 		8BFED69EC89766BAF39D438503EC8457 /* Pods-weatherApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-weatherApp-umbrella.h"; sourceTree = "<group>"; };
+		91F63484B7E68820FA616B14C1FAC3E3 /* BubbleTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BubbleTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		958AC58DD41E3BEB406E30DA6747AE32 /* Pods-weatherApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-weatherApp-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9CC6D703FB058EDFD1F31BAAF7CF902B /* BetterSegmentedControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BetterSegmentedControl.modulemap; sourceTree = "<group>"; };
-		A1BC33CBABAF54EF06AE76B3CBAF19B8 /* ForecastIO.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ForecastIO.xcconfig; sourceTree = "<group>"; };
+		9746940A99F1DDF9445E3015ADF1ED89 /* APIClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = Source/APIClient.swift; sourceTree = "<group>"; };
+		979C3EA0BE6B58027E8E4715BA68A549 /* Units.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Units.swift; path = Source/Units.swift; sourceTree = "<group>"; };
+		9AEF330E8EF119323BEEC9BC8D19898A /* Flag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Flag.swift; path = Source/Flag.swift; sourceTree = "<group>"; };
+		9ECAE376086A2C96BBD2F170368DA8A6 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		9F632A51DDBE0794703659CFD5694AC3 /* BetterSegmentedControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BetterSegmentedControl.swift; path = Pod/Classes/BetterSegmentedControl.swift; sourceTree = "<group>"; };
+		A0ED4A05F79F08D9E8BFAA0ACB750037 /* Constant.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = Source/Constant.swift; sourceTree = "<group>"; };
 		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A8D7942A79A7C4D19F8239C5AD5B6B86 /* Icon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Icon.swift; path = Source/Icon.swift; sourceTree = "<group>"; };
-		AAA7E11A4224D58EAD67A7443F968A68 /* BetterSegmentedControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BetterSegmentedControl.xcconfig; sourceTree = "<group>"; };
-		ABF637A0457E41BB66241D197D4BE7AE /* ForecastIO-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ForecastIO-umbrella.h"; sourceTree = "<group>"; };
-		AD5581F81283D7BD20FB74C5E7CB3D92 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8703C4D8A00BC462A65F1F238D72155 /* Pods_weatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB65C13D71E6941E152A8BF76325CBB6 /* Alert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = Source/Alert.swift; sourceTree = "<group>"; };
+		AAC3657DE70002BB82F73C3EBEA4237C /* Precipitation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Precipitation.swift; path = Source/Precipitation.swift; sourceTree = "<group>"; };
+		B52C891AC51EAD1B66F13CD44EE72469 /* BubbleTransition.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BubbleTransition.xcconfig; sourceTree = "<group>"; };
 		BB8D61E5BC9256FE9E2B3D2AF91AAEFD /* Pods-weatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-weatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		BDD837EFCA15429B5B2F93E613E3C4A0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE449DD675BA3932916D4CD047EB59A5 /* APIClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = Source/APIClient.swift; sourceTree = "<group>"; };
 		C201834B616B7D8AC74CDD0E8C29D0E4 /* Pods-weatherApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-weatherApp-frameworks.sh"; sourceTree = "<group>"; };
-		CD8954F86DE90B9397F8E906C3672D80 /* Flag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Flag.swift; path = Source/Flag.swift; sourceTree = "<group>"; };
-		CDF1DEE5419A722D66E5D1CC6AF6A258 /* ForecastIO.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ForecastIO.modulemap; sourceTree = "<group>"; };
-		D38D5769710EF99048A9B701C3BD6A4F /* BetterSegmentedControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BetterSegmentedControl-umbrella.h"; sourceTree = "<group>"; };
+		C31A1CC55093337E34C6B31210A9F556 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5FE6A74095C3F93AD9D2D885B4E20EB /* BubbleTransition-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BubbleTransition-umbrella.h"; sourceTree = "<group>"; };
 		D3BB3A41DDE0F6B421B51A501EE3A3DB /* Pods-weatherApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-weatherApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		D3FA11388230C8E7B01CD1CEC9465778 /* BetterSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BetterSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BCC6F8979D3D8CA12B2A99A059A4DA /* Pods-weatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-weatherApp.debug.xcconfig"; sourceTree = "<group>"; };
-		E7FC2B56BE975D7EC4874721DC5EDB0A /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
 		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		EC1E43D259CC21CE534C833990DB6B2F /* BetterSegmentedControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BetterSegmentedControl-dummy.m"; sourceTree = "<group>"; };
-		F97985B4B07CE180DE49C624C45123A0 /* Language.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Language.swift; path = Source/Language.swift; sourceTree = "<group>"; };
-		FF63EF44E74A50E6774D7D7AE12CDC87 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		F94245F42E21C002E29943779974B724 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		F9CA689F55FB7413420559B073E05F1A /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
+		FA39811A52BCAEEDEBAB7AD45D661639 /* BubbleTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BubbleTransition.swift; path = Source/BubbleTransition.swift; sourceTree = "<group>"; };
+		FCEA043E87CE6587DAFCE966856AEB83 /* BetterSegmentedControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BetterSegmentedControl.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		366E09354561C799A49CA36E2844E92C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				783D09E6FEFC6B29AA8024206E692CE7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F74CA6AF80BEE23AFB226D9456E89E2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7A773EA1673295724D9727ACC81EF397 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		43BB135A34C8736F86D077D9CCDA3927 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E2042DDDCF8AEF70F46FCDEDF346EF9B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,35 +141,65 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7159484C418B60BEA93CF828E7D5F48D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC7F9B778204B003FC0C28871D955920 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		029925DFEB15729185A3EB428B709AAD /* Support Files */ = {
+		07E6FCCB151E0622819B62CB717D633D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9CC6D703FB058EDFD1F31BAAF7CF902B /* BetterSegmentedControl.modulemap */,
-				AAA7E11A4224D58EAD67A7443F968A68 /* BetterSegmentedControl.xcconfig */,
-				EC1E43D259CC21CE534C833990DB6B2F /* BetterSegmentedControl-dummy.m */,
-				4567AEA1080498B4B49EDB7170511F43 /* BetterSegmentedControl-prefix.pch */,
-				D38D5769710EF99048A9B701C3BD6A4F /* BetterSegmentedControl-umbrella.h */,
-				06871C1157CA8B71A62A0029F50D92EE /* Info.plist */,
+				9ECAE376086A2C96BBD2F170368DA8A6 /* GooglePlaces.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		0B305CC163502B820F94535FA149A34C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F9CA689F55FB7413420559B073E05F1A /* GooglePlaces.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		237284D41ADAE2F2FEFF5B810B830507 /* ForecastIO */ = {
+			isa = PBXGroup;
+			children = (
+				18EFC00EC89E08A446FBEAD991029450 /* Alert.swift */,
+				9746940A99F1DDF9445E3015ADF1ED89 /* APIClient.swift */,
+				A0ED4A05F79F08D9E8BFAA0ACB750037 /* Constant.swift */,
+				057E688F792260419C703DECE619F50C /* DataBlock.swift */,
+				2A99CF3BE1F83DD9F64C6A5D860C53D6 /* DataPoint.swift */,
+				9AEF330E8EF119323BEEC9BC8D19898A /* Flag.swift */,
+				29DBFA19F2506FC8AE3EA9CDBD0EDD2D /* Forecast.swift */,
+				5B0135A9B65E61D8FA1EABA35CF6C3F7 /* ForecastField.swift */,
+				76571B3C2AFAB5EEDED2FDD6E8EE81C9 /* Icon.swift */,
+				4EE6DE6966159CA307BF0081A4B9E03D /* Language.swift */,
+				AAC3657DE70002BB82F73C3EBEA4237C /* Precipitation.swift */,
+				979C3EA0BE6B58027E8E4715BA68A549 /* Units.swift */,
+				AEDB61A212A2658BC8F97461582B62E0 /* Support Files */,
+			);
+			path = ForecastIO;
+			sourceTree = "<group>";
+		};
+		2A95C975F67D6F93CFD0B7B3B51C65E7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				84C22644B984C2154C42AB7149AFCE59 /* BetterSegmentedControl.modulemap */,
+				FCEA043E87CE6587DAFCE966856AEB83 /* BetterSegmentedControl.xcconfig */,
+				2677258B673BAE505CEE244B796F2E48 /* BetterSegmentedControl-dummy.m */,
+				1EF30A45021DDE1E668D74788143598A /* BetterSegmentedControl-prefix.pch */,
+				42AB5F307CF7866D2FC0EC0F92CB96CA /* BetterSegmentedControl-umbrella.h */,
+				238B1AF776581C0DD0238A887A37502E /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/BetterSegmentedControl";
-			sourceTree = "<group>";
-		};
-		097018D30BB98635F5DC07CE98DD01B3 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CDF1DEE5419A722D66E5D1CC6AF6A258 /* ForecastIO.modulemap */,
-				A1BC33CBABAF54EF06AE76B3CBAF19B8 /* ForecastIO.xcconfig */,
-				1D015121A5FE1262ABED7569ED7CB6E9 /* ForecastIO-dummy.m */,
-				54DE7A2D57C607A0CA14B00062F3E9AE /* ForecastIO-prefix.pch */,
-				ABF637A0457E41BB66241D197D4BE7AE /* ForecastIO-umbrella.h */,
-				AD5581F81283D7BD20FB74C5E7CB3D92 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/ForecastIO";
 			sourceTree = "<group>";
 		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
@@ -161,32 +210,40 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5FBD3399E0496D467D04118DA4F408A3 /* Base */ = {
+		507E024EFF95FAAB2097C305832AD789 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				C8CCDD9E83D940C13CAC27FD9E306E20 /* Frameworks */,
+				63F65BB649F0ECF6379790BF47B3AE79 /* Frameworks */,
 			);
 			name = Base;
 			sourceTree = "<group>";
 		};
-		6E0AA7E4260AF97ED90B3274ED7F67DA /* ForecastIO */ = {
+		55BC837D4F9419EF2FF48A7E009A3D3A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BB65C13D71E6941E152A8BF76325CBB6 /* Alert.swift */,
-				BE449DD675BA3932916D4CD047EB59A5 /* APIClient.swift */,
-				3E65600ADE66B1B3C84D13468A04179B /* Constant.swift */,
-				8B6D4DA7B47F416022BCB2812D59A1AA /* DataBlock.swift */,
-				3FD3C2E74F92BCA1737E62787C4A1581 /* DataPoint.swift */,
-				CD8954F86DE90B9397F8E906C3672D80 /* Flag.swift */,
-				680AB49D41F6B261C7632FA774F15B28 /* Forecast.swift */,
-				1D4435F9961330E302D3D380E39EF621 /* ForecastField.swift */,
-				A8D7942A79A7C4D19F8239C5AD5B6B86 /* Icon.swift */,
-				F97985B4B07CE180DE49C624C45123A0 /* Language.swift */,
-				6D6D1E5490B5DD66EA5BC383F3585A37 /* Precipitation.swift */,
-				49019ED3233DB0E020F92C6039652808 /* Units.swift */,
-				097018D30BB98635F5DC07CE98DD01B3 /* Support Files */,
+				A4264C9ECFFDC4838F52B10C7742B139 /* BetterSegmentedControl */,
+				88198205C9D6A41E1704CC72324B30FD /* BubbleTransition */,
+				237284D41ADAE2F2FEFF5B810B830507 /* ForecastIO */,
+				76990DFE30AEE86A32A9FAADCD7A63AA /* GoogleMaps */,
+				95E969073C8E0DAC8B06ACCA6F685FE7 /* GooglePlaces */,
 			);
-			path = ForecastIO;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		63F65BB649F0ECF6379790BF47B3AE79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F94245F42E21C002E29943779974B724 /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		76990DFE30AEE86A32A9FAADCD7A63AA /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				507E024EFF95FAAB2097C305832AD789 /* Base */,
+			);
+			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -194,56 +251,62 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				86479A5A75174A80ECF1B1DF4322BF9F /* Pods */,
-				B01FA0412F72DFA1229BBC2E818F1FB0 /* Products */,
+				55BC837D4F9419EF2FF48A7E009A3D3A /* Pods */,
+				845F924BB4E16268A958A5BE72AE058C /* Products */,
 				D225A01478337E467BE8832C3C2E4C72 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		86479A5A75174A80ECF1B1DF4322BF9F /* Pods */ = {
+		845F924BB4E16268A958A5BE72AE058C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				96D07074F0E1BD8CBEC293F37C24FFBE /* BetterSegmentedControl */,
-				6E0AA7E4260AF97ED90B3274ED7F67DA /* ForecastIO */,
-				C52C08968CE6C4BC0167185D2040832F /* GoogleMaps */,
-				EE569BA7AD7C1FEF57779BF10D768DFD /* GooglePlaces */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		96D07074F0E1BD8CBEC293F37C24FFBE /* BetterSegmentedControl */ = {
-			isa = PBXGroup;
-			children = (
-				0C568BFFB8E3AF33A4ECA4370AE973CA /* BetterSegmentedControl.swift */,
-				029925DFEB15729185A3EB428B709AAD /* Support Files */,
-			);
-			path = BetterSegmentedControl;
-			sourceTree = "<group>";
-		};
-		A9A180F478A50DB3525F9ED35A8EF87E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E7FC2B56BE975D7EC4874721DC5EDB0A /* GooglePlaces.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B01FA0412F72DFA1229BBC2E818F1FB0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				51DEA49A1709286B6CCD0F278D86AB2F /* BetterSegmentedControl.framework */,
-				6D19D0AF7A6FF3259010607C7A319243 /* ForecastIO.framework */,
-				B8703C4D8A00BC462A65F1F238D72155 /* Pods_weatherApp.framework */,
+				D3FA11388230C8E7B01CD1CEC9465778 /* BetterSegmentedControl.framework */,
+				91F63484B7E68820FA616B14C1FAC3E3 /* BubbleTransition.framework */,
+				585865A376A99D7CF221C2EC69721174 /* ForecastIO.framework */,
+				1681803B586443185E1C84AADE14F5E0 /* Pods_weatherApp.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B0C0063BC150F1CCD3C3C18F9855C4B5 /* Resources */ = {
+		88198205C9D6A41E1704CC72324B30FD /* BubbleTransition */ = {
 			isa = PBXGroup;
 			children = (
-				FF63EF44E74A50E6774D7D7AE12CDC87 /* GooglePlaces.bundle */,
+				FA39811A52BCAEEDEBAB7AD45D661639 /* BubbleTransition.swift */,
+				E5E8347BA69BF7C733AC413B79718DBA /* Support Files */,
 			);
-			name = Resources;
+			path = BubbleTransition;
+			sourceTree = "<group>";
+		};
+		95E969073C8E0DAC8B06ACCA6F685FE7 /* GooglePlaces */ = {
+			isa = PBXGroup;
+			children = (
+				0B305CC163502B820F94535FA149A34C /* Frameworks */,
+				07E6FCCB151E0622819B62CB717D633D /* Resources */,
+			);
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
+		A4264C9ECFFDC4838F52B10C7742B139 /* BetterSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				9F632A51DDBE0794703659CFD5694AC3 /* BetterSegmentedControl.swift */,
+				2A95C975F67D6F93CFD0B7B3B51C65E7 /* Support Files */,
+			);
+			path = BetterSegmentedControl;
+			sourceTree = "<group>";
+		};
+		AEDB61A212A2658BC8F97461582B62E0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				03ABA28FC79355210E3B584FA6C4E1C9 /* ForecastIO.modulemap */,
+				4C0EE041CE5E7ECBF7F19124B620D703 /* ForecastIO.xcconfig */,
+				7691EE79E83AD912926102C53B429B40 /* ForecastIO-dummy.m */,
+				65E80657B0FDC7E67D653EB0981E6B99 /* ForecastIO-prefix.pch */,
+				7E759E038CF221AF7047233BF3CBE615 /* ForecastIO-umbrella.h */,
+				4022EAB8B1348B0759522AD43D8245A4 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ForecastIO";
 			sourceTree = "<group>";
 		};
 		B0D4747B7C963677DCB5B181C047567A /* Pods-weatherApp */ = {
@@ -264,22 +327,6 @@
 			path = "Target Support Files/Pods-weatherApp";
 			sourceTree = "<group>";
 		};
-		C52C08968CE6C4BC0167185D2040832F /* GoogleMaps */ = {
-			isa = PBXGroup;
-			children = (
-				5FBD3399E0496D467D04118DA4F408A3 /* Base */,
-			);
-			path = GoogleMaps;
-			sourceTree = "<group>";
-		};
-		C8CCDD9E83D940C13CAC27FD9E306E20 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				337A959A6A28C7BA5A6B6161BC292AC9 /* GoogleMapsBase.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		D225A01478337E467BE8832C3C2E4C72 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,13 +335,18 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		EE569BA7AD7C1FEF57779BF10D768DFD /* GooglePlaces */ = {
+		E5E8347BA69BF7C733AC413B79718DBA /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				A9A180F478A50DB3525F9ED35A8EF87E /* Frameworks */,
-				B0C0063BC150F1CCD3C3C18F9855C4B5 /* Resources */,
+				4624FBC0097A7DF5F9237D260E8425E7 /* BubbleTransition.modulemap */,
+				B52C891AC51EAD1B66F13CD44EE72469 /* BubbleTransition.xcconfig */,
+				4C2507AE578B467DBC39D9A6D8204A1F /* BubbleTransition-dummy.m */,
+				247CA8BA8C42E16198D878C60B6B9845 /* BubbleTransition-prefix.pch */,
+				C5FE6A74095C3F93AD9D2D885B4E20EB /* BubbleTransition-umbrella.h */,
+				C31A1CC55093337E34C6B31210A9F556 /* Info.plist */,
 			);
-			path = GooglePlaces;
+			name = "Support Files";
+			path = "../Target Support Files/BubbleTransition";
 			sourceTree = "<group>";
 		};
 		F302CD3B306AF1ED96B9AF31FCDBC26C /* iOS */ = {
@@ -325,17 +377,45 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FFC2473F7086893C3F0A1AA1A53602E9 /* Headers */ = {
+		E2A041A90C6087B1A41C5429E7B7DE7B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B411D551417594910E817F2DB614303 /* Pods-weatherApp-umbrella.h in Headers */,
+				6849FAAD72F79DF11E5ED301BB57035F /* BubbleTransition-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBFF367D650D43AF58321490A8886D2E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA4FB06D42CB6D2C2148EDA996B0F706 /* Pods-weatherApp-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		24EBC592799318C7387FA2122E620576 /* Pods-weatherApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA00FC491B7860A2872D6208EB2D9F24 /* Build configuration list for PBXNativeTarget "Pods-weatherApp" */;
+			buildPhases = (
+				2A59BDBC3DE1857C47AE941B67F002C3 /* Sources */,
+				7159484C418B60BEA93CF828E7D5F48D /* Frameworks */,
+				EBFF367D650D43AF58321490A8886D2E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B14A7C35DDE89DCC784B2303524FF1DB /* PBXTargetDependency */,
+				CF64704F495A746E61F9B8ED783D0B37 /* PBXTargetDependency */,
+				F9092EFDDF06105B40049F78F7F99D42 /* PBXTargetDependency */,
+			);
+			name = "Pods-weatherApp";
+			productName = "Pods-weatherApp";
+			productReference = 1681803B586443185E1C84AADE14F5E0 /* Pods_weatherApp.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		3C068A58B0DECF71FC3B64A1C1B68BBC /* BetterSegmentedControl */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C76A3E4E82F68789ED0233C2E2EAFCEB /* Build configuration list for PBXNativeTarget "BetterSegmentedControl" */;
@@ -350,7 +430,7 @@
 			);
 			name = BetterSegmentedControl;
 			productName = BetterSegmentedControl;
-			productReference = 51DEA49A1709286B6CCD0F278D86AB2F /* BetterSegmentedControl.framework */;
+			productReference = D3FA11388230C8E7B01CD1CEC9465778 /* BetterSegmentedControl.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		3CC1BEC21AEFF81CAA366057D5AFA435 /* ForecastIO */ = {
@@ -367,26 +447,24 @@
 			);
 			name = ForecastIO;
 			productName = ForecastIO;
-			productReference = 6D19D0AF7A6FF3259010607C7A319243 /* ForecastIO.framework */;
+			productReference = 585865A376A99D7CF221C2EC69721174 /* ForecastIO.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6B1E5975C671F6FF884360822D5B73CD /* Pods-weatherApp */ = {
+		7372CA79CE92E7AC032175441663EBE4 /* BubbleTransition */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CC5C9CF72E003FDFAB528832D21314D4 /* Build configuration list for PBXNativeTarget "Pods-weatherApp" */;
+			buildConfigurationList = E481E9DBD0219904DB699E6812D3EE08 /* Build configuration list for PBXNativeTarget "BubbleTransition" */;
 			buildPhases = (
-				04CB193D03F526855147E8BD4C12524C /* Sources */,
-				43BB135A34C8736F86D077D9CCDA3927 /* Frameworks */,
-				FFC2473F7086893C3F0A1AA1A53602E9 /* Headers */,
+				EC9F150BE5CFC9B09C2CF61799E1FADF /* Sources */,
+				366E09354561C799A49CA36E2844E92C /* Frameworks */,
+				E2A041A90C6087B1A41C5429E7B7DE7B /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AF73839BB3E68C9EA3C1155629642287 /* PBXTargetDependency */,
-				98904EC200476982DCCA87181E548B5D /* PBXTargetDependency */,
 			);
-			name = "Pods-weatherApp";
-			productName = "Pods-weatherApp";
-			productReference = B8703C4D8A00BC462A65F1F238D72155 /* Pods_weatherApp.framework */;
+			name = BubbleTransition;
+			productName = BubbleTransition;
+			productReference = 91F63484B7E68820FA616B14C1FAC3E3 /* BubbleTransition.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -398,14 +476,17 @@
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				TargetAttributes = {
+					24EBC592799318C7387FA2122E620576 = {
+						LastSwiftMigration = 0820;
+					};
 					3C068A58B0DECF71FC3B64A1C1B68BBC = {
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 					};
 					3CC1BEC21AEFF81CAA366057D5AFA435 = {
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 					};
-					6B1E5975C671F6FF884360822D5B73CD = {
-						LastSwiftMigration = 0810;
+					7372CA79CE92E7AC032175441663EBE4 = {
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -417,23 +498,24 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = B01FA0412F72DFA1229BBC2E818F1FB0 /* Products */;
+			productRefGroup = 845F924BB4E16268A958A5BE72AE058C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				3C068A58B0DECF71FC3B64A1C1B68BBC /* BetterSegmentedControl */,
+				7372CA79CE92E7AC032175441663EBE4 /* BubbleTransition */,
 				3CC1BEC21AEFF81CAA366057D5AFA435 /* ForecastIO */,
-				6B1E5975C671F6FF884360822D5B73CD /* Pods-weatherApp */,
+				24EBC592799318C7387FA2122E620576 /* Pods-weatherApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		04CB193D03F526855147E8BD4C12524C /* Sources */ = {
+		2A59BDBC3DE1857C47AE941B67F002C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0CCD41D9F4944C66A83BCD02F6B7B92 /* Pods-weatherApp-dummy.m in Sources */,
+				B6E2E857AF77DDF5F513F925A8824935 /* Pods-weatherApp-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,31 +548,77 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EC9F150BE5CFC9B09C2CF61799E1FADF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9FD2D1EDA1DF772423A8E58EE2DC666 /* BubbleTransition-dummy.m in Sources */,
+				C4E79DABD14CC24E9BDC4DABC9818652 /* BubbleTransition.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		98904EC200476982DCCA87181E548B5D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ForecastIO;
-			target = 3CC1BEC21AEFF81CAA366057D5AFA435 /* ForecastIO */;
-			targetProxy = 8C586381C37D555D5DE760EA3C0FB800 /* PBXContainerItemProxy */;
-		};
-		AF73839BB3E68C9EA3C1155629642287 /* PBXTargetDependency */ = {
+		B14A7C35DDE89DCC784B2303524FF1DB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = BetterSegmentedControl;
 			target = 3C068A58B0DECF71FC3B64A1C1B68BBC /* BetterSegmentedControl */;
-			targetProxy = 5028B99FD8CE677A6B4F410AB85F607F /* PBXContainerItemProxy */;
+			targetProxy = 9A2B08C54607CF7F8DF19DEF2452EF17 /* PBXContainerItemProxy */;
+		};
+		CF64704F495A746E61F9B8ED783D0B37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BubbleTransition;
+			target = 7372CA79CE92E7AC032175441663EBE4 /* BubbleTransition */;
+			targetProxy = 4039D23051C36430D4E084E1C70DAF94 /* PBXContainerItemProxy */;
+		};
+		F9092EFDDF06105B40049F78F7F99D42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ForecastIO;
+			target = 3CC1BEC21AEFF81CAA366057D5AFA435 /* ForecastIO */;
+			targetProxy = 4C321DD053533B557E5B71EB00233480 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0CAE126110C20574E351C0C3C7669A35 /* Debug */ = {
+		02489410174AF4B5C95CB1CB42F6D1F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D4BCC6F8979D3D8CA12B2A99A059A4DA /* Pods-weatherApp.debug.xcconfig */;
+			baseConfigurationReference = B52C891AC51EAD1B66F13CD44EE72469 /* BubbleTransition.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BubbleTransition/BubbleTransition-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BubbleTransition/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BubbleTransition/BubbleTransition.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = BubbleTransition;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		32ED31FDA0A27BFEFAC988DECA3FF354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB8D61E5BC9256FE9E2B3D2AF91AAEFD /* Pods-weatherApp.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -503,7 +631,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-weatherApp/Pods-weatherApp.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -511,13 +639,12 @@
 				PRODUCT_NAME = Pods_weatherApp;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		47BEF9D903506B003EA5C2B249729489 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -563,7 +690,7 @@
 		};
 		80BF9658BFC2641F217902F0A957B0AB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1BC33CBABAF54EF06AE76B3CBAF19B8 /* ForecastIO.xcconfig */;
+			baseConfigurationReference = 4C0EE041CE5E7ECBF7F19124B620D703 /* ForecastIO.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -592,9 +719,9 @@
 			};
 			name = Debug;
 		};
-		948B2ADA312835AF0500B7C521DD0D90 /* Release */ = {
+		8420CDD626EF5E600E0B29AC7AB95746 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB8D61E5BC9256FE9E2B3D2AF91AAEFD /* Pods-weatherApp.release.xcconfig */;
+			baseConfigurationReference = B52C891AC51EAD1B66F13CD44EE72469 /* BubbleTransition.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -605,18 +732,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-weatherApp/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/BubbleTransition/BubbleTransition-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BubbleTransition/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-weatherApp/Pods-weatherApp.modulemap";
+				MODULEMAP_FILE = "Target Support Files/BubbleTransition/BubbleTransition.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_weatherApp;
+				PRODUCT_NAME = BubbleTransition;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -628,7 +751,7 @@
 		};
 		9EDD002908292761F0B12DE98C5BFBBD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1BC33CBABAF54EF06AE76B3CBAF19B8 /* ForecastIO.xcconfig */;
+			baseConfigurationReference = 4C0EE041CE5E7ECBF7F19124B620D703 /* ForecastIO.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -696,7 +819,7 @@
 		};
 		ADDF5184ADE3B64975C50E61736E27DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAA7E11A4224D58EAD67A7443F968A68 /* BetterSegmentedControl.xcconfig */;
+			baseConfigurationReference = FCEA043E87CE6587DAFCE966856AEB83 /* BetterSegmentedControl.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -726,7 +849,7 @@
 		};
 		D4F95CA2C8D17456D2FA552FDF9E5137 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAA7E11A4224D58EAD67A7443F968A68 /* BetterSegmentedControl.xcconfig */;
+			baseConfigurationReference = FCEA043E87CE6587DAFCE966856AEB83 /* BetterSegmentedControl.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -745,6 +868,41 @@
 				MODULEMAP_FILE = "Target Support Files/BetterSegmentedControl/BetterSegmentedControl.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = BetterSegmentedControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F0EFD3E6EE06ABEE52E52CB7E59B8306 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4BCC6F8979D3D8CA12B2A99A059A4DA /* Pods-weatherApp.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-weatherApp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-weatherApp/Pods-weatherApp.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_weatherApp;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -785,11 +943,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CC5C9CF72E003FDFAB528832D21314D4 /* Build configuration list for PBXNativeTarget "Pods-weatherApp" */ = {
+		CA00FC491B7860A2872D6208EB2D9F24 /* Build configuration list for PBXNativeTarget "Pods-weatherApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0CAE126110C20574E351C0C3C7669A35 /* Debug */,
-				948B2ADA312835AF0500B7C521DD0D90 /* Release */,
+				F0EFD3E6EE06ABEE52E52CB7E59B8306 /* Debug */,
+				32ED31FDA0A27BFEFAC988DECA3FF354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E481E9DBD0219904DB699E6812D3EE08 /* Build configuration list for PBXNativeTarget "BubbleTransition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02489410174AF4B5C95CB1CB42F6D1F6 /* Debug */,
+				8420CDD626EF5E600E0B29AC7AB95746 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

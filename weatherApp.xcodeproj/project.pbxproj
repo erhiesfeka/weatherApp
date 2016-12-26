@@ -8,6 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		E504E5371CF8CFF5001BCC37 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504E5361CF8CFF5001BCC37 /* WeatherData.swift */; };
+		E50DB0921E0874F500190CE2 /* clear-day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E50DB0871E0874F500190CE2 /* clear-day.jpg */; };
+		E50DB0931E0874F500190CE2 /* clear-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E50DB0881E0874F500190CE2 /* clear-night.jpg */; };
+		E50DB0941E0874F500190CE2 /* cloudy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E50DB0891E0874F500190CE2 /* cloudy.jpg */; };
+		E50DB0951E0874F500190CE2 /* cloudy-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E50DB08A1E0874F500190CE2 /* cloudy-night.jpg */; };
+		E50DB0961E0874F500190CE2 /* fog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E50DB08B1E0874F500190CE2 /* fog.jpg */; };
+		E50DB0971E0874F500190CE2 /* partly-cloudy-day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E50DB08C1E0874F500190CE2 /* partly-cloudy-day.jpg */; };
+		E50DB0981E0874F500190CE2 /* partly-cloudy-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E50DB08D1E0874F500190CE2 /* partly-cloudy-night.jpg */; };
+		E50DB0991E0874F500190CE2 /* rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E50DB08E1E0874F500190CE2 /* rain.jpg */; };
+		E50DB09A1E0874F500190CE2 /* sleet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E50DB08F1E0874F500190CE2 /* sleet.jpg */; };
+		E50DB09B1E0874F500190CE2 /* snow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E50DB0901E0874F500190CE2 /* snow.jpg */; };
+		E50DB09C1E0874F500190CE2 /* snow2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E50DB0911E0874F500190CE2 /* snow2.jpg */; };
+		E50DB09E1E08863D00190CE2 /* settings_purple.png in Resources */ = {isa = PBXBuildFile; fileRef = E50DB09D1E08863D00190CE2 /* settings_purple.png */; };
+		E50DB0A01E08884B00190CE2 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = E50DB09F1E08884B00190CE2 /* reload.png */; };
 		E50E06A21D3C104F006CE3E6 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50E06A11D3C104F006CE3E6 /* PopUpViewController.swift */; };
 		E50E125E1D79D9DB0070712F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50E125D1D79D9DB0070712F /* SettingsViewController.swift */; };
 		E50E60071D3E926500AE7ED0 /* wg_blurred_backgrounds_14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E50E60061D3E926500AE7ED0 /* wg_blurred_backgrounds_14.jpg */; };
@@ -17,18 +30,9 @@
 		E50E600F1D3EB3A800AE7ED0 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = E50E600E1D3EB3A800AE7ED0 /* close.png */; };
 		E50E60111D3EB65A00AE7ED0 /* close2.png in Resources */ = {isa = PBXBuildFile; fileRef = E50E60101D3EB65A00AE7ED0 /* close2.png */; };
 		E513FABE1DABFF0D00FD91E9 /* Settings-Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = E513FABD1DABFF0D00FD91E9 /* Settings-Filled-50.png */; };
+		E522DD121E0C587200CDF12C /* BubbleTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E522DD111E0C587200CDF12C /* BubbleTransition.framework */; };
 		E526B65A1D79F2B800A23C40 /* BetterSegmentedControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */; };
 		E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52F69181DC93906006439B3 /* DecisionStruct.swift */; };
-		E54A49AA1DDF5F6500C86358 /* clear-day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E54A49A41DDF5F6500C86358 /* clear-day.jpg */; };
-		E54A49AB1DDF5F6500C86358 /* clear-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E54A49A51DDF5F6500C86358 /* clear-night.jpg */; };
-		E54A49AC1DDF5F6500C86358 /* cloudy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E54A49A61DDF5F6500C86358 /* cloudy.jpg */; };
-		E54A49AD1DDF5F6500C86358 /* partly-cloudy-day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E54A49A71DDF5F6500C86358 /* partly-cloudy-day.jpg */; };
-		E54A49AE1DDF5F6500C86358 /* partly-cloudy-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E54A49A81DDF5F6500C86358 /* partly-cloudy-night.jpg */; };
-		E54A49AF1DDF5F6500C86358 /* partly-cloudy-night.png in Resources */ = {isa = PBXBuildFile; fileRef = E54A49A91DDF5F6500C86358 /* partly-cloudy-night.png */; };
-		E54A49B31DDF604E00C86358 /* rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E54A49B01DDF604E00C86358 /* rain.jpg */; };
-		E54A49B41DDF604E00C86358 /* sleet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E54A49B11DDF604E00C86358 /* sleet.jpg */; };
-		E54A49B51DDF604E00C86358 /* snow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E54A49B21DDF604E00C86358 /* snow.jpg */; };
-		E54A49B71DDF613400C86358 /* fog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E54A49B61DDF613400C86358 /* fog.jpg */; };
 		E550A9CE1C5E6E8300C840EB /* Decider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550A9CD1C5E6E8300C840EB /* Decider.swift */; };
 		E56424041DABD6BE00F64255 /* purpleBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E56424031DABD6BE00F64255 /* purpleBackground.jpg */; };
 		E583FE781CF4D02700D455AB /* HolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FE771CF4D02700D455AB /* HolderView.swift */; };
@@ -76,6 +80,19 @@
 		1BA740EAA0EEF77B2219A6E0 /* Pods_weatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A90A028F3978571E69795E5B /* Pods-weatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-weatherApp/Pods-weatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		E504E5361CF8CFF5001BCC37 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		E50DB0871E0874F500190CE2 /* clear-day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "clear-day.jpg"; sourceTree = "<group>"; };
+		E50DB0881E0874F500190CE2 /* clear-night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "clear-night.jpg"; sourceTree = "<group>"; };
+		E50DB0891E0874F500190CE2 /* cloudy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cloudy.jpg; sourceTree = "<group>"; };
+		E50DB08A1E0874F500190CE2 /* cloudy-night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cloudy-night.jpg"; sourceTree = "<group>"; };
+		E50DB08B1E0874F500190CE2 /* fog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fog.jpg; sourceTree = "<group>"; };
+		E50DB08C1E0874F500190CE2 /* partly-cloudy-day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "partly-cloudy-day.jpg"; sourceTree = "<group>"; };
+		E50DB08D1E0874F500190CE2 /* partly-cloudy-night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "partly-cloudy-night.jpg"; sourceTree = "<group>"; };
+		E50DB08E1E0874F500190CE2 /* rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rain.jpg; sourceTree = "<group>"; };
+		E50DB08F1E0874F500190CE2 /* sleet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sleet.jpg; sourceTree = "<group>"; };
+		E50DB0901E0874F500190CE2 /* snow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snow.jpg; sourceTree = "<group>"; };
+		E50DB0911E0874F500190CE2 /* snow2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snow2.jpg; sourceTree = "<group>"; };
+		E50DB09D1E08863D00190CE2 /* settings_purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_purple.png; sourceTree = "<group>"; };
+		E50DB09F1E08884B00190CE2 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
 		E50E06A11D3C104F006CE3E6 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		E50E125D1D79D9DB0070712F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E50E60061D3E926500AE7ED0 /* wg_blurred_backgrounds_14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wg_blurred_backgrounds_14.jpg; sourceTree = "<group>"; };
@@ -85,18 +102,9 @@
 		E50E600E1D3EB3A800AE7ED0 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		E50E60101D3EB65A00AE7ED0 /* close2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close2.png; sourceTree = "<group>"; };
 		E513FABD1DABFF0D00FD91E9 /* Settings-Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-Filled-50.png"; sourceTree = "<group>"; };
+		E522DD111E0C587200CDF12C /* BubbleTransition.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BubbleTransition.framework; path = "Pods/../build/Debug-iphoneos/BubbleTransition/BubbleTransition.framework"; sourceTree = "<group>"; };
 		E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BetterSegmentedControl.framework; path = "../../Library/Developer/Xcode/DerivedData/weatherApp-dcwzowbpkfqulxhjispwhgvqajjp/Build/Products/Debug-iphonesimulator/BetterSegmentedControl/BetterSegmentedControl.framework"; sourceTree = "<group>"; };
 		E52F69181DC93906006439B3 /* DecisionStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecisionStruct.swift; sourceTree = "<group>"; };
-		E54A49A41DDF5F6500C86358 /* clear-day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "clear-day.jpg"; sourceTree = "<group>"; };
-		E54A49A51DDF5F6500C86358 /* clear-night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "clear-night.jpg"; sourceTree = "<group>"; };
-		E54A49A61DDF5F6500C86358 /* cloudy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cloudy.jpg; sourceTree = "<group>"; };
-		E54A49A71DDF5F6500C86358 /* partly-cloudy-day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "partly-cloudy-day.jpg"; sourceTree = "<group>"; };
-		E54A49A81DDF5F6500C86358 /* partly-cloudy-night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "partly-cloudy-night.jpg"; sourceTree = "<group>"; };
-		E54A49A91DDF5F6500C86358 /* partly-cloudy-night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "partly-cloudy-night.png"; sourceTree = "<group>"; };
-		E54A49B01DDF604E00C86358 /* rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rain.jpg; sourceTree = "<group>"; };
-		E54A49B11DDF604E00C86358 /* sleet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sleet.jpg; sourceTree = "<group>"; };
-		E54A49B21DDF604E00C86358 /* snow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snow.jpg; sourceTree = "<group>"; };
-		E54A49B61DDF613400C86358 /* fog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fog.jpg; sourceTree = "<group>"; };
 		E550A9CD1C5E6E8300C840EB /* Decider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decider.swift; sourceTree = "<group>"; };
 		E56424031DABD6BE00F64255 /* purpleBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = purpleBackground.jpg; sourceTree = "<group>"; };
 		E583FE771CF4D02700D455AB /* HolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolderView.swift; sourceTree = "<group>"; };
@@ -136,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E522DD121E0C587200CDF12C /* BubbleTransition.framework in Frameworks */,
 				E526B65A1D79F2B800A23C40 /* BetterSegmentedControl.framework in Frameworks */,
 				E5EB17411C6F87060094AE86 /* QuartzCore.framework in Frameworks */,
 				FF375EC09D28674C38CDFF2E /* Pods_weatherApp.framework in Frameworks */,
@@ -171,6 +180,7 @@
 		6CD2E265321756EC0190E001 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E522DD111E0C587200CDF12C /* BubbleTransition.framework */,
 				E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */,
 				1BA740EAA0EEF77B2219A6E0 /* Pods_weatherApp.framework */,
 			);
@@ -193,6 +203,8 @@
 				E513FABD1DABFF0D00FD91E9 /* Settings-Filled-50.png */,
 				E56424031DABD6BE00F64255 /* purpleBackground.jpg */,
 				E50E600E1D3EB3A800AE7ED0 /* close.png */,
+				E50DB09F1E08884B00190CE2 /* reload.png */,
+				E50DB09D1E08863D00190CE2 /* settings_purple.png */,
 				E50E60101D3EB65A00AE7ED0 /* close2.png */,
 				E50E600C1D3EB18300AE7ED0 /* Gear-512.png */,
 			);
@@ -311,16 +323,17 @@
 		E5EB17431C7626CA0094AE86 /* carousel pics */ = {
 			isa = PBXGroup;
 			children = (
-				E54A49A41DDF5F6500C86358 /* clear-day.jpg */,
-				E54A49A51DDF5F6500C86358 /* clear-night.jpg */,
-				E54A49A61DDF5F6500C86358 /* cloudy.jpg */,
-				E54A49A71DDF5F6500C86358 /* partly-cloudy-day.jpg */,
-				E54A49A81DDF5F6500C86358 /* partly-cloudy-night.jpg */,
-				E54A49A91DDF5F6500C86358 /* partly-cloudy-night.png */,
-				E54A49B01DDF604E00C86358 /* rain.jpg */,
-				E54A49B11DDF604E00C86358 /* sleet.jpg */,
-				E54A49B21DDF604E00C86358 /* snow.jpg */,
-				E54A49B61DDF613400C86358 /* fog.jpg */,
+				E50DB0871E0874F500190CE2 /* clear-day.jpg */,
+				E50DB0881E0874F500190CE2 /* clear-night.jpg */,
+				E50DB0891E0874F500190CE2 /* cloudy.jpg */,
+				E50DB08A1E0874F500190CE2 /* cloudy-night.jpg */,
+				E50DB08B1E0874F500190CE2 /* fog.jpg */,
+				E50DB08C1E0874F500190CE2 /* partly-cloudy-day.jpg */,
+				E50DB08D1E0874F500190CE2 /* partly-cloudy-night.jpg */,
+				E50DB08E1E0874F500190CE2 /* rain.jpg */,
+				E50DB08F1E0874F500190CE2 /* sleet.jpg */,
+				E50DB0901E0874F500190CE2 /* snow.jpg */,
+				E50DB0911E0874F500190CE2 /* snow2.jpg */,
 			);
 			name = "carousel pics";
 			sourceTree = "<group>";
@@ -397,16 +410,16 @@
 					E58D02CB1C2F283600839E97 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = KRYVM78ML5;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 					};
 					E58D02DF1C2F283600839E97 = {
 						CreatedOnToolsVersion = 7.0.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 						TestTargetID = E58D02CB1C2F283600839E97;
 					};
 					E58D02EA1C2F283600839E97 = {
 						CreatedOnToolsVersion = 7.0.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 						TestTargetID = E58D02CB1C2F283600839E97;
 					};
 				};
@@ -441,25 +454,28 @@
 				E56424041DABD6BE00F64255 /* purpleBackground.jpg in Resources */,
 				E5D13CB81D8769A600EF3D17 /* Gotham Nights Bold.otf in Resources */,
 				E5D13CB91D8769A600EF3D17 /* Gotham Nights Italic.otf in Resources */,
-				E54A49B31DDF604E00C86358 /* rain.jpg in Resources */,
 				E5D13CBA1D8769A600EF3D17 /* Gotham Nights.otf in Resources */,
-				E54A49AE1DDF5F6500C86358 /* partly-cloudy-night.jpg in Resources */,
 				E50E600F1D3EB3A800AE7ED0 /* close.png in Resources */,
-				E54A49B41DDF604E00C86358 /* sleet.jpg in Resources */,
+				E50DB0971E0874F500190CE2 /* partly-cloudy-day.jpg in Resources */,
+				E50DB0991E0874F500190CE2 /* rain.jpg in Resources */,
 				E50E600D1D3EB18300AE7ED0 /* Gear-512.png in Resources */,
-				E54A49AF1DDF5F6500C86358 /* partly-cloudy-night.png in Resources */,
 				E50E60091D3E95B400AE7ED0 /* stairs_b.jpg in Resources */,
+				E50DB09C1E0874F500190CE2 /* snow2.jpg in Resources */,
+				E50DB0951E0874F500190CE2 /* cloudy-night.jpg in Resources */,
 				E50E60071D3E926500AE7ED0 /* wg_blurred_backgrounds_14.jpg in Resources */,
+				E50DB09A1E0874F500190CE2 /* sleet.jpg in Resources */,
 				E58D02DA1C2F283600839E97 /* LaunchScreen.storyboard in Resources */,
-				E54A49AB1DDF5F6500C86358 /* clear-night.jpg in Resources */,
+				E50DB0931E0874F500190CE2 /* clear-night.jpg in Resources */,
+				E50DB09B1E0874F500190CE2 /* snow.jpg in Resources */,
 				E50E600B1D3E966A00AE7ED0 /* embrace.jpg in Resources */,
-				E54A49AD1DDF5F6500C86358 /* partly-cloudy-day.jpg in Resources */,
-				E54A49B71DDF613400C86358 /* fog.jpg in Resources */,
+				E50DB09E1E08863D00190CE2 /* settings_purple.png in Resources */,
+				E50DB0A01E08884B00190CE2 /* reload.png in Resources */,
 				E58D02D71C2F283600839E97 /* Assets.xcassets in Resources */,
 				E58D02D51C2F283600839E97 /* Main.storyboard in Resources */,
-				E54A49AC1DDF5F6500C86358 /* cloudy.jpg in Resources */,
-				E54A49AA1DDF5F6500C86358 /* clear-day.jpg in Resources */,
-				E54A49B51DDF604E00C86358 /* snow.jpg in Resources */,
+				E50DB0941E0874F500190CE2 /* cloudy.jpg in Resources */,
+				E50DB0921E0874F500190CE2 /* clear-day.jpg in Resources */,
+				E50DB0961E0874F500190CE2 /* fog.jpg in Resources */,
+				E50DB0981E0874F500190CE2 /* partly-cloudy-night.jpg in Resources */,
 				E50E60111D3EB65A00AE7ED0 /* close2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -701,6 +717,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = KRYVM78ML5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/BubbleTransition",
+				);
 				INFOPLIST_FILE = weatherApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -723,6 +743,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = KRYVM78ML5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/BubbleTransition",
+				);
 				INFOPLIST_FILE = weatherApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
