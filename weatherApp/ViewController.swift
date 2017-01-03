@@ -39,7 +39,7 @@ func delay(_ delay: Double, closure: @escaping ()->()) {
 }
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate, decideWeatherDelegate, UIViewControllerTransitioningDelegate  {
+class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate, decideWeatherDelegate  {
     
     // ViewController class Variables
     var weatherData:WeatherData = WeatherData()
@@ -65,11 +65,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     var precipType:[String] = []
     var finalDecision:[String] = []
     let transition = BubbleTransition()
+    let control = BetterSegmentedControl()
     
     
     
     // Outlets Declared
     
+    @IBOutlet weak var pageIndicator: UIPageControl!
     @IBOutlet weak var carouselLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -98,10 +100,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     func openSettings(){
         
-        let controller = PopUpViewController()
-        controller.modalPresentationStyle = .custom
-        controller.transitioningDelegate = self
-        
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         self.blurEffectView.effect = blurEffect
@@ -125,14 +123,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     // MARK: UIViewControllerTransitioningDelegate
     
-    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.transitionMode = .present
-        transition.startingPoint = settingsButton.center
-        transition.bubbleColor = cityLabel.textColor
-        
-        return transition
-    }
-    
+ 
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionMode = .dismiss
         transition.startingPoint = settingsButton.center
@@ -342,6 +333,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         self.getWeather()
         self.iCarouselView.reloadData()
         
+        
+        pageIndicator.isHidden = true
+        pageIndicator.numberOfPages = 7
+       
+        
         print("Latitude and Longitude are: \(latitude) && \(longitude)")
         
         
@@ -390,20 +386,33 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
      
         
         
-        let control = BetterSegmentedControl(
+        /*let control = BetterSegmentedControl(
             frame: CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.80, width: self.view.bounds.width * 0.50, height: 30.0),
             titles: ["Daily", "Current"],
             index: 0,
             backgroundColor: .white,
             titleColor: cityLabel.textColor,
             indicatorViewBackgroundColor:  cityLabel.textColor,
-            selectedTitleColor: .white)
+            selectedTitleColor: .white)*/
+        
+        control.frame = CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.80, width: self.view.bounds.width * 0.50, height: 30.0)
+        control.titles = ["Daily", "Current"]
+        do{
+            try control.setIndex(0, animated: false)
+        }catch _{
+            print ("no such index")
+        }
+        control.backgroundColor = .white
+        control.titleColor = cityLabel.textColor
+        control.indicatorViewBackgroundColor = cityLabel.textColor
+        control.selectedTitleColor = .white
         control.cornerRadius = 8.0
         
         control.titleFont = UIFont(name: "HelveticaNeue", size: 14.0)!
         
         control.addTarget(self, action: #selector(ViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
         self.view.addSubview(control)
+        control.isHidden = true
         
         
     }
@@ -487,6 +496,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             weatherView.addSubview(decisionLabel)
             //  weatherView.addSubview(imageView)
             
+           
             
         }else{
             
@@ -518,7 +528,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             }
         }
         
-        
+        control.isHidden = false
+        pageIndicator.isHidden = false
         return weatherView
         
         
@@ -556,6 +567,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     }
     
     func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
+        
+        pageIndicator.currentPage = carousel.currentItemIndex
         
         if hourlyTemp.count != 0 {
             

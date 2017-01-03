@@ -67,12 +67,17 @@ class SettingsViewController: UIViewController {
         //Manually set location COntrol
         if manualLocation == false{
             selectCityButton.isEnabled = false
+            selectCityButton.setTitleColor(UIColor.gray, for: .normal)
+        }else{
+            selectCityButton.setTitleColor(UIColor.red, for: .normal)
         }
+        
         control1.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
         
          control2.titles = ["Yes","No"]
          control2.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
          control2.alwaysAnnouncesValue = true
+        
         
         if manualLocation == false {
             
@@ -83,6 +88,7 @@ class SettingsViewController: UIViewController {
         }
          
         }else{
+            
             do{
                 try control2.setIndex(0, animated: false)
             }catch _{
@@ -145,7 +151,7 @@ class SettingsViewController: UIViewController {
             
             manualLocation = true
             
-           
+           selectCityButton.setTitleColor(UIColor.red, for: .normal)
         }
         else {
          
@@ -155,6 +161,7 @@ class SettingsViewController: UIViewController {
              city = ""
              latitude = 0
              longitude = 0
+             selectCityButton.setTitleColor(UIColor.gray, for: .normal)
              NotificationCenter.default.post(name: Notification.Name(rawValue: "updateLocation"), object: nil)
         }
         
