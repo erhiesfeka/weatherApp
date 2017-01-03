@@ -30,6 +30,7 @@
 		E50E600F1D3EB3A800AE7ED0 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = E50E600E1D3EB3A800AE7ED0 /* close.png */; };
 		E50E60111D3EB65A00AE7ED0 /* close2.png in Resources */ = {isa = PBXBuildFile; fileRef = E50E60101D3EB65A00AE7ED0 /* close2.png */; };
 		E513FABE1DABFF0D00FD91E9 /* Settings-Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = E513FABD1DABFF0D00FD91E9 /* Settings-Filled-50.png */; };
+		E517D7521E1C34A200763A3F /* wind.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E517D7511E1C34A200763A3F /* wind.jpg */; };
 		E522DD121E0C587200CDF12C /* BubbleTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E522DD111E0C587200CDF12C /* BubbleTransition.framework */; };
 		E526B65A1D79F2B800A23C40 /* BetterSegmentedControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */; };
 		E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52F69181DC93906006439B3 /* DecisionStruct.swift */; };
@@ -102,6 +103,7 @@
 		E50E600E1D3EB3A800AE7ED0 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		E50E60101D3EB65A00AE7ED0 /* close2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close2.png; sourceTree = "<group>"; };
 		E513FABD1DABFF0D00FD91E9 /* Settings-Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-Filled-50.png"; sourceTree = "<group>"; };
+		E517D7511E1C34A200763A3F /* wind.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wind.jpg; sourceTree = "<group>"; };
 		E522DD111E0C587200CDF12C /* BubbleTransition.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BubbleTransition.framework; path = "Pods/../build/Debug-iphoneos/BubbleTransition/BubbleTransition.framework"; sourceTree = "<group>"; };
 		E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BetterSegmentedControl.framework; path = "../../Library/Developer/Xcode/DerivedData/weatherApp-dcwzowbpkfqulxhjispwhgvqajjp/Build/Products/Debug-iphonesimulator/BetterSegmentedControl/BetterSegmentedControl.framework"; sourceTree = "<group>"; };
 		E52F69181DC93906006439B3 /* DecisionStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecisionStruct.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				E50DB08C1E0874F500190CE2 /* partly-cloudy-day.jpg */,
 				E50DB08D1E0874F500190CE2 /* partly-cloudy-night.jpg */,
 				E50DB08E1E0874F500190CE2 /* rain.jpg */,
+				E517D7511E1C34A200763A3F /* wind.jpg */,
 				E50DB08F1E0874F500190CE2 /* sleet.jpg */,
 				E50DB0901E0874F500190CE2 /* snow.jpg */,
 				E50DB0911E0874F500190CE2 /* snow2.jpg */,
@@ -477,6 +480,7 @@
 				E50DB0961E0874F500190CE2 /* fog.jpg in Resources */,
 				E50DB0981E0874F500190CE2 /* partly-cloudy-night.jpg in Resources */,
 				E50E60111D3EB65A00AE7ED0 /* close2.png in Resources */,
+				E517D7521E1C34A200763A3F /* wind.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
