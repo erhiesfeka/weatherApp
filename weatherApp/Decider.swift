@@ -22,6 +22,7 @@ class Decider: weatherDataDelegate {
     var precipIntensityArray:[Float] = []
     var precipTypeArray:[String] = []
     var precipProbabilityArray:[Float] = []
+    var daySummary = String()
     
     func addObserver() {
         self.myWeatherData.delegate = self
@@ -124,35 +125,39 @@ class Decider: weatherDataDelegate {
         self.precipProbabilityArray = weather.precipitationProbability
         self.avgTempArray = weather.avgApparentTemp
         self.precipIntensityArray = weather.precipitationIntensity
+        self.daySummary = weather.daySummary
         
-       // print("$$$$$$ Average apparent temp Array \(avgTempArray)")
+        // print("$$$$$$ Average apparent temp Array \(avgTempArray)")
         
         let clothesDecision = decideClothes()
         let intensityDecision = decidePrecipIntensity()
         var finalDecision :[String] = []
         
-      //  print ("intensity decision **** \(intensityDecision)")
-            
+        //  print ("intensity decision **** \(intensityDecision)")
+        
         if precipProbabilityArray.count == 7 && precipTypeArray.count == 7 && intensityDecision.count == 7 {
             
-        
-        for index in 0 ... 6 {
             
-            if precipProbabilityArray[index] < 0.5 {
-                finalDecision.append("")
-            }else{
-                finalDecision.append("\(intensityDecision[index]) \(precipTypeArray[index]) expected")
+            for index in 0 ... 6 {
+                if index == 0 {
+                    finalDecision.append(daySummary)
+                }else{
+                    if precipProbabilityArray[index] < 0.5 {
+                        finalDecision.append("")
+                    }else{
+                        finalDecision.append("\(intensityDecision[index]) \(precipTypeArray[index]) expected")
+                    }
+                }
             }
-        }
-        
-        let myDecision = DecisionStruct(clothesDecision: clothesDecision, precipDecision: intensityDecision, finalDecision: finalDecision)
-        
-        
-        
-        if delegate != nil {
-            self.delegate?.decideWeather(decision: myDecision)
-        }
-        
+            
+            let myDecision = DecisionStruct(clothesDecision: clothesDecision, precipDecision: intensityDecision, finalDecision: finalDecision)
+            
+            
+            
+            if delegate != nil {
+                self.delegate?.decideWeather(decision: myDecision)
+            }
+            
         }
     }
     

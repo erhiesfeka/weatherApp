@@ -36,6 +36,7 @@ class WeatherData {
     var avgApparentTemp:[Int] = []
     var testApparentTemp:[Int] = []
     var hourlySummary:[String] = []
+    var daySummary:String = String()
     var delegate:weatherDataDelegate?
    
     
@@ -105,6 +106,7 @@ class WeatherData {
                 self.precipitationProbability.removeAll()
                 self.precipitationIntensity.removeAll()
                 self.precipitationType.removeAll()
+                self.daySummary = (currentForecast.hourly?.summary)!
                 
                 var thirdCounter = 0
                 
@@ -117,6 +119,8 @@ class WeatherData {
                     let dailyDateFormatter = DateFormatter()
                     dailyDateFormatter.dateFormat = "EEEE"
                     dailyDateFormatter.timeZone = TimeZone(abbreviation: self.timezone)
+                    
+                    
                     
                     if index == 0 {
                         
@@ -222,7 +226,7 @@ class WeatherData {
             }
         }
         }
-        let weather = WeatherStruct(hourlyTemp: self.hourlyTemp, minMaxDailyTemp: self.minMaxDailyTemp, iconDaily: self.iconDaily, iconHourly: self.iconHourly, dailyDate: self.dailyDate, minMaxDailyApparentTemp: self.minMaxDailyApparentTemp, avgApparentTemp: self.avgApparentTemp, unit: self.unit, precipitationType: self.precipitationType, precipitationIntensity: self.precipitationIntensity, precipitationProbability: self.precipitationProbability, hourlySummary:self.hourlySummary)
+        let weather = WeatherStruct(hourlyTemp: self.hourlyTemp, minMaxDailyTemp: self.minMaxDailyTemp, iconDaily: self.iconDaily, iconHourly: self.iconHourly, dailyDate: self.dailyDate, minMaxDailyApparentTemp: self.minMaxDailyApparentTemp, avgApparentTemp: self.avgApparentTemp, unit: self.unit, precipitationType: self.precipitationType, precipitationIntensity: self.precipitationIntensity, precipitationProbability: self.precipitationProbability, hourlySummary:self.hourlySummary, daySummary: self.daySummary)
         
         if delegate != nil  {
             
