@@ -331,6 +331,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         print("Fekarurhobo, View did viewDidLoad")
         if manualLocation == false {
             updateLocation()
@@ -374,7 +376,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         self.iCarouselView.reloadData()
         
         print("view did appear")
-        if CLLocationManager.locationServicesEnabled() {
+     /*   if CLLocationManager.locationServicesEnabled() {
             
             switch(CLLocationManager.authorizationStatus()) {
             case .restricted, .denied:
@@ -391,7 +393,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         } else {
             print("Location services are not enabled")
             
-        }
+        }*/
         
     }
     
