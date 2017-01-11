@@ -31,7 +31,6 @@
 		E50E60111D3EB65A00AE7ED0 /* close2.png in Resources */ = {isa = PBXBuildFile; fileRef = E50E60101D3EB65A00AE7ED0 /* close2.png */; };
 		E513FABE1DABFF0D00FD91E9 /* Settings-Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = E513FABD1DABFF0D00FD91E9 /* Settings-Filled-50.png */; };
 		E517D7521E1C34A200763A3F /* wind.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E517D7511E1C34A200763A3F /* wind.jpg */; };
-		E522DD121E0C587200CDF12C /* BubbleTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E522DD111E0C587200CDF12C /* BubbleTransition.framework */; };
 		E526B65A1D79F2B800A23C40 /* BetterSegmentedControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */; };
 		E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52F69181DC93906006439B3 /* DecisionStruct.swift */; };
 		E550A9CE1C5E6E8300C840EB /* Decider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550A9CD1C5E6E8300C840EB /* Decider.swift */; };
@@ -146,7 +145,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E522DD121E0C587200CDF12C /* BubbleTransition.framework in Frameworks */,
 				E526B65A1D79F2B800A23C40 /* BetterSegmentedControl.framework in Frameworks */,
 				E5EB17411C6F87060094AE86 /* QuartzCore.framework in Frameworks */,
 				FF375EC09D28674C38CDFF2E /* Pods_weatherApp.framework in Frameworks */,
@@ -407,7 +405,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = ratatat;
 				TargetAttributes = {
 					E58D02CB1C2F283600839E97 = {

@@ -9,7 +9,6 @@
 import UIKit
 import CoreLocation
 import BetterSegmentedControl
-import BubbleTransition
 import UserNotifications
 import GooglePlaces
 
@@ -64,7 +63,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     var hourly = false
     var precipType:[String] = []
     var finalDecision:[String] = []
-    let transition = BubbleTransition()
     let control = BetterSegmentedControl()
     
     
@@ -100,7 +98,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     func openSettings(){
         
-        
+        pageIndicator.isHidden = false
+        control.isHidden = false
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         self.blurEffectView.effect = blurEffect
         blurEffectView.frame = view.bounds
@@ -121,15 +120,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     }
     
     
-    // MARK: UIViewControllerTransitioningDelegate
+   
     
- 
-    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.transitionMode = .dismiss
-        transition.startingPoint = settingsButton.center
-        transition.bubbleColor = cityLabel.textColor
-        return transition
-    }
     
     
     func reloadiCarouselData() {
@@ -229,6 +221,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     
     func navigationSegmentedControlValueChanged(_ sender: BetterSegmentedControl) {
+        if dailyDate.count != 0 {
         if sender.index == 0 {
             hourly = false
             carouselLabel.text = dailyDate[carouselIndex]
@@ -241,7 +234,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             carouselLabel.text = hourlyTemp[carouselIndex].time
             
         }
-        
+        }
         iCarouselView.reloadData()
         
     }
@@ -261,11 +254,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             if let myPlacement = myPlacements?.first {
                 city = myPlacement.locality!
                 self.cityLabel.text = city
+                self.getWeather()
                 self.lManager.stopUpdatingLocation()
             }
             
         }
         
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus){
+         print("Access wohoo I changed!")
+       
+        switch(status) {
+        case .restricted, .denied:
+            print("No access")
+            openCityAlert()
+            
+        case .notDetermined:
+            print("Location not Determined")
+        case .authorizedAlways, .authorizedWhenInUse:
+            
+            self.updateLocation()
+            print("Access wohoo! I changed")
+        default:
+            print("...")
+        }
     }
     
     func openCityAlert(){
@@ -284,6 +297,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action: UIAlertAction) -> Void in
             
             self.openSettings()
+            self.getWeather()
             
         }
         
@@ -297,15 +311,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     }
     
     func updateLocation(){
-        
+        self.lManager.requestAlwaysAuthorization()
+        lManager.delegate = self
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            if manualLocation == false{
+        
                 self.lManager.desiredAccuracy = kCLLocationAccuracyBest
-                self.lManager.requestAlwaysAuthorization()
+               // self.lManager.requestAlwaysAuthorization()
                 self.lManager.startUpdatingLocation()
                 lManager.delegate = self
-            }
+          
         }
+        
+      
         self.cityLabel.text = city
         self.getWeather()
     }
@@ -314,7 +331,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("Fekarurhobo, View did viewDidLoad")
+        if manualLocation == false {
+            updateLocation()
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
         self.weatherData.delegate = self
@@ -349,16 +369,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        print("Fekarurhobo, viewDidAppear")
         self.getWeather()
         self.iCarouselView.reloadData()
         
         print("view did appear")
         if CLLocationManager.locationServicesEnabled() {
+            
             switch(CLLocationManager.authorizationStatus()) {
-            case .notDetermined, .restricted, .denied:
+            case .restricted, .denied:
                 print("No access")
                 openCityAlert()
+                
+            case .notDetermined:
+                print("Location not Determined")
             case .authorizedAlways, .authorizedWhenInUse:
                 print("Access")
             default:
@@ -379,10 +403,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("Fekarurhobo viewWillAppear")
         self.cityLabel.text = city
         self.getWeather()
         self.iCarouselView.reloadData()
-        self.updateLocation()
+        //self.updateLocation()
      
         
         
@@ -395,7 +420,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             indicatorViewBackgroundColor:  cityLabel.textColor,
             selectedTitleColor: .white)*/
         
-        control.frame = CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.80, width: self.view.bounds.width * 0.50, height: 30.0)
+        control.frame = CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.82, width: self.view.bounds.width * 0.50, height: 30.0)
         control.titles = ["Daily", "Current"]
         do{
             try control.setIndex(0, animated: false)
@@ -436,14 +461,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         
         if view == nil {
             
-            let maskPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 250, height: 260),
+            let maskPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 280, height: 260),
                                         byRoundingCorners: [.topLeft, .topRight],
                                         cornerRadii: CGSize(width: 8.0, height: 8.0))
             
             let shape = CAShapeLayer()
             shape.path = maskPath.cgPath
             
-            weatherView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 370))
+            weatherView = UIView(frame: CGRect(x: 0, y: 0, width: 280, height: 390))
             weatherView.contentMode = .scaleAspectFit
             weatherView.layer.cornerRadius = 12.0
             //weatherView.layer.borderWidth = 4
@@ -470,7 +495,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             tempLabel.tag = 1
             tempLabel.textColor = UIColor.white
             
-            decisionLabel = UILabel(frame:CGRect(x: 0, y: 0, width: 250, height: 60))
+            decisionLabel = UILabel(frame:CGRect(x: 0, y: 0, width: 280, height: 120))
             decisionLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
             if #available(iOS 8.2, *) {
                 decisionLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightSemibold)
@@ -478,13 +503,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
                 // Fallback on earlier versions
                 decisionLabel.font = UIFont(name:"Optima-Regular", size: 16)
             }
-            decisionLabel.numberOfLines = 3
+            decisionLabel.numberOfLines = 6
             decisionLabel.textAlignment = NSTextAlignment.center
             decisionLabel.backgroundColor = UIColor.clear
             
             decisionLabel.tag = 2
             decisionLabel.textColor = cityLabel.textColor
-            decisionLabel.center = CGPoint(x: backgroundView.frame.origin.x + 128 , y: backgroundView.frame.origin.y + 310)
+            decisionLabel.center = CGPoint(x: backgroundView.frame.origin.x + 139 , y: backgroundView.frame.origin.y + 319)
             
             
             carouselLabel.textColor = UIColor.white

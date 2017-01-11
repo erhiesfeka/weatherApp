@@ -48,8 +48,8 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Weather App wants to use your location to find the weather</string>
+	<string>Weather App wants to use your location to find the weather.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Weather App wants to use you location</string>
+	<string>Weather App wants to use you location.</string>
 </dict>
 </plist>

@@ -153,7 +153,7 @@ class Decider: weatherDataDelegate {
             let myDecision = DecisionStruct(clothesDecision: clothesDecision, precipDecision: intensityDecision, finalDecision: finalDecision)
             
             
-            
+            print(finalDecision[0])
             if delegate != nil {
                 self.delegate?.decideWeather(decision: myDecision)
             }
