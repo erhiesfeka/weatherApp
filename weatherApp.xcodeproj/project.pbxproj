@@ -35,6 +35,7 @@
 		E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52F69181DC93906006439B3 /* DecisionStruct.swift */; };
 		E550A9CE1C5E6E8300C840EB /* Decider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550A9CD1C5E6E8300C840EB /* Decider.swift */; };
 		E56424041DABD6BE00F64255 /* purpleBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E56424031DABD6BE00F64255 /* purpleBackground.jpg */; };
+		E58005D41E4D219400E310ED /* SegmentedControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58005D31E4D219400E310ED /* SegmentedControlCell.swift */; };
 		E583FE781CF4D02700D455AB /* HolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FE771CF4D02700D455AB /* HolderView.swift */; };
 		E583FE7D1CF4D08400D455AB /* OvalLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FE7A1CF4D08400D455AB /* OvalLayer.swift */; };
 		E583FE7E1CF4D08400D455AB /* RectangleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FE7B1CF4D08400D455AB /* RectangleLayer.swift */; };
@@ -108,6 +109,7 @@
 		E52F69181DC93906006439B3 /* DecisionStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecisionStruct.swift; sourceTree = "<group>"; };
 		E550A9CD1C5E6E8300C840EB /* Decider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decider.swift; sourceTree = "<group>"; };
 		E56424031DABD6BE00F64255 /* purpleBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = purpleBackground.jpg; sourceTree = "<group>"; };
+		E58005D31E4D219400E310ED /* SegmentedControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlCell.swift; sourceTree = "<group>"; };
 		E583FE771CF4D02700D455AB /* HolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolderView.swift; sourceTree = "<group>"; };
 		E583FE7A1CF4D08400D455AB /* OvalLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvalLayer.swift; sourceTree = "<group>"; };
 		E583FE7B1CF4D08400D455AB /* RectangleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleLayer.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				E504E5361CF8CFF5001BCC37 /* WeatherData.swift */,
 				E52F69181DC93906006439B3 /* DecisionStruct.swift */,
 				E58D02D31C2F283600839E97 /* Main.storyboard */,
+				E58005D31E4D219400E310ED /* SegmentedControlCell.swift */,
 				E58D02D61C2F283600839E97 /* Assets.xcassets */,
 				E58D02D81C2F283600839E97 /* LaunchScreen.storyboard */,
 				E5EB173D1C6F86F20094AE86 /* iCarousel.h */,
@@ -551,6 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E58005D41E4D219400E310ED /* SegmentedControlCell.swift in Sources */,
 				E583FE7E1CF4D08400D455AB /* RectangleLayer.swift in Sources */,
 				E58D02D21C2F283600839E97 /* ViewController.swift in Sources */,
 				E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */,

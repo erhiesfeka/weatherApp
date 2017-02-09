@@ -12,10 +12,12 @@ import GooglePlaces
 
 
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var control1: BetterSegmentedControl!
     @IBOutlet weak var control2: BetterSegmentedControl!
     @IBOutlet weak var selectCityButton: UIButton!
+    
+    @IBOutlet weak var tableView: UITableView!
     @IBAction func Select(_ sender: Any) {
         
         let autocompleteController = GMSAutocompleteViewController()
@@ -205,5 +207,33 @@ extension SettingsViewController: GMSAutocompleteViewControllerDelegate {
     func didUpdateAutocompletePredictions(viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
+    
+     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell    {
+        
+       let cell:SegmentedControlCell = self.tableView.dequeueReusableCell(withIdentifier: "cell")! as! SegmentedControlCell
+        
+        
+        cell.segmentedControlCellLabel.text = "Temperature Unit"
+        
+       
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 2
+    }
+    
+    
+    
+    func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
+        
+      //  selectedPeripheral = peripherals[indexPath.row]
+     //   selectedPeripheral?.delegate = self
+        
+       // tableView.reloadData()
+        
+    }
+    
     
 }
