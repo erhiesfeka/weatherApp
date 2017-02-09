@@ -244,6 +244,7 @@
                     </view>
                     <connections>
                         <outlet property="popUpView" destination="tsV-kq-3uE" id="fxJ-1H-Jx3"/>
+                        <outlet property="settingsContainerView" destination="vwe-vM-IOf" id="hs2-h3-gPn"/>
                         <outlet property="settingsLabel" destination="Ry3-GZ-hNS" id="AkE-yr-FKy"/>
                     </connections>
                 </viewController>

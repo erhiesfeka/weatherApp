@@ -13,11 +13,15 @@ import GooglePlaces
 
 class PopUpViewController: UIViewController{
     var vc = ViewController()
+    
+    var settingsVc = SettingsViewController()
  
     @IBOutlet weak var popUpView: UIView!
 
     @IBOutlet weak var settingsLabel: UILabel!
    
+    @IBOutlet weak var settingsContainerView: UIView!
+    
     @IBAction func closePopUp(_ sender: AnyObject) {
      self.clickClose()
     }
@@ -28,8 +32,24 @@ class PopUpViewController: UIViewController{
         self.view.removeFromSuperview()
         
     }
+    
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if let touch = touches.first {
+            if touch.view == self.view {
+                self.clickClose()
+            } else {
+                return
+            }
+            
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let maskPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: popUpView.frame.width , height: popUpView.frame.height * 0.4),
                                     byRoundingCorners: [.topLeft, .topRight],
                                     cornerRadii: CGSize(width: 15, height: 15))
@@ -46,7 +66,22 @@ class PopUpViewController: UIViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(PopUpViewController.clickClose), name: NSNotification.Name(rawValue: "clickClose"), object: nil)
         self.view.backgroundColor = UIColor.clear.withAlphaComponent(0.2)
         popUpView.layer.cornerRadius = 15.0
+        
+        self.view.alpha = 0
+        popUpView.alpha = 0
+        settingsContainerView.alpha = 0
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 0.5, animations: {
+            
+             self.view.alpha = 1
+             self.popUpView.alpha = 1
+             self.settingsContainerView.alpha = 1
+            
+        })
     }
 
     override func didReceiveMemoryWarning() {
