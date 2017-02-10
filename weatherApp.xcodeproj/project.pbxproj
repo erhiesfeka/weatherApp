@@ -48,6 +48,7 @@
 		E58D02DA1C2F283600839E97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58D02D81C2F283600839E97 /* LaunchScreen.storyboard */; };
 		E58D02E51C2F283600839E97 /* weatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D02E41C2F283600839E97 /* weatherAppTests.swift */; };
 		E58D02F01C2F283600839E97 /* weatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D02EF1C2F283600839E97 /* weatherAppUITests.swift */; };
+		E5A602CF1E4E1F5E005F4F2D /* SegmentedControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A602CE1E4E1F5E005F4F2D /* SegmentedControlCell.swift */; };
 		E5D13CB71D8769A600EF3D17 /* Gotham Nights Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D13CB31D87681000EF3D17 /* Gotham Nights Bold Italic.otf */; };
 		E5D13CB81D8769A600EF3D17 /* Gotham Nights Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D13CB41D87681000EF3D17 /* Gotham Nights Bold.otf */; };
 		E5D13CB91D8769A600EF3D17 /* Gotham Nights Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D13CB51D87681000EF3D17 /* Gotham Nights Italic.otf */; };
@@ -127,6 +128,7 @@
 		E58D02EB1C2F283600839E97 /* weatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58D02EF1C2F283600839E97 /* weatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherAppUITests.swift; sourceTree = "<group>"; };
 		E58D02F11C2F283600839E97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5A602CE1E4E1F5E005F4F2D /* SegmentedControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlCell.swift; sourceTree = "<group>"; };
 		E5D13CB31D87681000EF3D17 /* Gotham Nights Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Nights Bold Italic.otf"; sourceTree = "<group>"; };
 		E5D13CB41D87681000EF3D17 /* Gotham Nights Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Nights Bold.otf"; sourceTree = "<group>"; };
 		E5D13CB51D87681000EF3D17 /* Gotham Nights Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Nights Italic.otf"; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				E504E5361CF8CFF5001BCC37 /* WeatherData.swift */,
 				E52F69181DC93906006439B3 /* DecisionStruct.swift */,
 				E58D02D31C2F283600839E97 /* Main.storyboard */,
+				E5A602CE1E4E1F5E005F4F2D /* SegmentedControlCell.swift */,
 				E58D02D61C2F283600839E97 /* Assets.xcassets */,
 				E58D02D81C2F283600839E97 /* LaunchScreen.storyboard */,
 				E5EB173D1C6F86F20094AE86 /* iCarousel.h */,
@@ -551,6 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A602CF1E4E1F5E005F4F2D /* SegmentedControlCell.swift in Sources */,
 				E583FE7E1CF4D08400D455AB /* RectangleLayer.swift in Sources */,
 				E58D02D21C2F283600839E97 /* ViewController.swift in Sources */,
 				E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */,

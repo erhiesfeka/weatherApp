@@ -12,10 +12,11 @@ import GooglePlaces
 
 
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var control1: BetterSegmentedControl!
     @IBOutlet weak var control2: BetterSegmentedControl!
     @IBOutlet weak var selectCityButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     @IBAction func Select(_ sender: Any) {
         
         let autocompleteController = GMSAutocompleteViewController()
@@ -167,6 +168,32 @@ class SettingsViewController: UIViewController {
         
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell    {
+        
+        let cell:SegmentedControlCell = self.tableView.dequeueReusableCell(withIdentifier: "segmentedCell")! as! SegmentedControlCell
+        
+        
+        cell.SegmentedCellLabel.text = "Temperature Unit"
+        
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 2
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        
+        //  selectedPeripheral = peripherals[indexPath.row]
+        //   selectedPeripheral?.delegate = self
+        
+        tableView.reloadData()
+        
+    }
 
     
 }

@@ -339,6 +339,43 @@
                                     <action selector="Select:" destination="0ao-If-a9v" eventType="touchUpInside" id="YyR-F2-LK1"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0K5-J3-LyV">
+                                <rect key="frame" x="0.0" y="173" width="323" height="199"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="segmentedCell" id="cPI-Mw-tc7" customClass="SegmentedControlCell" customModule="weatherApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="323" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cPI-Mw-tc7" id="xby-6e-GuR">
+                                            <rect key="frame" x="0.0" y="0.0" width="323" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5T2-fV-abr">
+                                                    <rect key="frame" x="8" y="8" width="125" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="gvM-aN-k1L"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5T2-fV-abr" firstAttribute="top" secondItem="xby-6e-GuR" secondAttribute="topMargin" id="EYb-HQ-ROA"/>
+                                                <constraint firstItem="5T2-fV-abr" firstAttribute="bottom" secondItem="xby-6e-GuR" secondAttribute="bottomMargin" id="NAc-p0-vuB"/>
+                                                <constraint firstItem="5T2-fV-abr" firstAttribute="leading" secondItem="xby-6e-GuR" secondAttribute="leadingMargin" id="m7B-0P-JrF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="SegmentedCellLabel" destination="5T2-fV-abr" id="qcp-Kr-pkM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0ao-If-a9v" id="GWI-l0-cIZ"/>
+                                    <outlet property="delegate" destination="0ao-If-a9v" id="kuZ-CQ-69G"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -347,11 +384,15 @@
                             <constraint firstItem="a6p-1a-qod" firstAttribute="leading" secondItem="pqe-O0-fXW" secondAttribute="trailing" constant="29" id="97k-IP-AhP"/>
                             <constraint firstAttribute="trailing" secondItem="xr7-nw-snD" secondAttribute="trailing" constant="5" id="FZs-0r-uRb"/>
                             <constraint firstItem="sTZ-sm-vAP" firstAttribute="bottom" secondItem="gkr-We-0mC" secondAttribute="bottom" id="Fc2-ir-tnj"/>
+                            <constraint firstItem="0K5-J3-LyV" firstAttribute="top" secondItem="xr7-nw-snD" secondAttribute="bottom" constant="8" symbolic="YES" id="I2o-2k-7UT"/>
                             <constraint firstItem="pqe-O0-fXW" firstAttribute="top" secondItem="sTZ-sm-vAP" secondAttribute="bottom" constant="8" symbolic="YES" id="KJM-Qu-Vlf"/>
                             <constraint firstAttribute="trailing" secondItem="gkr-We-0mC" secondAttribute="trailing" constant="5" id="LDT-GF-UeU"/>
                             <constraint firstItem="pqe-O0-fXW" firstAttribute="leading" secondItem="pFd-Te-SYg" secondAttribute="leadingMargin" id="Lwe-Z9-CrB"/>
+                            <constraint firstAttribute="trailing" secondItem="0K5-J3-LyV" secondAttribute="trailing" id="Ngo-ve-0mH"/>
+                            <constraint firstItem="0K5-J3-LyV" firstAttribute="leading" secondItem="pFd-Te-SYg" secondAttribute="leading" id="S1g-EQ-EUC"/>
                             <constraint firstItem="xr7-nw-snD" firstAttribute="top" secondItem="a6p-1a-qod" secondAttribute="bottom" constant="18" id="YVI-Ba-qRs"/>
                             <constraint firstItem="gkr-We-0mC" firstAttribute="leading" secondItem="sTZ-sm-vAP" secondAttribute="trailing" constant="8" symbolic="YES" id="lM7-2g-fbz"/>
+                            <constraint firstItem="0K5-J3-LyV" firstAttribute="bottom" secondItem="0BV-ZS-Wl0" secondAttribute="top" id="mw6-75-6hQ"/>
                             <constraint firstItem="0BV-ZS-Wl0" firstAttribute="top" secondItem="pqe-O0-fXW" secondAttribute="bottom" constant="239" id="pM5-0g-uXZ"/>
                             <constraint firstItem="sTZ-sm-vAP" firstAttribute="leading" secondItem="pqe-O0-fXW" secondAttribute="leading" id="wGx-bH-uMu"/>
                             <constraint firstItem="0BV-ZS-Wl0" firstAttribute="top" secondItem="a6p-1a-qod" secondAttribute="bottom" constant="255" id="yie-2P-URn"/>
@@ -361,6 +402,7 @@
                         <outlet property="control1" destination="gkr-We-0mC" id="n9r-by-BoU"/>
                         <outlet property="control2" destination="a6p-1a-qod" id="5mf-ep-B9k"/>
                         <outlet property="selectCityButton" destination="xr7-nw-snD" id="BcK-n0-iiW"/>
+                        <outlet property="tableView" destination="0K5-J3-LyV" id="H3l-LV-fuo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpw-hQ-rju" userLabel="First Responder" sceneMemberID="firstResponder"/>
