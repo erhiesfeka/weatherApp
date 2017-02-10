@@ -16,8 +16,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var control1: BetterSegmentedControl!
     @IBOutlet weak var control2: BetterSegmentedControl!
     @IBOutlet weak var selectCityButton: UIButton!
-    
     @IBOutlet weak var tableView: UITableView!
+    
     @IBAction func Select(_ sender: Any) {
         
         let autocompleteController = GMSAutocompleteViewController()
@@ -169,7 +169,35 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
         
     }
     
-
+// TableView delegate methods
+    
+  func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell    {
+        
+        let cell:SegmentedControlCell = self.tableView.dequeueReusableCell(withIdentifier: "segmentedControlCell")! as! SegmentedControlCell
+        
+        
+        cell.segmentedControlCellLabel.text = "Temperature Unit"
+        
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return 2
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        
+        //  selectedPeripheral = peripherals[indexPath.row]
+        //   selectedPeripheral?.delegate = self
+        
+         tableView.reloadData()
+        
+    }
+    
     
 }
 
@@ -208,32 +236,6 @@ extension SettingsViewController: GMSAutocompleteViewControllerDelegate {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
-     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell    {
-        
-       let cell:SegmentedControlCell = self.tableView.dequeueReusableCell(withIdentifier: "cell")! as! SegmentedControlCell
-        
-        
-        cell.segmentedControlCellLabel.text = "Temperature Unit"
-        
-       
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return 2
-    }
-    
-    
-    
-    func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-        
-      //  selectedPeripheral = peripherals[indexPath.row]
-     //   selectedPeripheral?.delegate = self
-        
-       // tableView.reloadData()
-        
-    }
-    
+  
     
 }

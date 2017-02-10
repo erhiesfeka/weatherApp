@@ -343,7 +343,7 @@
                                 <rect key="frame" x="0.0" y="173" width="323" height="199"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uQn-Mm-jbJ" customClass="SegmentedControlCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="segmentedControlCell" id="uQn-Mm-jbJ" customClass="SegmentedControlCell">
                                         <rect key="frame" x="0.0" y="28" width="323" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uQn-Mm-jbJ" id="Fxs-lY-XbF">
@@ -381,8 +381,8 @@
                                 </prototypes>
                                 <sections/>
                                 <connections>
-                                    <outlet property="dataSource" destination="0ao-If-a9v" id="iZj-cw-F1l"/>
-                                    <outlet property="delegate" destination="0ao-If-a9v" id="BuV-0L-AJv"/>
+                                    <outlet property="dataSource" destination="0ao-If-a9v" id="oF4-kt-Qro"/>
+                                    <outlet property="delegate" destination="0ao-If-a9v" id="fWb-WR-UPs"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -411,7 +411,7 @@
                         <outlet property="control1" destination="gkr-We-0mC" id="n9r-by-BoU"/>
                         <outlet property="control2" destination="a6p-1a-qod" id="5mf-ep-B9k"/>
                         <outlet property="selectCityButton" destination="xr7-nw-snD" id="BcK-n0-iiW"/>
-                        <outlet property="tableView" destination="7C5-iX-hvd" id="swT-Rk-Bgq"/>
+                        <outlet property="tableView" destination="7C5-iX-hvd" id="sgz-Dw-eYM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpw-hQ-rju" userLabel="First Responder" sceneMemberID="firstResponder"/>
