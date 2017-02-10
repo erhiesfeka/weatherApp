@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import BetterSegmentedControl
 
 class SegmentedControlCell: UITableViewCell {
 
     @IBOutlet weak var SegmentedCellLabel: UILabel!
+    @IBOutlet weak var segmentedControl: BetterSegmentedControl!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +23,7 @@ class SegmentedControlCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
 
 }

@@ -350,24 +350,47 @@
                                             <rect key="frame" x="0.0" y="0.0" width="323" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5T2-fV-abr">
-                                                    <rect key="frame" x="8" y="8" width="125" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5T2-fV-abr">
+                                                    <rect key="frame" x="8" y="8" width="158" height="27"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="125" id="gvM-aN-k1L"/>
+                                                        <constraint firstAttribute="width" constant="158" id="Axt-Gw-UJK"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                                    <color key="textColor" red="0.31372549020000001" green="0.13725490200000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="USi-uW-WUa" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                                    <rect key="frame" x="186" y="8" width="129" height="28"/>
+                                                    <color key="backgroundColor" red="0.87898337839999996" green="0.79831069710000002" blue="0.85856550929999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
+                                                            <color key="value" red="0.31372549020000001" green="0.13725490200000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                            <color key="value" red="0.31372549020000001" green="0.13725490200000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="5T2-fV-abr" firstAttribute="top" secondItem="xby-6e-GuR" secondAttribute="topMargin" id="EYb-HQ-ROA"/>
-                                                <constraint firstItem="5T2-fV-abr" firstAttribute="bottom" secondItem="xby-6e-GuR" secondAttribute="bottomMargin" id="NAc-p0-vuB"/>
-                                                <constraint firstItem="5T2-fV-abr" firstAttribute="leading" secondItem="xby-6e-GuR" secondAttribute="leadingMargin" id="m7B-0P-JrF"/>
+                                                <constraint firstItem="5T2-fV-abr" firstAttribute="centerY" secondItem="USi-uW-WUa" secondAttribute="centerY" id="6dB-fD-4k0"/>
+                                                <constraint firstItem="5T2-fV-abr" firstAttribute="leading" secondItem="xby-6e-GuR" secondAttribute="leadingMargin" id="9WJ-5X-0pm"/>
+                                                <constraint firstItem="USi-uW-WUa" firstAttribute="leading" secondItem="5T2-fV-abr" secondAttribute="trailing" constant="20" id="M8i-km-pDP"/>
+                                                <constraint firstItem="5T2-fV-abr" firstAttribute="top" secondItem="xby-6e-GuR" secondAttribute="topMargin" id="W7V-Fu-YQO"/>
+                                                <constraint firstItem="USi-uW-WUa" firstAttribute="trailing" secondItem="xby-6e-GuR" secondAttribute="trailingMargin" id="a3U-qM-wG8"/>
+                                                <constraint firstItem="5T2-fV-abr" firstAttribute="top" secondItem="USi-uW-WUa" secondAttribute="top" id="fiH-mW-RTo"/>
+                                                <constraint firstItem="5T2-fV-abr" firstAttribute="centerY" secondItem="xby-6e-GuR" secondAttribute="centerY" id="mTP-7K-giN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="SegmentedCellLabel" destination="5T2-fV-abr" id="qcp-Kr-pkM"/>
+                                            <outlet property="segmentedControl" destination="USi-uW-WUa" id="Cfz-n6-fEL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

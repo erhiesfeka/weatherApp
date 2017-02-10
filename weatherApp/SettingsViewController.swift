@@ -34,17 +34,24 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var tempCelcius:Bool = Bool()
     var vc = ViewController()
     var wd = WeatherData()
-    
+    var segmentedControlLabel:[[String]] = []
+    var cellLabelTitle:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        tableView.alpha = 0
         // Temperature Unit control
         
         control1.titles = ["°C","°F"]
         control1.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
         control1.alwaysAnnouncesValue = true
+        
+        segmentedControlLabel = [["°C","°F"], ["Yes", "No"]]
+        cellLabelTitle = ["Temperature Unit", "Manually Select \n Location"]
+        
+        
+        
         
         switch selectedUnit {
         case .farenheit:
@@ -99,21 +106,25 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         control2.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControl2ValueChanged(_:)), for: .valueChanged)
         
         
-         /*
-         control3.titles = ["Yes","No"]
-         control3.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
-         control3.alwaysAnnouncesValue = true
-         control3.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)*/
+       
         
        
         
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+       
         
-        
+        UIView.animate(withDuration: 0.5, animations: {
+            
+            self.tableView.alpha = 1
+            
+        })
     }
+        
+        
+    
     
     
     
@@ -173,8 +184,27 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let cell:SegmentedControlCell = self.tableView.dequeueReusableCell(withIdentifier: "segmentedCell")! as! SegmentedControlCell
         
         
-        cell.SegmentedCellLabel.text = "Temperature Unit"
+        cell.SegmentedCellLabel.text = self.cellLabelTitle[indexPath.row]
         
+        cell.segmentedControl.titles = self.segmentedControlLabel[indexPath.row]
+        
+        if manualLocation == false {
+            
+            do{
+                try cell.segmentedControl.setIndex(1, animated: false)
+            }catch _{
+                print ("no such index")
+            }
+            
+        }else{
+            
+            do{
+                try control2.setIndex(0, animated: false)
+            }catch _{
+                print ("no such index")
+            }
+        }
+        cell.segmentedControl.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControl2ValueChanged(_:)), for: .valueChanged)
         
         return cell
     }
@@ -191,7 +221,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         //  selectedPeripheral = peripherals[indexPath.row]
         //   selectedPeripheral?.delegate = self
         
-        tableView.reloadData()
+     //   tableView.reloadData()
         
     }
 
