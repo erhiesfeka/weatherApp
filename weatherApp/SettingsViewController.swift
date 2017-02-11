@@ -13,20 +13,9 @@ import GooglePlaces
 
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var control1: BetterSegmentedControl!
-    @IBOutlet weak var control2: BetterSegmentedControl!
-    @IBOutlet weak var selectCityButton: UIButton!
+    
     @IBOutlet weak var tableView: UITableView!
-    @IBAction func Select(_ sender: Any) {
-        
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        let filter = GMSAutocompleteFilter()
-        filter.type = .city
-        autocompleteController.autocompleteFilter = filter
-        self.present(autocompleteController, animated: true, completion: nil)
-        
-    }
+   
     
     
     //  @IBOutlet weak var control3: BetterSegmentedControl!
@@ -45,76 +34,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         NotificationCenter.default.addObserver(self, selector: #selector(SettingsViewController.revealCitySelectPage), name: NSNotification.Name(rawValue: "revealCitySelectPage"), object: nil)
         
-        
-        
-        
         // Temperature Unit control
-        
-        control1.titles = ["°C","°F"]
-        control1.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
-        control1.alwaysAnnouncesValue = true
         
         segmentedControlLabel = [["°C","°F"], ["Yes", "No"]]
         cellLabelTitle = ["Temperature Unit", "Manually Select \n Location"]
-        
-        
-        
-        
-        switch selectedUnit {
-        case .farenheit:
-            do{
-                try control1.setIndex(1, animated: false)
-            }catch _{
-                print ("no such index")
-            }
-            
-        case .celsius:
-            
-            do{
-                try control1.setIndex(0, animated: false) //setIndex(0)
-            }catch _{
-                print ("no such index")
-            }
-        default:
-            print("*>*>*> something's not right")
-        }
-        
-        //Manually set location COntrol
-        if manualLocation == false{
-            selectCityButton.isEnabled = false
-            selectCityButton.setTitleColor(UIColor.gray, for: .normal)
-        }else{
-            selectCityButton.setTitleColor(UIColor.red, for: .normal)
-        }
-        
-        control1.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
-        
-        control2.titles = ["Yes","No"]
-        control2.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
-        control2.alwaysAnnouncesValue = true
-        
-        
-        if manualLocation == false {
-            
-            do{
-                try control2.setIndex(1, animated: false)
-            }catch _{
-                print ("no such index")
-            }
-            
-        }else{
-            
-            do{
-                try control2.setIndex(0, animated: false)
-            }catch _{
-                print ("no such index")
-            }
-        }
-        control2.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControl2ValueChanged(_:)), for: .valueChanged)
-        
-        
-        
-        
         
         
         // Do any additional setup after loading the view.
@@ -180,27 +103,21 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func navigationSegmentedControl2ValueChanged(_ sender: BetterSegmentedControl){
         
-        
-        
-        
-        
         if sender.index == 0 {
-            selectCityButton.isEnabled = true
+        
             print("Manually enter location")
             
             manualLocation = true
             
-            selectCityButton.setTitleColor(Colors.purp, for: .normal)
         }
         else {
             
-            selectCityButton.isEnabled = false
+            
             print("Dont Manually enter location")
             manualLocation = false
             city = ""
             latitude = 0
             longitude = 0
-            selectCityButton.setTitleColor(UIColor.gray, for: .normal)
             NotificationCenter.default.post(name: Notification.Name(rawValue: "updateLocation"), object: nil)
         }
         
@@ -276,7 +193,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             }else{
                 
                 do{
-                    try control2.setIndex(0, animated: false)
+                    try cell.segmentedCell2Control.setIndex(0, animated: false)
                 }catch _{
                     print ("no such index")
                 }

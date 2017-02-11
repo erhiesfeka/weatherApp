@@ -335,9 +335,6 @@
                                 <state key="normal" title="Select City">
                                     <color key="titleColor" red="0.87898337839999996" green="0.79831069710000002" blue="0.85856550929999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="Select:" destination="0ao-If-a9v" eventType="touchUpInside" id="YyR-F2-LK1"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0K5-J3-LyV">
                                 <rect key="frame" x="0.0" y="173" width="323" height="199"/>
@@ -488,9 +485,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="control1" destination="gkr-We-0mC" id="n9r-by-BoU"/>
-                        <outlet property="control2" destination="a6p-1a-qod" id="5mf-ep-B9k"/>
-                        <outlet property="selectCityButton" destination="xr7-nw-snD" id="BcK-n0-iiW"/>
                         <outlet property="tableView" destination="0K5-J3-LyV" id="H3l-LV-fuo"/>
                     </connections>
                 </viewController>
