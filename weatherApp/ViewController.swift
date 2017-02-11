@@ -28,7 +28,25 @@ var latitude:Double? = Double()
 var longitude:Double? = Double()
 var selectedUnit:tempUnit = .unknownDefault
 var city:String? = String()
-var manualLocation = false
+var locationSettingChanged:Bool = Bool()
+
+var manualLocation:Bool = false {
+
+willSet {
+    print("About to set status to:  \(newValue)")
+}
+
+didSet {
+    if manualLocation != oldValue {
+        locationSettingChanged = true
+    }else{
+        locationSettingChanged = false
+    }
+    
+    
+}
+
+}
 //Global Function
 func delay(_ delay: Double, closure: @escaping ()->()) {
     DispatchQueue.main.asyncAfter(

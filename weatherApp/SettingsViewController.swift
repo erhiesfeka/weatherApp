@@ -27,7 +27,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.present(autocompleteController, animated: true, completion: nil)
         
     }
- 
+    
     
     //  @IBOutlet weak var control3: BetterSegmentedControl!
     
@@ -37,10 +37,17 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var segmentedControlLabel:[[String]] = []
     var cellLabelTitle:[String] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.alpha = 0
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsViewController.revealCitySelectPage), name: NSNotification.Name(rawValue: "revealCitySelectPage"), object: nil)
+        
+        
+        
+        
         // Temperature Unit control
         
         control1.titles = ["°C","°F"]
@@ -82,19 +89,19 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         control1.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
         
-         control2.titles = ["Yes","No"]
-         control2.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
-         control2.alwaysAnnouncesValue = true
+        control2.titles = ["Yes","No"]
+        control2.titleFont = UIFont(name: "HelveticaNeue-Medium", size: 13.0)!
+        control2.alwaysAnnouncesValue = true
         
         
         if manualLocation == false {
             
-        do{
-            try control2.setIndex(1, animated: false)
-        }catch _{
-            print ("no such index")
-        }
-         
+            do{
+                try control2.setIndex(1, animated: false)
+            }catch _{
+                print ("no such index")
+            }
+            
         }else{
             
             do{
@@ -106,15 +113,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         control2.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControl2ValueChanged(_:)), for: .valueChanged)
         
         
-       
         
-       
+        
+        
         
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       
+        
         
         UIView.animate(withDuration: 0.5, animations: {
             
@@ -122,8 +129,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             
         })
     }
-        
-        
+    
+    
     
     
     
@@ -133,80 +140,164 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    func revealCitySelectPage() {
+        
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        let filter = GMSAutocompleteFilter()
+        filter.type = .city
+        autocompleteController.autocompleteFilter = filter
+        self.present(autocompleteController, animated: true, completion: nil)
+        
+    }
+    
     
     func navigationSegmentedControlValueChanged(_ sender: BetterSegmentedControl) {
-     
+        
         if sender.index == 1 {
             
             print("Temperature is farenheit")
-       
+            
             selectedUnit = .farenheit
             
         }
         else {
-           
+            
             selectedUnit = .celsius
             
         }
         
         
         userDefaults.set(selectedUnit.rawValue, forKey: "savedUnit")
-       
+        
         NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadiCarousel"), object: nil)
         
     }
     
+    
+    
+    
+    
     func navigationSegmentedControl2ValueChanged(_ sender: BetterSegmentedControl){
+        
+        
+        
+        
+        
         if sender.index == 0 {
             selectCityButton.isEnabled = true
             print("Manually enter location")
             
             manualLocation = true
             
-           selectCityButton.setTitleColor(UIColor.red, for: .normal)
+            selectCityButton.setTitleColor(Colors.purp, for: .normal)
         }
         else {
-         
-             selectCityButton.isEnabled = false
-             print("Dont Manually enter location")
-             manualLocation = false
-             city = ""
-             latitude = 0
-             longitude = 0
-             selectCityButton.setTitleColor(UIColor.gray, for: .normal)
-             NotificationCenter.default.post(name: Notification.Name(rawValue: "updateLocation"), object: nil)
+            
+            selectCityButton.isEnabled = false
+            print("Dont Manually enter location")
+            manualLocation = false
+            city = ""
+            latitude = 0
+            longitude = 0
+            selectCityButton.setTitleColor(UIColor.gray, for: .normal)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "updateLocation"), object: nil)
+        }
+        
+        if locationSettingChanged{
+            tableView.reloadData()
         }
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell    {
-        
-        let cell:SegmentedControlCell = self.tableView.dequeueReusableCell(withIdentifier: "segmentedCell")! as! SegmentedControlCell
-        
-        
-        cell.SegmentedCellLabel.text = self.cellLabelTitle[indexPath.row]
-        
-        cell.segmentedControl.titles = self.segmentedControlLabel[indexPath.row]
-        
-        if manualLocation == false {
+        if indexPath.row == 0 {
+            let cell:SegmentedControlCell = self.tableView.dequeueReusableCell(withIdentifier: "segmentedCell")! as! SegmentedControlCell
             
-            do{
-                try cell.segmentedControl.setIndex(1, animated: false)
-            }catch _{
-                print ("no such index")
+            switch selectedUnit {
+            case .farenheit:
+                do{
+                    try cell.segmentedControl.setIndex(1, animated: false)
+                }catch _{
+                    print ("no such index")
+                }
+                
+            case .celsius:
+                
+                do{
+                    try cell.segmentedControl.setIndex(0, animated: false) //setIndex(0)
+                }catch _{
+                    print ("no such index")
+                }
+            default:
+                print("*>*>*> something's not right")
             }
+            
+            cell.SegmentedCellLabel.text = self.cellLabelTitle[indexPath.row]
+            
+            cell.segmentedControl.titles = self.segmentedControlLabel[indexPath.row]
+            
+            cell.segmentedControl.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
+            
+          
+
+            
+            return cell
+            
             
         }else{
             
-            do{
-                try control2.setIndex(0, animated: false)
-            }catch _{
-                print ("no such index")
+            let cell:segmentedControlCell2 = self.tableView.dequeueReusableCell(withIdentifier: "segmentedCell2")! as! segmentedControlCell2
+            cell.segmentedCell2Control.titles = self.segmentedControlLabel[indexPath.row]
+            cell.selectCityButton.backgroundColor = .clear
+            cell.selectCityButton.layer.cornerRadius = 5
+            cell.selectCityButton.layer.borderWidth = 1
+            cell.selectCityButton.setTitleColor(Colors.purp, for: .normal)
+            cell.selectCityButton.setTitleColor(Colors.purpLight, for: .disabled)
+            if manualLocation{
+                cell.selectCityButton.isEnabled = true
+                
+                cell.selectCityButton.layer.borderColor = Colors.purp.cgColor
+                
+            }else{
+                cell.selectCityButton.isEnabled = false
+                cell.selectCityButton.layer.borderColor = Colors.purpLight.cgColor
             }
+            
+            
+            if manualLocation == false {
+                
+                do{
+                    try cell.segmentedCell2Control.setIndex(1, animated: false)
+                }catch _{
+                    print ("no such index")
+                }
+                
+            }else{
+                
+                do{
+                    try control2.setIndex(0, animated: false)
+                }catch _{
+                    print ("no such index")
+                }
+            }
+            cell.segmentedCell2Control.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControl2ValueChanged(_:)), for: .valueChanged)
+            
+            
+            
+            
+            return cell
         }
-        cell.segmentedControl.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControl2ValueChanged(_:)), for: .valueChanged)
         
-        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 1 {
+            return 100
+        }else{
+            return 50
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -216,15 +307,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        
-        //  selectedPeripheral = peripherals[indexPath.row]
-        //   selectedPeripheral?.delegate = self
-        
-     //   tableView.reloadData()
-        
-    }
-
+    
+    
+    
     
 }
 

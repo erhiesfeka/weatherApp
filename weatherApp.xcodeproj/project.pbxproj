@@ -30,6 +30,7 @@
 		E50E600F1D3EB3A800AE7ED0 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = E50E600E1D3EB3A800AE7ED0 /* close.png */; };
 		E50E60111D3EB65A00AE7ED0 /* close2.png in Resources */ = {isa = PBXBuildFile; fileRef = E50E60101D3EB65A00AE7ED0 /* close2.png */; };
 		E513FABE1DABFF0D00FD91E9 /* Settings-Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = E513FABD1DABFF0D00FD91E9 /* Settings-Filled-50.png */; };
+		E5169A5F1E4F71A100888262 /* segmentedControlCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5169A5E1E4F71A100888262 /* segmentedControlCell2.swift */; };
 		E517D7521E1C34A200763A3F /* wind.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E517D7511E1C34A200763A3F /* wind.jpg */; };
 		E526B65A1D79F2B800A23C40 /* BetterSegmentedControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */; };
 		E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52F69181DC93906006439B3 /* DecisionStruct.swift */; };
@@ -103,6 +104,7 @@
 		E50E600E1D3EB3A800AE7ED0 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		E50E60101D3EB65A00AE7ED0 /* close2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close2.png; sourceTree = "<group>"; };
 		E513FABD1DABFF0D00FD91E9 /* Settings-Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-Filled-50.png"; sourceTree = "<group>"; };
+		E5169A5E1E4F71A100888262 /* segmentedControlCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = segmentedControlCell2.swift; sourceTree = "<group>"; };
 		E517D7511E1C34A200763A3F /* wind.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wind.jpg; sourceTree = "<group>"; };
 		E522DD111E0C587200CDF12C /* BubbleTransition.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BubbleTransition.framework; path = "Pods/../build/Debug-iphoneos/BubbleTransition/BubbleTransition.framework"; sourceTree = "<group>"; };
 		E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BetterSegmentedControl.framework; path = "../../Library/Developer/Xcode/DerivedData/weatherApp-dcwzowbpkfqulxhjispwhgvqajjp/Build/Products/Debug-iphonesimulator/BetterSegmentedControl/BetterSegmentedControl.framework"; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				E504E5361CF8CFF5001BCC37 /* WeatherData.swift */,
 				E52F69181DC93906006439B3 /* DecisionStruct.swift */,
 				E58D02D31C2F283600839E97 /* Main.storyboard */,
+				E5169A5E1E4F71A100888262 /* segmentedControlCell2.swift */,
 				E5A602CE1E4E1F5E005F4F2D /* SegmentedControlCell.swift */,
 				E58D02D61C2F283600839E97 /* Assets.xcassets */,
 				E58D02D81C2F283600839E97 /* LaunchScreen.storyboard */,
@@ -555,6 +558,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5A602CF1E4E1F5E005F4F2D /* SegmentedControlCell.swift in Sources */,
+				E5169A5F1E4F71A100888262 /* segmentedControlCell2.swift in Sources */,
 				E583FE7E1CF4D08400D455AB /* RectangleLayer.swift in Sources */,
 				E58D02D21C2F283600839E97 /* ViewController.swift in Sources */,
 				E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */,

@@ -20,7 +20,7 @@ class WeatherData {
     let apiKeyGmail = "f93c4413a8f218fe4ad58aaf42cdfeb3" //erhiesfeka1@gmail.com
     let apikeyYahoo = "14d701ee5e2ba63179528de2bee40348" // erhiesfeka@yahoo.com
     
-    var forecastIOClient = APIClient(apiKey: "f93c4413a8f218fe4ad58aaf42cdfeb3")
+    var forecastIOClient = APIClient(apiKey: "14d701ee5e2ba63179528de2bee40348")
     var hourlyTemp:[(time: String, tempForhour: Int)] = [] // hourly temp for 2 days in the future/ every three hours
     var minMaxDailyTemp:[(min: Int, max: Int)] = []// plus 7 days
     var iconDaily:[String] = []
