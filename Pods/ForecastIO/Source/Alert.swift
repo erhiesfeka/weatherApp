@@ -15,7 +15,7 @@ public struct Alert {
     public let title: String
     
     /// The time at which the `Alert` will cease to be valid.
-    public let expires: Date
+    public let expires: Date?
     
     /// A detailed text description of the `Alert` from the appropriate weather service.
     public let description: String?
@@ -32,7 +32,11 @@ public struct Alert {
     */
     public init(fromJSON json: NSDictionary) {
         title = json["title"] as! String
-        expires = Date(timeIntervalSince1970: json["expires"] as! Double)
+        if let jsonExpires = json["expires"] as? Double {
+            expires = Date(timeIntervalSince1970: jsonExpires)
+        } else {
+            expires = nil
+        }
         uri = URL(string: json["uri"] as! String)!
 
         if let jsonDescription = json["description"] as? String {

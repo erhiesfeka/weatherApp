@@ -38,6 +38,7 @@ class WeatherData {
     var hourlySummary:[String] = []
     var daySummary:String = String()
     var delegate:weatherDataDelegate?
+    var weatherWarning:String?
    
     
     
@@ -108,6 +109,9 @@ class WeatherData {
                 self.precipitationType.removeAll()
                 self.daySummary = (currentForecast.hourly?.summary)!
                 
+                
+                
+                
                 var thirdCounter = 0
                 
                 for index in 0...6 {
@@ -131,6 +135,16 @@ class WeatherData {
                         self.iconHourly.append("\(currentForecast.currently!.icon!)")
                         
                         self.hourlySummary.append("\(currentForecast.currently!.summary!)")
+                        
+                        if let description = currentForecast.alerts?.description {
+                            
+                            self.weatherWarning = description
+                            
+                            print("*****WWAARNNNIINNGGGG \(self.weatherWarning)")
+                            
+                        }else{
+                            self.weatherWarning = nil
+                        }
                         
                     }else{
                         
