@@ -82,6 +82,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     var precipType:[String] = []
     var finalDecision:[String] = []
     let control = BetterSegmentedControl()
+    var popOverVCView:UIView = UIView()
     
     
     
@@ -116,8 +117,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     func openSettings(){
         
-        pageIndicator.isHidden = false
-        control.isHidden = false
+        pageIndicator.isHidden = true
+        control.isHidden = true
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         self.blurEffectView.effect = blurEffect
         blurEffectView.frame = view.bounds
@@ -134,7 +135,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         popOverVC.view.frame = self.view.frame
         
        // UIView.animate(withDuration: 0.5, animations: {
-        self.view.addSubview(popOverVC.view)
+        popOverVCView = popOverVC.view
+        self.view.addSubview(popOverVCView)
         popOverVC.didMove(toParentViewController: self)
         
         print("This is unit when the settings button is pressed \(self.unit)")
@@ -397,24 +399,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         self.iCarouselView.reloadData()
         
         print("view did appear")
-     /*   if CLLocationManager.locationServicesEnabled() {
-            
-            switch(CLLocationManager.authorizationStatus()) {
-            case .restricted, .denied:
-                print("No access")
-                openCityAlert()
-                
-            case .notDetermined:
-                print("Location not Determined")
-            case .authorizedAlways, .authorizedWhenInUse:
-                print("Access")
-            default:
-                print("...")
-            }
-        } else {
-            print("Location services are not enabled")
-            
-        }*/
+       
+        
+       
         
     }
     
@@ -430,18 +417,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         self.cityLabel.text = city
         self.getWeather()
         self.iCarouselView.reloadData()
-        //self.updateLocation()
-     
-        
-        
-        /*let control = BetterSegmentedControl(
-            frame: CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.80, width: self.view.bounds.width * 0.50, height: 30.0),
-            titles: ["Daily", "Current"],
-            index: 0,
-            backgroundColor: .white,
-            titleColor: cityLabel.textColor,
-            indicatorViewBackgroundColor:  cityLabel.textColor,
-            selectedTitleColor: .white)*/
+      
         
         control.frame = CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.82, width: self.view.bounds.width * 0.50, height: 30.0)
         control.titles = ["Daily", "Current"]
@@ -464,6 +440,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         
         
     }
+    
+    
     func willEnterForeground() {
         
         UIApplication.shared.applicationIconBadgeNumber = 0
@@ -575,9 +553,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
                 
             }
         }
-        
+      
+       
+        if !self.view.subviews.contains(popOverVCView) {
         control.isHidden = false
         pageIndicator.isHidden = false
+        }
+        
         return weatherView
         
         

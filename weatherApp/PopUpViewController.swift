@@ -22,9 +22,6 @@ class PopUpViewController: UIViewController{
    
     @IBOutlet weak var settingsContainerView: UIView!
     
-    @IBAction func closePopUp(_ sender: AnyObject) {
-     self.clickClose()
-    }
     
     func clickClose(){
         NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadiCarousel"), object: nil)

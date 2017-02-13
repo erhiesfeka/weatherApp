@@ -211,7 +211,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1 {
-            return 100
+            return 90
         }else{
             return 50
         }
