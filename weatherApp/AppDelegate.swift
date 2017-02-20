@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
-        GMSPlacesClient.provideAPIKey("AIzaSyDxEB24Wx7Oi87tFASkyO9zj6NgImRmO70")
+        GMSPlacesClient.provideAPIKey("AIzaSyB1U5FGS0MEZ9EjhjUn19c6ss8C9IiJ-IE")
         
         
         return true

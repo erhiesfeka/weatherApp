@@ -242,7 +242,10 @@ extension SettingsViewController: GMSAutocompleteViewControllerDelegate {
         print("Place Latitude: ", place.coordinate.latitude)
         self.dismiss(animated: true, completion: nil)
         NotificationCenter.default.post(name: Notification.Name(rawValue: "clickClose"), object: nil)
+        
     }
+    
+
     
     
     

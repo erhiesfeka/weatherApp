@@ -87,7 +87,7 @@ class WeatherData {
         timezone = ltzAbbrev()
         
         if latitude == 0 && longitude == 0 {
-            // location services didn't work
+            print("location services didn't work")
             
         }else{
         forecastIOClient.getForecast(latitude: latitude!, longitude: longitude!) { (currentForecast, error) -> Void in
