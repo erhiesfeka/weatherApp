@@ -4,6 +4,7 @@ target "weatherApp" do
     pod 'ForecastIO', :git => "https://github.com/sxg/ForecastIO.git", :branch => "swift3"
     pod 'GooglePlaces'
     pod 'BubbleTransition', '~> 2.0.0'
+    pod 'ZMSwiftRangeSlider', '~> 0.1.5'
 
   end
   use_frameworks!

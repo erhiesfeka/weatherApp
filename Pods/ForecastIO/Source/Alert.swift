@@ -33,10 +33,10 @@ public struct Alert {
     public init(fromJSON json: NSDictionary) {
         title = json["title"] as! String
         if let jsonExpires = json["expires"] as? Double {
-            expires = Date(timeIntervalSince1970: jsonExpires)
-        } else {
-            expires = nil
-        }
+                      expires = Date(timeIntervalSince1970: jsonExpires)
+                   } else {
+                       expires = nil
+                   }
         uri = URL(string: json["uri"] as! String)!
 
         if let jsonDescription = json["description"] as? String {

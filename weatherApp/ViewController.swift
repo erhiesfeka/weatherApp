@@ -26,9 +26,30 @@ var currentDesc:String = String()
 var tempNow:Int = Int()
 var latitude:Double? = Double()
 var longitude:Double? = Double()
-var selectedUnit:tempUnit = .unknownDefault
+
 var city:String? = String()
 var locationSettingChanged:Bool = Bool()
+var unitChanged:Bool = Bool()
+
+
+var selectedUnit:tempUnit = .unknownDefault{
+    
+willSet {
+    print("About to set status to:  \(newValue)")
+}
+
+didSet {
+    if selectedUnit != oldValue {
+        unitChanged = true
+    }else{
+        unitChanged = false
+    }
+    
+    
+}
+
+
+}
 
 var manualLocation:Bool = false {
 

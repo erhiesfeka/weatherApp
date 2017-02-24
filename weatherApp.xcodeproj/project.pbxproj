@@ -32,8 +32,10 @@
 		E513FABE1DABFF0D00FD91E9 /* Settings-Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = E513FABD1DABFF0D00FD91E9 /* Settings-Filled-50.png */; };
 		E5169A5F1E4F71A100888262 /* segmentedControlCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5169A5E1E4F71A100888262 /* segmentedControlCell2.swift */; };
 		E517D7521E1C34A200763A3F /* wind.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E517D7511E1C34A200763A3F /* wind.jpg */; };
+		E51822AD1E5CEBA000E8FB9D /* ZMSwiftRangeSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E51822AC1E5CEBA000E8FB9D /* ZMSwiftRangeSlider.framework */; };
 		E526B65A1D79F2B800A23C40 /* BetterSegmentedControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */; };
 		E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52F69181DC93906006439B3 /* DecisionStruct.swift */; };
+		E53DB06D1E5B2F2E0068F0B0 /* rangeCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53DB06C1E5B2F2E0068F0B0 /* rangeCell1.swift */; };
 		E550A9CE1C5E6E8300C840EB /* Decider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E550A9CD1C5E6E8300C840EB /* Decider.swift */; };
 		E56424041DABD6BE00F64255 /* purpleBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E56424031DABD6BE00F64255 /* purpleBackground.jpg */; };
 		E583FE781CF4D02700D455AB /* HolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583FE771CF4D02700D455AB /* HolderView.swift */; };
@@ -50,6 +52,9 @@
 		E58D02E51C2F283600839E97 /* weatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D02E41C2F283600839E97 /* weatherAppTests.swift */; };
 		E58D02F01C2F283600839E97 /* weatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D02EF1C2F283600839E97 /* weatherAppUITests.swift */; };
 		E5A602CF1E4E1F5E005F4F2D /* SegmentedControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A602CE1E4E1F5E005F4F2D /* SegmentedControlCell.swift */; };
+		E5CD62B91E5B505B001F2CBD /* BubbleTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5CD62B61E5B505B001F2CBD /* BubbleTransition.framework */; };
+		E5CD62BA1E5B505B001F2CBD /* ForecastIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5CD62B71E5B505B001F2CBD /* ForecastIO.framework */; };
+		E5CD62BD1E5B5151001F2CBD /* rangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD62BC1E5B5151001F2CBD /* rangeCell.swift */; };
 		E5D13CB71D8769A600EF3D17 /* Gotham Nights Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D13CB31D87681000EF3D17 /* Gotham Nights Bold Italic.otf */; };
 		E5D13CB81D8769A600EF3D17 /* Gotham Nights Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D13CB41D87681000EF3D17 /* Gotham Nights Bold.otf */; };
 		E5D13CB91D8769A600EF3D17 /* Gotham Nights Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D13CB51D87681000EF3D17 /* Gotham Nights Italic.otf */; };
@@ -106,9 +111,13 @@
 		E513FABD1DABFF0D00FD91E9 /* Settings-Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-Filled-50.png"; sourceTree = "<group>"; };
 		E5169A5E1E4F71A100888262 /* segmentedControlCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = segmentedControlCell2.swift; sourceTree = "<group>"; };
 		E517D7511E1C34A200763A3F /* wind.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wind.jpg; sourceTree = "<group>"; };
+		E51822AC1E5CEBA000E8FB9D /* ZMSwiftRangeSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZMSwiftRangeSlider.framework; path = "Pods/../build/Debug-iphoneos/ZMSwiftRangeSlider/ZMSwiftRangeSlider.framework"; sourceTree = "<group>"; };
 		E522DD111E0C587200CDF12C /* BubbleTransition.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BubbleTransition.framework; path = "Pods/../build/Debug-iphoneos/BubbleTransition/BubbleTransition.framework"; sourceTree = "<group>"; };
+		E52555891E5B53CA0065DCD9 /* RangeSliderView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RangeSliderView.framework; path = "Pods/../build/Debug-iphoneos/RangeSliderView/RangeSliderView.framework"; sourceTree = "<group>"; };
 		E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BetterSegmentedControl.framework; path = "../../Library/Developer/Xcode/DerivedData/weatherApp-dcwzowbpkfqulxhjispwhgvqajjp/Build/Products/Debug-iphonesimulator/BetterSegmentedControl/BetterSegmentedControl.framework"; sourceTree = "<group>"; };
 		E52F69181DC93906006439B3 /* DecisionStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecisionStruct.swift; sourceTree = "<group>"; };
+		E53CF1A11E5B59D600A3E202 /* NHRangeSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NHRangeSlider.framework; path = "../../Library/Developer/Xcode/DerivedData/weatherApp-dcwzowbpkfqulxhjispwhgvqajjp/Build/Products/Debug-iphoneos/NHRangeSlider/NHRangeSlider.framework"; sourceTree = "<group>"; };
+		E53DB06C1E5B2F2E0068F0B0 /* rangeCell1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rangeCell1.swift; sourceTree = "<group>"; };
 		E550A9CD1C5E6E8300C840EB /* Decider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decider.swift; sourceTree = "<group>"; };
 		E56424031DABD6BE00F64255 /* purpleBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = purpleBackground.jpg; sourceTree = "<group>"; };
 		E583FE771CF4D02700D455AB /* HolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolderView.swift; sourceTree = "<group>"; };
@@ -131,13 +140,20 @@
 		E58D02EF1C2F283600839E97 /* weatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherAppUITests.swift; sourceTree = "<group>"; };
 		E58D02F11C2F283600839E97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5A602CE1E4E1F5E005F4F2D /* SegmentedControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlCell.swift; sourceTree = "<group>"; };
+		E5C2657E1E5B5C2A00ED67F0 /* MARKRangeSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MARKRangeSlider.framework; path = "Pods/../build/Debug-iphoneos/MARKRangeSlider/MARKRangeSlider.framework"; sourceTree = "<group>"; };
+		E5C265821E5B5DDE00ED67F0 /* MARKRangeSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MARKRangeSlider.framework; path = "Pods/../build/Debug-iphoneos/MARKRangeSlider/MARKRangeSlider.framework"; sourceTree = "<group>"; };
+		E5C265861E5B5EE600ED67F0 /* weatherApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "weatherApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		E5CD62B61E5B505B001F2CBD /* BubbleTransition.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BubbleTransition.framework; path = "../../Library/Developer/Xcode/DerivedData/weatherApp-dcwzowbpkfqulxhjispwhgvqajjp/Build/Products/Debug-iphoneos/BubbleTransition/BubbleTransition.framework"; sourceTree = "<group>"; };
+		E5CD62B71E5B505B001F2CBD /* ForecastIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ForecastIO.framework; path = "../../Library/Developer/Xcode/DerivedData/weatherApp-dcwzowbpkfqulxhjispwhgvqajjp/Build/Products/Debug-iphoneos/ForecastIO/ForecastIO.framework"; sourceTree = "<group>"; };
+		E5CD62B81E5B505B001F2CBD /* MARKRangeSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MARKRangeSlider.framework; path = "Pods/../build/Debug-iphoneos/MARKRangeSlider/MARKRangeSlider.framework"; sourceTree = "<group>"; };
+		E5CD62BC1E5B5151001F2CBD /* rangeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rangeCell.swift; sourceTree = "<group>"; };
 		E5D13CB31D87681000EF3D17 /* Gotham Nights Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Nights Bold Italic.otf"; sourceTree = "<group>"; };
 		E5D13CB41D87681000EF3D17 /* Gotham Nights Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Nights Bold.otf"; sourceTree = "<group>"; };
 		E5D13CB51D87681000EF3D17 /* Gotham Nights Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Nights Italic.otf"; sourceTree = "<group>"; };
 		E5D13CB61D87681000EF3D17 /* Gotham Nights.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Nights.otf"; sourceTree = "<group>"; };
 		E5E4B5D91CCE9040008F4E1C /* DetailedCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailedCardView.swift; path = ../DetailedCardView.swift; sourceTree = "<group>"; };
 		E5E4DBCD1DAFD09200E32FE9 /* WeatherStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherStruct.swift; sourceTree = "<group>"; };
-		E5EB173C1C6F86F10094AE86 /* weatherApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "weatherApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		E5EB173C1C6F86F10094AE86 /* weatherApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "weatherApp-Bridging-Header.h"; path = "weatherApp/weatherApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		E5EB173D1C6F86F20094AE86 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		E5EB173E1C6F86F20094AE86 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		E5EB17401C6F87060094AE86 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -149,6 +165,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E51822AD1E5CEBA000E8FB9D /* ZMSwiftRangeSlider.framework in Frameworks */,
+				E5CD62B91E5B505B001F2CBD /* BubbleTransition.framework in Frameworks */,
+				E5CD62BA1E5B505B001F2CBD /* ForecastIO.framework in Frameworks */,
 				E526B65A1D79F2B800A23C40 /* BetterSegmentedControl.framework in Frameworks */,
 				E5EB17411C6F87060094AE86 /* QuartzCore.framework in Frameworks */,
 				FF375EC09D28674C38CDFF2E /* Pods_weatherApp.framework in Frameworks */,
@@ -175,6 +194,7 @@
 		34B7B1FCFE72A0E0CA9C4396 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				E5EB173C1C6F86F10094AE86 /* weatherApp-Bridging-Header.h */,
 				F90E817FB8453317FAA2EF52 /* Pods-weatherApp.debug.xcconfig */,
 				A90A028F3978571E69795E5B /* Pods-weatherApp.release.xcconfig */,
 			);
@@ -184,6 +204,14 @@
 		6CD2E265321756EC0190E001 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E51822AC1E5CEBA000E8FB9D /* ZMSwiftRangeSlider.framework */,
+				E5C265821E5B5DDE00ED67F0 /* MARKRangeSlider.framework */,
+				E5C2657E1E5B5C2A00ED67F0 /* MARKRangeSlider.framework */,
+				E53CF1A11E5B59D600A3E202 /* NHRangeSlider.framework */,
+				E52555891E5B53CA0065DCD9 /* RangeSliderView.framework */,
+				E5CD62B61E5B505B001F2CBD /* BubbleTransition.framework */,
+				E5CD62B71E5B505B001F2CBD /* ForecastIO.framework */,
+				E5CD62B81E5B505B001F2CBD /* MARKRangeSlider.framework */,
 				E522DD111E0C587200CDF12C /* BubbleTransition.framework */,
 				E526B6591D79F2B800A23C40 /* BetterSegmentedControl.framework */,
 				1BA740EAA0EEF77B2219A6E0 /* Pods_weatherApp.framework */,
@@ -269,6 +297,7 @@
 		E58D02CE1C2F283600839E97 /* weatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				E5C265861E5B5EE600ED67F0 /* weatherApp-Bridging-Header.h */,
 				E5D13CB21D8767D600EF3D17 /* Fonts */,
 				E50E60051D3E91DA00AE7ED0 /* backgrounds */,
 				E583FE821CF4D0ED00D455AB /* Utilities */,
@@ -284,7 +313,9 @@
 				E504E5361CF8CFF5001BCC37 /* WeatherData.swift */,
 				E52F69181DC93906006439B3 /* DecisionStruct.swift */,
 				E58D02D31C2F283600839E97 /* Main.storyboard */,
+				E5CD62BC1E5B5151001F2CBD /* rangeCell.swift */,
 				E5169A5E1E4F71A100888262 /* segmentedControlCell2.swift */,
+				E53DB06C1E5B2F2E0068F0B0 /* rangeCell1.swift */,
 				E5A602CE1E4E1F5E005F4F2D /* SegmentedControlCell.swift */,
 				E58D02D61C2F283600839E97 /* Assets.xcassets */,
 				E58D02D81C2F283600839E97 /* LaunchScreen.storyboard */,
@@ -292,7 +323,6 @@
 				E5EB173E1C6F86F20094AE86 /* iCarousel.m */,
 				E550A9CF1C5EAA7200C840EB /* Icons */,
 				E58D02DB1C2F283600839E97 /* Info.plist */,
-				E5EB173C1C6F86F10094AE86 /* weatherApp-Bridging-Header.h */,
 			);
 			path = weatherApp;
 			sourceTree = "<group>";
@@ -559,10 +589,12 @@
 			files = (
 				E5A602CF1E4E1F5E005F4F2D /* SegmentedControlCell.swift in Sources */,
 				E5169A5F1E4F71A100888262 /* segmentedControlCell2.swift in Sources */,
+				E53DB06D1E5B2F2E0068F0B0 /* rangeCell1.swift in Sources */,
 				E583FE7E1CF4D08400D455AB /* RectangleLayer.swift in Sources */,
 				E58D02D21C2F283600839E97 /* ViewController.swift in Sources */,
 				E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */,
 				E5EB173F1C6F86F20094AE86 /* iCarousel.m in Sources */,
+				E5CD62BD1E5B5151001F2CBD /* rangeCell.swift in Sources */,
 				E583FE7D1CF4D08400D455AB /* OvalLayer.swift in Sources */,
 				E550A9CE1C5E6E8300C840EB /* Decider.swift in Sources */,
 				E583FE841CF4D10300D455AB /* Colors.swift in Sources */,
@@ -730,6 +762,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/BubbleTransition",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MARKRangeSlider",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/RangeSliderView",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ZMSwiftRangeSlider",
 				);
 				INFOPLIST_FILE = weatherApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -756,6 +791,9 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/BubbleTransition",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MARKRangeSlider",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/RangeSliderView",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ZMSwiftRangeSlider",
 				);
 				INFOPLIST_FILE = weatherApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

@@ -9,6 +9,7 @@
 import UIKit
 import BetterSegmentedControl
 import GooglePlaces
+import ZMSwiftRangeSlider
 
 
 
@@ -89,15 +90,22 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             selectedUnit = .celsius
             
         }
-        
+        if unitChanged{
+            tableView.reloadData()
+        }
         
         userDefaults.set(selectedUnit.rawValue, forKey: "savedUnit")
         
         NotificationCenter.default.post(name: Notification.Name(rawValue: "reloadiCarousel"), object: nil)
         
+      
+        
+        
     }
     
-    
+    func rangeSliderValueDidChange(/*_ sender: MARKRangeSlider*/) {
+        print("slidervaluechanged)")
+    }
     
     
     
@@ -162,7 +170,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             return cell
             
             
-        }else{
+        }else if indexPath.row == 1 {
             
             let cell:segmentedControlCell2 = self.tableView.dequeueReusableCell(withIdentifier: "segmentedCell2")! as! segmentedControlCell2
             cell.segmentedCell2Control.titles = self.segmentedControlLabel[indexPath.row]
@@ -199,36 +207,83 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             }
             cell.segmentedCell2Control.addTarget(self, action: #selector(SettingsViewController.navigationSegmentedControl2ValueChanged(_:)), for: .valueChanged)
+        
+            return cell
+        }else if indexPath.row == 2{
+            
+           let cell:rangeCell1 = self.tableView.dequeueReusableCell(withIdentifier: "rangeCell1")! as! rangeCell1
+            let heavyJacketTempSlider = cell.heavyJacketTemperature
+            
+            var unit:String = String()
+            
+            switch selectedUnit {
+                
+            case .farenheit:
+                
+                unit = "°F"
+                
+            case .celsius:
+                
+                unit = "°C"
+                
+            default:
+                unit = "°C"
+                
+            }
             
             
-            
+            cell.label.text = "\(Int(round(heavyJacketTempSlider!.value))) \(unit)"
+           //  = "\(heavyJacketTempSlider!.value)"
             
             return cell
+        }else{
+            let cell:rangeCell = self.tableView.dequeueReusableCell(withIdentifier: "rangeCell")! as! rangeCell
+            
+         
+            
+          /*  rangeSlider.addTarget(self, action: #selector(SettingsViewController.rangeSliderValueDidChange(_:)), for: .valueChanged)
+             rangeSlider.setMinValue(0.0, maxValue: 1.0)
+             rangeSlider.setLeftValue(0.2, rightValue: 0.7)
+            rangeSlider.minimumDistance = 0.2
+            rangeSlider.tintColor = Colors.purp*/
+            
+        //  view.addSubview(rangeSlider)
+            
+            return cell
+            
+        }
+        
         }
         
         
-    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 1 {
             return 90
+        }else if indexPath.row == 2 {
+            return 95
+            
+        }else if indexPath.row == 3 {
+            return 90
         }else{
             return 50
         }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 2
+        return 4
     }
     
     
-    
-    
-    
-    
-    
 }
+    
+    
+    
+    
+
 
 extension SettingsViewController: GMSAutocompleteViewControllerDelegate {
     
