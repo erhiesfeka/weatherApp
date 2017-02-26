@@ -52,6 +52,9 @@
 		E58D02E51C2F283600839E97 /* weatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D02E41C2F283600839E97 /* weatherAppTests.swift */; };
 		E58D02F01C2F283600839E97 /* weatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D02EF1C2F283600839E97 /* weatherAppUITests.swift */; };
 		E5A602CF1E4E1F5E005F4F2D /* SegmentedControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A602CE1E4E1F5E005F4F2D /* SegmentedControlCell.swift */; };
+		E5B729481E60A9E8004DF553 /* FrontView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B729471E60A9E8004DF553 /* FrontView.xib */; };
+		E5B7294A1E60AF0A004DF553 /* FrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B729491E60AF0A004DF553 /* FrontView.swift */; };
+		E5B7294E1E60D1E7004DF553 /* MyExpandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B7294D1E60D1E7004DF553 /* MyExpandingViewController.swift */; };
 		E5CD62B91E5B505B001F2CBD /* BubbleTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5CD62B61E5B505B001F2CBD /* BubbleTransition.framework */; };
 		E5CD62BA1E5B505B001F2CBD /* ForecastIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5CD62B71E5B505B001F2CBD /* ForecastIO.framework */; };
 		E5CD62BD1E5B5151001F2CBD /* rangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CD62BC1E5B5151001F2CBD /* rangeCell.swift */; };
@@ -140,6 +143,9 @@
 		E58D02EF1C2F283600839E97 /* weatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherAppUITests.swift; sourceTree = "<group>"; };
 		E58D02F11C2F283600839E97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5A602CE1E4E1F5E005F4F2D /* SegmentedControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlCell.swift; sourceTree = "<group>"; };
+		E5B729471E60A9E8004DF553 /* FrontView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FrontView.xib; sourceTree = "<group>"; };
+		E5B729491E60AF0A004DF553 /* FrontView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontView.swift; sourceTree = "<group>"; };
+		E5B7294D1E60D1E7004DF553 /* MyExpandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyExpandingViewController.swift; path = ../MyExpandingViewController.swift; sourceTree = "<group>"; };
 		E5C2657E1E5B5C2A00ED67F0 /* MARKRangeSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MARKRangeSlider.framework; path = "Pods/../build/Debug-iphoneos/MARKRangeSlider/MARKRangeSlider.framework"; sourceTree = "<group>"; };
 		E5C265821E5B5DDE00ED67F0 /* MARKRangeSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MARKRangeSlider.framework; path = "Pods/../build/Debug-iphoneos/MARKRangeSlider/MARKRangeSlider.framework"; sourceTree = "<group>"; };
 		E5C265861E5B5EE600ED67F0 /* weatherApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "weatherApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -307,12 +313,15 @@
 				E5E4B5D91CCE9040008F4E1C /* DetailedCardView.swift */,
 				E5E4DBCD1DAFD09200E32FE9 /* WeatherStruct.swift */,
 				E50E125D1D79D9DB0070712F /* SettingsViewController.swift */,
+				E5B7294D1E60D1E7004DF553 /* MyExpandingViewController.swift */,
 				E58D02D11C2F283600839E97 /* ViewController.swift */,
 				E550A9CD1C5E6E8300C840EB /* Decider.swift */,
 				E50E06A11D3C104F006CE3E6 /* PopUpViewController.swift */,
 				E504E5361CF8CFF5001BCC37 /* WeatherData.swift */,
 				E52F69181DC93906006439B3 /* DecisionStruct.swift */,
 				E58D02D31C2F283600839E97 /* Main.storyboard */,
+				E5B729471E60A9E8004DF553 /* FrontView.xib */,
+				E5B729491E60AF0A004DF553 /* FrontView.swift */,
 				E5CD62BC1E5B5151001F2CBD /* rangeCell.swift */,
 				E5169A5E1E4F71A100888262 /* segmentedControlCell2.swift */,
 				E53DB06C1E5B2F2E0068F0B0 /* rangeCell1.swift */,
@@ -488,6 +497,7 @@
 			files = (
 				E5D13CB71D8769A600EF3D17 /* Gotham Nights Bold Italic.otf in Resources */,
 				E513FABE1DABFF0D00FD91E9 /* Settings-Filled-50.png in Resources */,
+				E5B729481E60A9E8004DF553 /* FrontView.xib in Resources */,
 				E56424041DABD6BE00F64255 /* purpleBackground.jpg in Resources */,
 				E5D13CB81D8769A600EF3D17 /* Gotham Nights Bold.otf in Resources */,
 				E5D13CB91D8769A600EF3D17 /* Gotham Nights Italic.otf in Resources */,
@@ -590,8 +600,10 @@
 				E5A602CF1E4E1F5E005F4F2D /* SegmentedControlCell.swift in Sources */,
 				E5169A5F1E4F71A100888262 /* segmentedControlCell2.swift in Sources */,
 				E53DB06D1E5B2F2E0068F0B0 /* rangeCell1.swift in Sources */,
+				E5B7294E1E60D1E7004DF553 /* MyExpandingViewController.swift in Sources */,
 				E583FE7E1CF4D08400D455AB /* RectangleLayer.swift in Sources */,
 				E58D02D21C2F283600839E97 /* ViewController.swift in Sources */,
+				E5B7294A1E60AF0A004DF553 /* FrontView.swift in Sources */,
 				E52F69191DC93906006439B3 /* DecisionStruct.swift in Sources */,
 				E5EB173F1C6F86F20094AE86 /* iCarousel.m in Sources */,
 				E5CD62BD1E5B5151001F2CBD /* rangeCell.swift in Sources */,
@@ -767,7 +779,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ZMSwiftRangeSlider",
 				);
 				INFOPLIST_FILE = weatherApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ratatat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -796,7 +808,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ZMSwiftRangeSlider",
 				);
 				INFOPLIST_FILE = weatherApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ratatat;
 				PRODUCT_NAME = "$(TARGET_NAME)";

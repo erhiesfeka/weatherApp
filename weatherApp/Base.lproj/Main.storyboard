@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -89,6 +88,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GfO-sG-UCp">
+                                <rect key="frame" x="65" y="567" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="5In-as-xuB" kind="show" id="nIv-Pv-uyt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.31372549019607843" green="0.13725490196078433" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -99,11 +105,13 @@
                             <constraint firstItem="PEu-Gg-eae" firstAttribute="leading" secondItem="35w-VF-u4G" secondAttribute="leading" id="7Gk-A6-pJP"/>
                             <constraint firstItem="MEY-yw-k2b" firstAttribute="centerX" secondItem="lKD-67-9iB" secondAttribute="centerX" id="9Kd-Kz-EEi"/>
                             <constraint firstItem="35w-VF-u4G" firstAttribute="top" secondItem="6ZA-af-aOQ" secondAttribute="bottom" constant="24" id="Api-Eh-Xds"/>
+                            <constraint firstItem="lKD-67-9iB" firstAttribute="leading" secondItem="GfO-sG-UCp" secondAttribute="trailing" constant="44" id="I2Q-qb-nYg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zkQ-EU-bYA" secondAttribute="bottom" constant="29" id="JW3-RC-Lxn"/>
                             <constraint firstItem="6ZA-af-aOQ" firstAttribute="top" secondItem="PEu-Gg-eae" secondAttribute="bottom" constant="18" id="KcL-Jj-YCR"/>
                             <constraint firstAttribute="bottom" secondItem="35w-VF-u4G" secondAttribute="bottom" constant="182" id="PZD-iL-1M2"/>
                             <constraint firstItem="6ZA-af-aOQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="88" id="Rsi-XL-bgU"/>
                             <constraint firstItem="PEu-Gg-eae" firstAttribute="trailing" secondItem="VXh-Uc-CP3" secondAttribute="trailing" id="Usf-Ab-kQ2"/>
+                            <constraint firstItem="GfO-sG-UCp" firstAttribute="centerY" secondItem="lKD-67-9iB" secondAttribute="centerY" id="Y67-f0-Kmj"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lKD-67-9iB" secondAttribute="bottom" constant="8" symbolic="YES" id="cJI-6k-Ajp"/>
                             <constraint firstItem="MEY-yw-k2b" firstAttribute="top" secondItem="35w-VF-u4G" secondAttribute="bottom" constant="14" id="clG-2E-e1L"/>
                             <constraint firstItem="Poe-iR-u5A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dqO-Ae-2Yd"/>
@@ -132,6 +140,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1071.2" y="17.541229385307346"/>
+        </scene>
+        <!--My Expanding View Controller-->
+        <scene sceneID="dGz-uv-d4i">
+            <objects>
+                <viewController id="5In-as-xuB" customClass="MyExpandingViewController" customModule="weatherApp" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DVU-GS-qFT"/>
+                        <viewControllerLayoutGuide type="bottom" id="fou-TF-Vta"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SPv-5P-AgE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Waa-ty-Sub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1071" y="688"/>
         </scene>
         <!--Detailed Card View-->
         <scene sceneID="2bH-VI-1Zk">

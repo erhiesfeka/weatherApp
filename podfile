@@ -5,6 +5,8 @@ target "weatherApp" do
     pod 'GooglePlaces'
     pod 'BubbleTransition', '~> 2.0.0'
     pod 'ZMSwiftRangeSlider', '~> 0.1.5'
-
+    pod 'expanding-collection', '~> 1.0.3' 
   end
+
+
   use_frameworks!
