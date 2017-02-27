@@ -88,10 +88,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/BubbleTransition/BubbleTransition.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ForecastIO/ForecastIO.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ZMSwiftRangeSlider/ZMSwiftRangeSlider.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/expanding-collection/expanding_collection.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/BetterSegmentedControl/BetterSegmentedControl.framework"
   install_framework "$BUILT_PRODUCTS_DIR/BubbleTransition/BubbleTransition.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ForecastIO/ForecastIO.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ZMSwiftRangeSlider/ZMSwiftRangeSlider.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/expanding-collection/expanding_collection.framework"
 fi

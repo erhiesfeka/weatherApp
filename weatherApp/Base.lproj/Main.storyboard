@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -89,6 +88,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0z-hQ-BGE">
+                                <rect key="frame" x="272" y="567" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="K1t-Fr-gbr" kind="show" id="bqK-yv-XeL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.31372549019607843" green="0.13725490196078433" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -107,11 +113,13 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lKD-67-9iB" secondAttribute="bottom" constant="8" symbolic="YES" id="cJI-6k-Ajp"/>
                             <constraint firstItem="MEY-yw-k2b" firstAttribute="top" secondItem="35w-VF-u4G" secondAttribute="bottom" constant="14" id="clG-2E-e1L"/>
                             <constraint firstItem="Poe-iR-u5A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dqO-Ae-2Yd"/>
+                            <constraint firstItem="T0z-hQ-BGE" firstAttribute="leading" secondItem="lKD-67-9iB" secondAttribute="trailing" constant="52" id="hja-aI-i4C"/>
                             <constraint firstItem="Poe-iR-u5A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-7" id="i6M-vy-dFU"/>
                             <constraint firstItem="PEu-Gg-eae" firstAttribute="leading" secondItem="VXh-Uc-CP3" secondAttribute="leading" id="iSb-AB-sSi"/>
                             <constraint firstItem="VXh-Uc-CP3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pfU-tb-OUW"/>
                             <constraint firstItem="VXh-Uc-CP3" firstAttribute="bottom" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="r5N-8n-S4G"/>
                             <constraint firstItem="PEu-Gg-eae" firstAttribute="trailing" secondItem="35w-VF-u4G" secondAttribute="trailing" id="sKB-mL-2fd"/>
+                            <constraint firstItem="T0z-hQ-BGE" firstAttribute="centerY" secondItem="lKD-67-9iB" secondAttribute="centerY" id="wdj-Sg-rgq"/>
                             <constraint firstItem="6ZA-af-aOQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xYw-Vi-Ocm"/>
                         </constraints>
                         <variation key="default">
@@ -132,6 +140,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1071.2" y="17.541229385307346"/>
+        </scene>
+        <!--Demo View Controller-->
+        <scene sceneID="YDv-UU-ckb">
+            <objects>
+                <viewController id="Zbe-sa-ehe" customClass="DemoViewController" customModule="weatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bXe-Sq-Li5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nk6-A8-XRW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HZ8-xI-PZF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.70168801603053321" green="0.58725502757025583" blue="0.72336632013320923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Tvu-nR-hVY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vk5-8M-oP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-543" y="788"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="R0F-jh-NeT">
+            <objects>
+                <navigationController id="K1t-Fr-gbr" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gPK-rj-pTG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Zbe-sa-ehe" kind="relationship" relationship="rootViewController" id="cxT-CI-13r"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zxs-Lw-VUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1458" y="788"/>
         </scene>
         <!--Detailed Card View-->
         <scene sceneID="2bH-VI-1Zk">

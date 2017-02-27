@@ -1,6 +1,7 @@
 PODS:
   - BetterSegmentedControl (0.7)
   - BubbleTransition (2.0.1)
+  - expanding-collection (1.0.4)
   - ForecastIO (2.1.1)
   - GoogleMaps/Base (2.2.0)
   - GooglePlaces (2.2.0):
@@ -10,6 +11,7 @@ PODS:
 DEPENDENCIES:
   - BetterSegmentedControl (~> 0.5)
   - BubbleTransition (~> 2.0.0)
+  - expanding-collection (~> 1.0.3)
   - ForecastIO (from `https://github.com/sxg/ForecastIO.git`, branch `swift3`)
   - GooglePlaces
   - ZMSwiftRangeSlider (~> 0.1.5)
@@ -27,11 +29,12 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   BetterSegmentedControl: 0b4dde1caac22de345820858a5e2789132378c1c
   BubbleTransition: bb24ed389ab672eecf3c87170d0a73f959a8e696
+  expanding-collection: be78b5822d7382d3da02b52d52273f4661567a64
   ForecastIO: a195c8ec7bd3f23ed856fce1bbf2f141abc45dc8
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
   GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
   ZMSwiftRangeSlider: eabd6adccdc6a1232115d5aba5635e02b5ba36e9
 
-PODFILE CHECKSUM: cf36e6f2036d1e014cc0d7f1dd3088ad9851f127
+PODFILE CHECKSUM: b3eb3b02955e4967e2d16da4c661791b40bd63ed
 
 COCOAPODS: 1.0.0
