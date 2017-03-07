@@ -11,6 +11,7 @@ import CoreLocation
 import BetterSegmentedControl
 import UserNotifications
 import GooglePlaces
+import expanding_collection
 
 enum tempUnit: String{
     
@@ -77,7 +78,7 @@ func delay(_ delay: Double, closure: @escaping ()->()) {
 }
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate, decideWeatherDelegate  {
+class ViewController: ExpandingViewController, CLLocationManagerDelegate, weatherDataDelegate, iCarouselDataSource, iCarouselDelegate, HolderViewDelegate, decideWeatherDelegate  {
     
     // ViewController class Variables
     var weatherData:WeatherData = WeatherData()
@@ -102,21 +103,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     var hourly = false
     var precipType:[String] = []
     var finalDecision:[String] = []
-    let control = BetterSegmentedControl()
+  //  let control = BetterSegmentedControl()
     var popOverVCView:UIView = UIView()
+    var dataRetrieved:Bool = false
+    
+    //expanding collection stuff
+    typealias ItemInfo = (imageName: String, title: String)
+    fileprivate var cellsIsOpen = [Bool]()
+    fileprivate let items: [ItemInfo] = [("rain", "rain.jpg"),("rain.jpg", "rain.jpg"),("rain.jpg", "rain.jpg"),("rain.jpg", "rain.jpg"),("rain.jpg", "rain.jpg"),("rain.jpg", "rain.jpg"),("rain.jpg", "rain.jpg")]
     
     
     
     // Outlets Declared
     
-    @IBOutlet weak var pageIndicator: UIPageControl!
+  //  @IBOutlet weak var pageIndicator: UIPageControl!
     @IBOutlet weak var carouselLabel: UILabel!
-    @IBOutlet weak var tempLabel: UILabel!
+//    @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var cityButton: UIButton!
-    @IBOutlet weak var whatToWearLabel: UILabel!
-    @IBOutlet weak var iCarouselView: iCarousel!
+    
+   
+  //  @IBOutlet weak var iCarouselView: iCarousel!
     @IBOutlet weak var reloadButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     
@@ -130,16 +137,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     
     // ReloadData debug option
-    @IBAction func reloadData(_ sender: AnyObject) {
+  /*  @IBAction func reloadData(_ sender: AnyObject) {
         
         self.getWeather()
         iCarouselView.reloadData()
-    }
+    }*/
     
     func openSettings(){
         
-        pageIndicator.isHidden = true
-        control.isHidden = true
+      //  pageIndicator.isHidden = true
+     //   control.isHidden = true
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         self.blurEffectView.effect = blurEffect
         blurEffectView.frame = view.bounds
@@ -171,7 +178,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     func reloadiCarouselData() {
         
         self.getWeather()
-        self.iCarouselView.reloadData()
+     //   self.iCarouselView.reloadData()
         print("ReloadCarouselWascalled")
     }
     
@@ -248,9 +255,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             self.dailyDate = weather.dailyDate
             self.precipType = weather.precipitationType
             self.removeHolderView()
-            self.iCarouselView.alpha = 1
+            self.dataRetrieved = true
+            collectionView?.reloadData()
+            collectionView?.alpha = 1
+          /*  self.iCarouselView.alpha = 1
             self.iCarouselView.type = iCarouselType.linear
-            self.iCarouselView.reloadData()
+            self.iCarouselView.reloadData()*/
+            // expanding collection
+           
             
         }
     }
@@ -279,7 +291,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
             
         }
         }
-        iCarouselView.reloadData()
+      //  iCarouselView.reloadData()
         
     }
     
@@ -375,7 +387,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         
         print("Fekarurhobo, View did viewDidLoad")
         if manualLocation == false {
@@ -397,17 +409,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         addHolderView()
         
         self.getWeather()
-        self.iCarouselView.reloadData()
+    //    self.iCarouselView.reloadData()
         
         
-        pageIndicator.isHidden = true
-        pageIndicator.numberOfPages = 7
+     /*   pageIndicator.isHidden = true
+        pageIndicator.numberOfPages = 7*/
        
         
         print("Latitude and Longitude are: \(latitude) && \(longitude)")
         
         
-        
+        itemSize = CGSize(width: 250, height: 350)
+        fillCellIsOpeenArry()
+        registerCell()
+        collectionView?.alpha = 0
+        addGestureToView(collectionView!)
        
         
        //   let timer = Timer.scheduledTimer(timeInterval: 300.0, target: self, selector: #selector(ViewController.reloadiCarouselData), userInfo: nil, repeats: true)
@@ -417,7 +433,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     override func viewDidAppear(_ animated: Bool) {
         print("Fekarurhobo, viewDidAppear")
         self.getWeather()
-        self.iCarouselView.reloadData()
+  //      self.iCarouselView.reloadData()
         
         print("view did appear")
        
@@ -437,10 +453,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         print("Fekarurhobo viewWillAppear")
         self.cityLabel.text = city
         self.getWeather()
-        self.iCarouselView.reloadData()
+        
+  //      self.iCarouselView.reloadData()
       
         
-        control.frame = CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.82, width: self.view.bounds.width * 0.50, height: 30.0)
+      /*  control.frame = CGRect(x: self.view.bounds.width * 0.25, y: self.view.bounds.height * 0.82, width: self.view.bounds.width * 0.50, height: 30.0)
         control.titles = ["Daily", "Current"]
         do{
             try control.setIndex(0, animated: false)
@@ -457,7 +474,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         
         control.addTarget(self, action: #selector(ViewController.navigationSegmentedControlValueChanged(_:)), for: .valueChanged)
         self.view.addSubview(control)
-        control.isHidden = true
+        control.isHidden = true*/
         
         
     }
@@ -577,8 +594,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
       
        
         if !self.view.subviews.contains(popOverVCView) {
-        control.isHidden = false
-        pageIndicator.isHidden = false
+      //  control.isHidden = false
+     //   pageIndicator.isHidden = false
         }
         
         return weatherView
@@ -619,11 +636,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
         
-        pageIndicator.currentPage = carousel.currentItemIndex
+      //  pageIndicator.currentPage = carousel.currentItemIndex
         
         if hourlyTemp.count != 0 {
             
-            carouselIndex = iCarouselView.currentItemIndex
+//            carouselIndex = iCarouselView.currentItemIndex
             
             if hourly{
                 carouselLabel.text = hourlyTemp[carouselIndex].time
@@ -691,4 +708,134 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     
 }
+
+// expanding collection stuff
+
+// MARK: Helpers
+
+extension ViewController {
+    
+    fileprivate func registerCell() {
+        
+        let nib = UINib(nibName: String(describing: DemoCollectionViewCell.self), bundle: nil)
+        collectionView?.register(nib, forCellWithReuseIdentifier: String(describing: DemoCollectionViewCell.self))
+    }
+    
+    fileprivate func fillCellIsOpeenArry() {
+        for _ in items {
+            cellsIsOpen.append(false)
+        }
+    }
+    
+    fileprivate func getViewController() -> ExpandingTableViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let toViewController: DemoTableViewController  = (storyboard.instantiateViewController(withIdentifier: "DemoTableViewController") as? DemoTableViewController)!
+        
+        return toViewController
+    }
+    
+    
+}
+
+/// MARK: Gesture
+extension ViewController {
+    
+    fileprivate func addGestureToView(_ toView: UIView) {
+        let gesutereUp = Init(UISwipeGestureRecognizer(target: self, action: #selector(ViewController.swipeHandler(_:)))) {
+            $0.direction = .up
+        }
+        
+        let gesutereDown = Init(UISwipeGestureRecognizer(target: self, action: #selector(ViewController.swipeHandler(_:)))) {
+            $0.direction = .down
+        }
+        toView.addGestureRecognizer(gesutereUp)
+        toView.addGestureRecognizer(gesutereDown)
+        print("gestures added")
+    }
+    
+    func swipeHandler(_ sender: UISwipeGestureRecognizer) {
+        print("in swipe handler")
+        if sender.direction == .up {
+            
+            print( "Up Gesture Recognized")
+        }else{
+            print("Down Gesture recognized")
+        }
+        let indexPath = IndexPath(row: currentIndex, section: 0)
+        guard let cell  = collectionView?.cellForItem(at: indexPath) as? DemoCollectionViewCell else { return }
+        // double swipe Up transition
+        if cell.isOpened == true && sender.direction == .up {
+            pushToViewController(getViewController())
+            
+        }
+        
+        let open = sender.direction == .up ? true : false
+        cell.cellIsOpen(open)
+        cellsIsOpen[(indexPath as NSIndexPath).row] = cell.isOpened
+    }
+}
+
+// MARK: UIScrollViewDelegate
+
+extension ViewController {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // pageLabel.text = "\(currentIndex+1)/\(items.count)"
+        if dataRetrieved{
+            carouselLabel.text = dailyDate[currentIndex]}
+    }
+}
+
+// MARK: UICollectionViewDataSource
+
+extension ViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        super.collectionView(collectionView, willDisplay: cell, forItemAt: indexPath)
+        guard let cell = cell as? DemoCollectionViewCell else { return }
+        
+        let index = (indexPath as NSIndexPath).row % items.count
+        let info = items[index]
+        
+        if dataRetrieved{
+            cell.backgroundImageView?.image = UIImage(named: "\(iconDaily[index]).jpg")
+        }else{
+        
+        cell.backgroundImageView?.image = UIImage(named: info.imageName)
+        }
+        //cell.customTitle.text = info.title
+        cell.cellIsOpen(cellsIsOpen[index], animated: false)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? DemoCollectionViewCell
+            , currentIndex == (indexPath as NSIndexPath).row else { return }
+        
+        if cell.isOpened == false {
+            cell.cellIsOpen(true)
+        } else {
+            pushToViewController(getViewController())
+            
+            // if let rightButton = navigationItem.rightBarButtonItem as? AnimatingBarButton {
+            //  rightButton.animationSelected(true)
+            // }
+        }
+    }
+}
+
+// MARK: UICollectionViewDataSource
+extension ViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: DemoCollectionViewCell.self), for: indexPath)
+    }
+}
+
+
+
 

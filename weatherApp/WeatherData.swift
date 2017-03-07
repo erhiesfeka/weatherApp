@@ -245,6 +245,7 @@ class WeatherData {
         if delegate != nil  {
             
             self.delegate!.setWeather(weather: weather)
+        
             
         }
     }
