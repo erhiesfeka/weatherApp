@@ -20,7 +20,7 @@ class DemoTableViewController: ExpandingTableViewController {
     }
 }
 // MARK: Helpers
-/*
+
 extension DemoTableViewController {
     
 fileprivate func configureNavBar() {
@@ -37,11 +37,11 @@ extension DemoTableViewController {
         // buttonAnimation
         let viewControllers: [DemoViewController?] = navigationController?.viewControllers.map { $0 as? DemoViewController } ?? []
         
-        for viewController in viewControllers {
-            if let rightButton = viewController?.navigationItem.rightBarButtonItem as? AnimatingBarButton {
+      /*  for viewController in viewControllers {
+        if let rightButton = viewController?.navigationItem.rightBarButtonItem as? AnimatingBarButton {
                 rightButton.animationSelected(false)
             }
-        }
+        }*/
         popTransitionAnimation()
     }
 }
@@ -65,4 +65,4 @@ extension DemoTableViewController {
         
         scrollOffsetY = scrollView.contentOffset.y
     }
-}*/
+}

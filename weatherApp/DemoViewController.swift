@@ -10,15 +10,22 @@ import UIKit
 import expanding_collection
 
 internal func Init<Type>(_ value : Type, block: (_ object: Type) -> Void) -> Type
-{
-    block(value)
-    return value
-}
+ {
+ block(value)
+ return value
+ }
+
+
 
 class DemoViewController: ExpandingViewController {
+    // @IBAction func close(_ sender: Any) {
+    // }
     
-  fileprivate var cellsIsOpen = [Bool]()
-
+    typealias ItemInfo = (imageName: String, title: String)
+    fileprivate var cellsIsOpen = [Bool]()
+   // fileprivate let items: [ItemInfo] = [("item0", "Boston"),("item1", "New York"),("item2", "San Francisco"),("item3", "Washington")]
+    fileprivate let items: [ItemInfo] = [("rain", "rain.jpg"),("rain.jpg", "rain.jpg"),("rain.jpg", "rain.jpg"),("rain.jpg", "rain.jpg")]
+    
 }
 
 
@@ -26,12 +33,12 @@ class DemoViewController: ExpandingViewController {
 extension DemoViewController {
     
     override func viewDidLoad() {
-        itemSize = CGSize(width: 250, height: 330)
+        itemSize = CGSize(width: 260, height: 350)
         super.viewDidLoad()
-        
+        fillCellIsOpeenArry()
         registerCell()
         addGestureToView(collectionView!)
-      
+        
     }
 }
 
@@ -43,63 +50,26 @@ extension DemoViewController {
         
         let nib = UINib(nibName: String(describing: DemoCollectionViewCell.self), bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: String(describing: DemoCollectionViewCell.self))
-}
-    
-    /*fileprivate func getViewController() -> ExpandingTableViewController {
-        let storyboard = UIStoryboard(name: "MainStoryBoard", bundle: nil)
-        let toViewController: ExpandingTableViewController = storyboard.instantiateViewController(withIdentifier: "DemoTableViewController") as! ExpandingTableViewController
-        return toViewController
-    }*/
-    
-    fileprivate func getViewController() -> ExpandingTableViewController {
-        let storyboard = UIStoryboard(name: "MainStoryBoard", bundle: nil)
-        let toViewController: DemoTableViewController = storyboard.instantiateViewController(withIdentifier: "DemoTableViewController") as! DemoTableViewController
-        return toViewController
     }
     
-}
-
-// MARK: UICollectionViewDataSource
-
-extension DemoViewController {
-    
-    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        super.collectionView(collectionView, willDisplay: cell, forItemAt: indexPath)
-        guard let cell = cell as? DemoCollectionViewCell else { return }
-        
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? DemoCollectionViewCell
-            , currentIndex == (indexPath as NSIndexPath).row else { return }
-        
-        if cell.isOpened == false {
-            cell.cellIsOpen(true)
-        } else {
-            pushToViewController(getViewController())
-    
+    fileprivate func fillCellIsOpeenArry() {
+        for _ in items {
+            cellsIsOpen.append(false)
         }
     }
-}
-
-// MARK: UICollectionViewDataSource
-extension DemoViewController {
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+    fileprivate func getViewController() -> ExpandingTableViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let toViewController: DemoTableViewController  = (storyboard.instantiateViewController(withIdentifier: "DemoTableViewController") as? DemoTableViewController)!
+        
+        return toViewController
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: DemoCollectionViewCell.self), for: indexPath)
-    }
+    
 }
 
 /// MARK: Gesture
-
-
-// MARK: Gesture
-
 extension DemoViewController {
     
     fileprivate func addGestureToView(_ toView: UIView) {
@@ -133,7 +103,61 @@ extension DemoViewController {
         
         let open = sender.direction == .up ? true : false
         cell.cellIsOpen(open)
-        //cellsIsOpen[(indexPath as NSIndexPath).row] = cell.isOpened
+        cellsIsOpen[(indexPath as NSIndexPath).row] = cell.isOpened
+    }
+}
+
+// MARK: UIScrollViewDelegate
+
+extension DemoViewController {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // pageLabel.text = "\(currentIndex+1)/\(items.count)"
+    }
+}
+
+// MARK: UICollectionViewDataSource
+
+extension DemoViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        super.collectionView(collectionView, willDisplay: cell, forItemAt: indexPath)
+        guard let cell = cell as? DemoCollectionViewCell else { return }
+        
+        let index = (indexPath as NSIndexPath).row % items.count
+        let info = items[index]
+        
+        cell.backgroundImageView?.image = UIImage(named: info.imageName)
+        
+        //cell.customTitle.text = info.title
+        cell.cellIsOpen(cellsIsOpen[index], animated: false)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? DemoCollectionViewCell
+            , currentIndex == (indexPath as NSIndexPath).row else { return }
+        
+        if cell.isOpened == false {
+            cell.cellIsOpen(true)
+        } else {
+            pushToViewController(getViewController())
+            
+            // if let rightButton = navigationItem.rightBarButtonItem as? AnimatingBarButton {
+            //  rightButton.animationSelected(true)
+            // }
+        }
+    }
+}
+
+// MARK: UICollectionViewDataSource
+extension DemoViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: DemoCollectionViewCell.self), for: indexPath)
     }
 }
 
