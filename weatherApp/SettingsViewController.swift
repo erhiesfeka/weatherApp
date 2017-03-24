@@ -177,16 +177,16 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.selectCityButton.backgroundColor = .clear
             cell.selectCityButton.layer.cornerRadius = 5
             cell.selectCityButton.layer.borderWidth = 1
-            cell.selectCityButton.setTitleColor(Colors.purp, for: .normal)
-            cell.selectCityButton.setTitleColor(Colors.purpLight, for: .disabled)
+            cell.selectCityButton.setTitleColor(Colors.cyan, for: .normal)
+            cell.selectCityButton.setTitleColor(Colors.cyanLight, for: .disabled)
             if manualLocation{
-                cell.selectCityButton.isEnabled = true
+               cell.selectCityButton.isEnabled = true
                 
-                cell.selectCityButton.layer.borderColor = Colors.purp.cgColor
+               cell.selectCityButton.layer.borderColor = Colors.cyan.cgColor
                 
             }else{
                 cell.selectCityButton.isEnabled = false
-                cell.selectCityButton.layer.borderColor = Colors.purpLight.cgColor
+                cell.selectCityButton.layer.borderColor = Colors.cyanLight.cgColor
             }
             
             

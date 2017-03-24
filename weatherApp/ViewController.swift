@@ -798,12 +798,18 @@ extension ViewController {
         let index = (indexPath as NSIndexPath).row % items.count
         let info = items[index]
         
-        if dataRetrieved{
+      if dataRetrieved{
+            
             cell.backgroundImageView?.image = UIImage(named: "\(iconDaily[index]).jpg")
-        }else{
+          //  cell.iconNameLabel.text = iconDaily[index]
+            cell.highTempLabel.text = "\(minMaxDailyTemp[index].max)°C"
+            cell.lowTempLabel.text  = "\(minMaxDailyTemp[index].min)°C"
+            
+       }else{
         
         cell.backgroundImageView?.image = UIImage(named: info.imageName)
-        }
+         // cell.iconNameLabel.text = "???"
+       }
         //cell.customTitle.text = info.title
         cell.cellIsOpen(cellsIsOpen[index], animated: false)
     }
@@ -816,6 +822,7 @@ extension ViewController {
             cell.cellIsOpen(true)
         } else {
             pushToViewController(getViewController())
+           
             
             // if let rightButton = navigationItem.rightBarButtonItem as? AnimatingBarButton {
             //  rightButton.animationSelected(true)

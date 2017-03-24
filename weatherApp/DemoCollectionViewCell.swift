@@ -12,7 +12,10 @@ import expanding_collection
 class DemoCollectionViewCell: BasePageCollectionCell {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var iconNameLabel: UILabel!
+    @IBOutlet weak var highTempLabel: UILabel!
   
+    @IBOutlet weak var lowTempLabel: UILabel!
     
 
 }

@@ -37,7 +37,9 @@
 		<string>Gotham Nights Bold.otf</string>
 		<string>Gotham Nights Italic.otf</string>
 		<string>Gotham Nights.otf</string>
-		<string></string>
+		<string>ProximaNovaSoft-Regular</string>
+		<string>ProximaNovaSoft-Medium</string>
+		<string>ProximaNovaSoft-Bold</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
