@@ -11,6 +11,8 @@ import CoreLocation
 import BetterSegmentedControl
 import UserNotifications
 import GooglePlaces
+import Alamofire
+import SwiftyJSON
 
 enum tempUnit: String{
     
@@ -83,6 +85,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     var finalDecision:[String] = []
     let control = BetterSegmentedControl()
     var popOverVCView:UIView = UIView()
+    var weatherApiKey:String = String()
     
     
     
@@ -194,7 +197,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
     
     func getWeather() {
         
-        self.weatherData.getweather()
+        self.weatherData.getweather(weatherAPiKey: self.weatherApiKey)
         
         NotificationCenter.default.post(name: Notification.Name(rawValue: "startDeciding"), object: nil)
         
@@ -268,6 +271,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         
         print("Location Manager Called")
         let myCurrentloc = locations[locations.count-1]
+        
+        
         
         latitude = myCurrentloc.coordinate.latitude
         longitude = myCurrentloc.coordinate.longitude
@@ -350,11 +355,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate, weatherDataDe
         self.getWeather()
     }
     
+    func getAPiKeys(){
+        
+        Alamofire.request("http://ec2-34-203-86-255.compute-1.amazonaws.com/api").responseJSON { response in
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)")
+                
+                 let json = JSON(data: data)
+                
+                if let key = json["api"][0]["value"].string {
+                    print("This is weatherApiKey \(key)")
+                    self.weatherApiKey = key
+                }
+            }
+            
+           
+           
+            
+          /*  if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }*/
+        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getAPiKeys()
         
         print("Fekarurhobo, View did viewDidLoad")
         if manualLocation == false {

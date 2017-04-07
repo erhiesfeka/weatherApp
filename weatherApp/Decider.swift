@@ -23,6 +23,7 @@ class Decider: weatherDataDelegate {
     var precipTypeArray:[String] = []
     var precipProbabilityArray:[Float] = []
     var daySummary = String()
+
     
     func addObserver() {
         self.myWeatherData.delegate = self
@@ -30,7 +31,10 @@ class Decider: weatherDataDelegate {
     }
     
     @objc func startDeciding() {
-        self.myWeatherData.getweather()
+       
+        var vcInstance:ViewController = ViewController()
+        print("THis is the apikey from VC instance: \(vcInstance.weatherApiKey)")
+       self.myWeatherData.getweather(weatherAPiKey: "sentfromdecider")
     }
     
     
